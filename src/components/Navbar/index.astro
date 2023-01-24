@@ -1,0 +1,22 @@
+---
+export interface Props{
+  links: {
+    text: string
+    href: string
+  }[]
+}
+
+const {links} = Astro.props
+---
+
+<header>
+  <nav>
+    <ul>
+      {links.map(({text, href}) => (
+        <li>
+          <a href={href}>{text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

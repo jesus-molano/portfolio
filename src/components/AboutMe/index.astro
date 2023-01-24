@@ -1,0 +1,24 @@
+---
+import SectionTitle from '../SectionTitle.astro'
+import AboutCard from './AboutCard.astro'
+
+export interface Props {
+  title: string
+  cards: {
+    text: string
+    url: string
+    alt: string
+  }[]
+}
+
+const { title, cards }: Props = Astro.props
+---
+
+<section>
+  <SectionTitle title={title} />
+  {
+    cards.map((card) => (
+      <AboutCard text={card.text} url={card.url} alt={card.alt} />
+    ))
+  }
+</section>

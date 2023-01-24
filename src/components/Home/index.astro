@@ -1,0 +1,25 @@
+---
+import scrollArrow from '../../assets/images/home/scroll-arrow.svg';
+export interface Props {
+  title: string;
+  myself: string;
+  rol: string;
+}
+
+const { title, myself, rol }: Props = Astro.props
+---
+
+<section>
+  <div class="title">
+    <h1>{title}</h1>
+    <h2>{myself}</h2>
+    <span>{rol}</span>
+  </div>
+  <div class="myself-images">
+    <img src="/myself.webp" alt="myself">
+    <img src="/myself-neon.webp" alt="myself neon">
+  </div>
+  <button>
+    <img src={scrollArrow} alt="arrow">
+  </button>
+</section>

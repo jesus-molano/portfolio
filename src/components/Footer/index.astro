@@ -1,0 +1,35 @@
+---
+import astroIcon from '../../assets/images/icons/astro.svg'
+import typescriptIcon from '../../assets/images/icons/typescript.svg'
+
+export interface Props {
+  text: string
+}
+
+const { text } = Astro.props
+
+const technologies = [
+  {
+    name: 'Astro',
+    url: 'https://astro.build',
+    icon: astroIcon
+  },
+  {
+    name: 'TypeScript',
+    url: 'https://www.typescriptlang.org/',
+    icon: typescriptIcon
+  }
+
+]
+---
+
+<footer>
+  <p>
+    {text}
+    {technologies.map(({name, url, icon}) => (
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <img src={icon} alt={name} width="32" height="32" />
+      </a>
+    ))}
+  </p>
+</footer>

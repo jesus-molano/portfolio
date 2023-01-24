@@ -1,0 +1,45 @@
+---
+import SectionTitle from '../SectionTitle.astro'
+import ProjectCard from './ProjectCard.astro'
+
+export interface Props {
+  title: string,
+  cards: {
+    title: string,
+    imgURL: string,
+    definition: string,
+    githubURL: string,
+    technologies: {
+      name: string,
+      url: string,
+      icon: string
+    }[],
+    webURL: string
+  }[]
+}
+
+const { title, cards }: Props = Astro.props
+
+---
+
+<section>
+  <SectionTitle title={title} />
+  <div class='projects_cards'>
+    {
+      cards.map(
+        ({ title, imgURL, definition, githubURL, technologies, webURL }) => {
+          return (
+            <ProjectCard
+              title={title}
+              imgURL={imgURL}
+              technologies={technologies}
+              definition={definition}
+              webURL={webURL}
+              githubURL={githubURL}
+            />
+          )
+        }
+      )
+    }
+  </div>
+</section>

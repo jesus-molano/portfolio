@@ -1,0 +1,14 @@
+---
+export interface Props {
+  text: string,
+  url: string,
+  alt: string
+}
+const { text, url, alt } = Astro.props
+const { default : aboutImg} = await import(url)
+---
+
+<div class="about-card">
+  <p class="about-description">{text}</p>
+  <img class="about-img" src={aboutImg} alt={alt}>
+</div>

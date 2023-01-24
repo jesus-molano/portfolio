@@ -1,0 +1,12 @@
+---
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<h3>
+  {title}
+  <div class="underline"></div>
+</h3>

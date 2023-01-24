@@ -1,0 +1,38 @@
+---
+import Navbar from '../components/Navbar/index.astro'
+import Home from '../components/Home/index.astro'
+import AboutMe from '../components/AboutMe/index.astro'
+import Projects from '../components/Projects/index.astro'
+import ContactMe from '../components/ContactMe/index.astro'
+import Footer from '../components/Footer/index.astro'
+import MainLayout from '../layouts/MainLayout.astro'
+import { ChangeLang } from '../components/ChangeLang'
+import { language } from '../stores/languageStore'
+
+let $language = language.get()
+const { navbarLinks, home, about, projects, contact, footer } = $language
+
+// const {navbarLinks, home, about, projects, contact, footer} = esp
+---
+<MainLayout>
+  <Navbar links={navbarLinks} />
+  <ChangeLang client:load />
+  <main>
+    <Home title={home.welcome} myself={home.myself} rol={home.rol} />
+    <AboutMe title={about.title} cards={about.cards} />
+    <Projects title={projects.title} cards={projects.cards} />
+    <ContactMe title={contact.title} text={contact.text} form={contact.form} />
+  </main>
+  <Footer text={footer.text} />
+</MainLayout>
+
+<script>
+  import { language } from '../stores/languageStore'
+
+  // Listen language changes
+   language.subscribe(($language) => {
+    const { navbarLinks, home, about, projects, contact, footer } = $language
+    console.log(navbarLinks, home, about, projects, contact, footer);
+  })
+
+</script>
