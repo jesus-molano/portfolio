@@ -6,9 +6,17 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
     <meta name="description" content="Personal web of Jesús Molano Perdomo. Frontend developer 💻">
+		<link rel="stylesheet" href="./base.css">
 		<title>Jesús Molano Website</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+
+<style>
+	body{
+		background-color: var(--color-background);
+		color: var(--color-text);
+	}
+</style>

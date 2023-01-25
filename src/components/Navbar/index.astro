@@ -10,6 +10,13 @@ const {links} = Astro.props
 ---
 
 <header>
+  <button class="burgerMenu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
   <nav>
     <ul>
       {links.map(({text, href}) => (
@@ -20,3 +27,88 @@ const {links} = Astro.props
     </ul>
   </nav>
 </header>
+
+<style lang="scss">
+ header{
+  background: linear-gradient(180deg, var(--color-background) 0%, #00000015 100%);
+  min-height: 5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+
+  .burgerMenu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5rem;
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    &.active {
+      svg {
+        
+        path{
+          transition: rotate 0.2s ease-in-out, translate 0.2s ease-in-out;
+        }
+        path:nth-child(2) {
+          rotate: 45deg;
+          translate: 0.5rem;
+        }
+
+        path:nth-child(1) {
+          opacity: 0;
+        }
+
+        path:nth-child(3) {
+          rotate: -45deg;
+          translate: -0.60rem 0.52rem;
+
+        }
+      }
+
+    }
+  }
+
+  nav {
+    display: none;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20%;
+    z-index: 1;
+
+    &.open {
+      display: block;
+    }
+  }
+
+  
+
+ }
+</style>
+
+<script>
+  const burgerMenu = document.querySelector('.burgerMenu')
+  const nav = document.querySelector('nav')
+
+  burgerMenu.addEventListener('click', () => {
+    burgerMenu.classList.toggle('active')
+    nav.classList.toggle('open')
+  })
+
+
+
+
+  
+</script>
