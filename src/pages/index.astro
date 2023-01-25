@@ -1,23 +1,15 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro'
+import AppLayout from '../layouts/AppLayout.astro'
 import Navbar from '../components/Navbar/index.astro'
-import Home from '../components/Home/index.astro'
-import AboutMe from '../components/AboutMe/index.astro'
-import Projects from '../components/Projects/index.astro'
-import ContactMe from '../components/ContactMe/index.astro'
+import ContentLayout from '../layouts/ContentLayout.astro'
 import Footer from '../components/Footer/index.astro'
 import enLang from '../data/lang/en.json'
 // import espLang from '../data/lang/esp.json'
 
 const { navbarLinks, home, about, projects, contact, footer } = enLang
 ---
-<MainLayout>
+<AppLayout>
   <Navbar links={navbarLinks} />
-  <main>
-    <Home title={home.welcome} myself={home.myself} rol={home.rol} />
-    <AboutMe title={about.title} cards={about.cards} />
-    <Projects title={projects.title} cards={projects.cards} />
-    <ContactMe title={contact.title} text={contact.text} form={contact.form} />
-  </main>
+  <ContentLayout home={home} about={about} projects={projects} contact={contact}/>
   <Footer text={footer.text} />
-</MainLayout>
+</AppLayout>

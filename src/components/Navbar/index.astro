@@ -1,12 +1,7 @@
 ---
-export interface Props{
-  links: {
-    text: string
-    href: string
-  }[]
-}
+import type {Link} from '../../types'
 
-const {links} = Astro.props
+const {links} = Astro.props as {links: Link[]}
 ---
 
 <header>
@@ -99,12 +94,12 @@ const {links} = Astro.props
 </style>
 
 <script>
-  const burgerMenu = document.querySelector('.burgerMenu')
-  const nav = document.querySelector('nav')
+  const burgerMenu: HTMLDivElement | null = document.querySelector('.burgerMenu')
+  const nav: HTMLElement | null = document.querySelector('nav')
 
-  burgerMenu.addEventListener('click', () => {
+  burgerMenu?.addEventListener('click', () => {
     burgerMenu.classList.toggle('active')
-    nav.classList.toggle('open')
+    nav?.classList.toggle('open')
   })
 
 

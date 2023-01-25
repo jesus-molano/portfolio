@@ -1,0 +1,16 @@
+---
+import Home from '../components/Home/index.astro'
+import AboutMe from '../components/AboutMe/index.astro'
+import Projects from '../components/Projects/index.astro'
+import ContactMe from '../components/ContactMe/index.astro'
+import type { ContentLayoutProps } from '../types'
+
+const {home, about, projects, contact} = Astro.props as ContentLayoutProps
+---
+
+<main>
+  <Home title={home.welcome} myself={home.myself} rol={home.rol} />
+  <AboutMe title={about.title} cards={about.cards} />
+  <Projects title={projects.title} cards={projects.cards} />
+  <ContactMe title={contact.title} text={contact.text} form={contact.form} />
+</main>
