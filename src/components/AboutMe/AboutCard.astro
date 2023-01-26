@@ -8,7 +8,7 @@ const { text, url, alt } = Astro.props as AboutCard
 
 <div class='about-card'>
   <p class='about-description'>{text}</p>
-  <img class='about-img' src={url} alt={alt} />
+  <img class='about-img' loading="lazy" src={url} alt={alt} />
 </div>
 
 <style lang='scss'>
@@ -24,9 +24,10 @@ const { text, url, alt } = Astro.props as AboutCard
 
     &:nth-child(2) {
       img {
-        width: 12rem;
+        width: 10rem;
         height: 100%;
         object-fit: cover;
+        rotate: 25deg;
       }
     }
 
@@ -40,7 +41,7 @@ const { text, url, alt } = Astro.props as AboutCard
 
     &:nth-child(4) {
       img {
-        width: 8rem;
+        width: 6rem;
         height: 100%;
         object-fit: cover;
       }

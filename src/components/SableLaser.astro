@@ -57,3 +57,14 @@ const {color}: Props = Astro.props
     </filter>
   </defs>
 </svg>
+
+
+<style lang="scss">
+  // make the svg smaller when the screen is small
+  @media screen and (max-width: 300px) {
+    svg {
+      width: 100%;
+    }
+  }
+
+</style>

@@ -77,7 +77,7 @@
             "icon": "/src/assets/images/icons/bootstrap.svg"
           }
         ],
-        "definition": "This is a simple application that displays a list of heroes and villains from various comic book publishers, focusing mainly on marvel and dc. It has a 'fake login' to practice with private and public routes."
+        "definition": "This is a simple application that displays a list of heroes and villains from various comic book publishers."
       },
       {
         "title": "Mapbox App",
@@ -140,7 +140,7 @@
             "icon": "/src/assets/images/icons/firebase.svg"
           }
         ],
-        "definition": "Application developed for the EOI Bootcamp. Focused on accessibility, it allows to make 'postits' to socialize or ask for some kind of help with other users."
+        "definition": "Application developed for the EOI Bootcamp. Focused on accessibility."
       },
       {
         "title": "GiFox App",
@@ -184,6 +184,6 @@
     }
   },
   "footer": {
-    "text": "This website has been made with  "
+    "text": "This website has been made with ❤️ and  "
   }
 }

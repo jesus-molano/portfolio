@@ -1,3 +1,5 @@
+// types/main.d.ts
+
 export interface ContentLayoutProps {
   navbarLinks?: Link[]
   home: {

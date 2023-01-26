@@ -32,10 +32,6 @@ const { title, myself, rol }: Props = Astro.props
 <div id="end-home"></div>
 
 <style lang='scss'>
-  // 100vh - 5rem (header height)
-  // 20rem (myself-container height)
-  // 2rem (padding-block title)
-  // 33rem (title + myself-container + scroll-down)
   section {
     height: calc(100vh - 5rem);
     position: relative;
@@ -52,6 +48,20 @@ const { title, myself, rol }: Props = Astro.props
       justify-content: center;
       flex-direction: column;
       text-align: center;
+
+      // animation drop up to down
+      animation: drop 1s ease-in-out forwards;
+      @keyframes drop {
+        0% {
+          transform: translateY(-1rem);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
       h1 {
         font-family: var(--font-title);
         font-size: 2.5rem;
@@ -69,6 +79,20 @@ const { title, myself, rol }: Props = Astro.props
       position: relative;
       font-weight: 900;
       height: 20rem;
+
+      // fade in and transform horizontally
+      animation: fade-in 1s ease-in-out forwards;
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+          transform: translateX(-1rem);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
 
       .myself-background {
         position: relative;
@@ -116,6 +140,29 @@ const { title, myself, rol }: Props = Astro.props
       justify-content: center;
       align-items: center;
       height: calc(100vh - 33rem);
+
+      // fade in
+      animation: fade-in 1s ease-in-out forwards, scroll 1s infinite;
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(0.5rem);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      } 
     }
   }
   #end-home {

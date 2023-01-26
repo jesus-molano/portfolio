@@ -12,24 +12,56 @@ const technologies = [
   {
     name: 'Astro',
     url: 'https://astro.build',
-    icon: astroIcon
+    icon: astroIcon,
   },
   {
     name: 'TypeScript',
     url: 'https://www.typescriptlang.org/',
-    icon: typescriptIcon
-  }
-
+    icon: typescriptIcon,
+  },
 ]
 ---
 
 <footer>
   <p>
     {text}
-    {technologies.map(({name, url, icon}) => (
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <img src={icon} alt={name} width="32" height="32" />
-      </a>
-    ))}
+    {
+      technologies.map(({ name, url, icon }) => (
+        <a href={url} target='_blank' rel='noopener noreferrer'>
+          <img src={icon} alt={name} loading="lazy" width='32' height='32' />
+        </a>
+      ))
+    }
   </p>
 </footer>
+
+<style lang='scss'>
+  footer {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #050e13;
+    font-size: 0.8rem;
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      a {
+        text-decoration: none;
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+</style>

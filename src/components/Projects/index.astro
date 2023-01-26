@@ -3,27 +3,26 @@ import SectionTitle from '../SectionTitle.astro'
 import ProjectCard from './ProjectCard.astro'
 
 export interface Props {
-  title: string,
+  title: string
   cards: {
-    title: string,
-    imgURL: string,
-    definition: string,
-    githubURL: string,
+    title: string
+    imgURL: string
+    definition: string
+    githubURL: string
     technologies: {
-      name: string,
-      url: string,
+      name: string
+      url: string
       icon: string
-    }[],
+    }[]
     webURL: string
   }[]
 }
 
 const { title, cards }: Props = Astro.props
-
 ---
 
 <section>
-  <SectionTitle title={title} color="#3CFF5B" />
+  <SectionTitle title={title} color='#3CFF5B' />
   <div class='projects_cards'>
     {
       cards.map(
@@ -43,3 +42,29 @@ const { title, cards }: Props = Astro.props
     }
   </div>
 </section>
+<div id="end-projects"></div>
+
+<style lang='scss'>
+  section {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    background: radial-gradient(
+      62.89% 49.17% at 50% 50%,
+      #182235 0%,
+      #040a0e 100%
+    );
+
+    .projects_cards {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  #end-projects {
+    height: 5rem;
+  }
+</style>
