@@ -2,38 +2,38 @@
   "navbarLinks": [
     {
       "text": "Home",
-      "href": "#home"
+      "href": "#"
     },
     {
       "text": "About me",
-      "href": "#about"
+      "href": "#end-home"
     },
     {
       "text": "Projects",
-      "href": "#projects"
+      "href": "#end-about"
     },
     {
       "text": "Contact",
-      "href": "#contact"
+      "href": "#end-projects"
     }
   ],
   "home": {
-    "welcome": "Welcome",
-    "myself": "I'm Jesús Molano",
+    "welcome": "Hello There",
+    "myself": "Jesús Molano",
     "rol": "Frontend Developer"
   },
   "about": {
     "title": "About me",
     "cards": [
       {
-        "text": "I’m a 27 years old young man from Tenerife🇮🇨 passionate about web development, video games and jumping rope.",
-        "alt": "SVG of jumping rope",
-        "url": "../../assets/images/about/rope.svg"
+        "text": "I’m a 27 years old young man from Tenerife🏖️ passionate about web development, video games and movies.",
+        "alt": "SVG of console controller",
+        "url": "../../assets/images/about/controller.svg"
       },
       {
         "text": "Not long ago my profession was military. I decided to make a drastic change and right now I'm finishing the higher cycle of web application design and learning on my own.",
         "alt": "SVG of changing jobs",
-        "url": "../../assets/images/about/change.svg"
+        "url": "../../assets/images/about/change-work.svg"
       },
       {
         "text": "It was a difficult decision to leave behind good colleagues, experiences that mark you and a stable salary. But being with my family, my partner and my dog Alay is priceless.",

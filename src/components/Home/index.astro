@@ -1,25 +1,124 @@
 ---
-import scrollArrow from '../../assets/images/home/scroll-arrow.svg';
+import scrollArrow from '../../assets/images/home/deathstar-arrow.svg'
+import trooper from '../../assets/images/home/trooper.svg'
 export interface Props {
-  title: string;
-  myself: string;
-  rol: string;
+  title: string
+  myself: string
+  rol: string
 }
 
 const { title, myself, rol }: Props = Astro.props
 ---
 
-<section>
-  <div class="title">
+<section id="home">
+  <div class='title'>
     <h1>{title}</h1>
-    <h2>{myself}</h2>
-    <span>{rol}</span>
+    <img src={trooper} alt='trooper' />
   </div>
-  <div class="myself-images">
-    <img src="/myself.webp" alt="myself">
-    <img src="/myself-neon.webp" alt="myself neon">
+  <div class='myself-container'>
+    <div class='myself-background'>
+      <p class='im'>I'm</p>
+      <p class='name'>{myself}</p>
+      <span>{rol}</span>
+      <img src='/myself.webp' alt='myself' />
+    </div>
   </div>
-  <button>
-    <img src={scrollArrow} alt="arrow">
-  </button>
+  <div class='scroll-down'>
+    <a href='#end-home'>
+      <img src={scrollArrow} alt='arrow' />
+    </a>
+  </div>
 </section>
+<div id="end-home"></div>
+
+<style lang='scss'>
+  // 100vh - 5rem (header height)
+  // 20rem (myself-container height)
+  // 2rem (padding-block title)
+  // 33rem (title + myself-container + scroll-down)
+  section {
+    height: calc(100vh - 5rem);
+    position: relative;
+    background: radial-gradient(
+      62.89% 49.17% at 50% 50%,
+      #182235 0%,
+      #040a0e 100%
+    );
+
+    .title {
+      padding-block: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      h1 {
+        font-family: var(--font-title);
+        font-size: 2.5rem;
+      }
+      img {
+        width: 5rem;
+        position: absolute;
+        top: 2.8rem;
+      }
+    }
+    .myself-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-weight: 900;
+      height: 20rem;
+
+      .myself-background {
+        position: relative;
+        display: flex;
+        width: 14.125rem;
+        height: 15.4375rem;
+        background-color: var(--color-background);
+        border-radius: 3.125rem;
+
+        .im {
+          font-size: 1.25rem;
+          position: absolute;
+          z-index: 1;
+          bottom: 5.6rem;
+          left: 0.5rem;
+        }
+        .name {
+          font-size: 1.875rem;
+          position: absolute;
+          z-index: 1;
+          bottom: 3.6rem;
+          left: 0.5rem;
+        }
+        span {
+          font-size: 1rem;
+          color: var(--color-primary);
+          position: absolute;
+          z-index: 1;
+          bottom: 2.6rem;
+          right: 0.5rem;
+        }
+        img {
+          width: clamp(15.125rem, 80vw, 17rem);
+          height: 15.75rem;
+          position: absolute;
+          top: -3rem;
+          left: -1.5rem;
+        }
+      }
+    }
+
+    .scroll-down {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 33rem);
+    }
+  }
+  #end-home {
+    height: 5rem;
+  }
+</style>

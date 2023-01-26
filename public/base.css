@@ -1,11 +1,49 @@
 :root {
   --color-primary: #FFC83C;
   --color-secondary: #EB294C;
+  --color-tertiary: #3CC4FF;
+  --color-quaternary: #3CFF5B;
   --color-text: #FFFFFF;
   --color-background: #040A0E;
+
+  --font-general: 'Poppins', sans-serif;
+  --font-title: 'StarJedi', sans-serif;
 }
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url(../src/assets/fonts/Poppins-Bold.woff2);
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(../src/assets/fonts/Poppins-Regular.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url(../src/assets/fonts/Poppins-Light.woff2);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'StarJedi';
+  src: url(../src/assets/fonts/Starjedi.woff2);
+  font-weight: normal;
+  font-style: normal;
+}
+
+img {
+  width: 50px;
 }

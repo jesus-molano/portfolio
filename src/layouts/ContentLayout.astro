@@ -7,7 +7,6 @@ import type { ContentLayoutProps } from '../types'
 
 const {home, about, projects, contact} = Astro.props as ContentLayoutProps
 ---
-
 <main>
   <Home title={home.welcome} myself={home.myself} rol={home.rol} />
   <AboutMe title={about.title} cards={about.cards} />

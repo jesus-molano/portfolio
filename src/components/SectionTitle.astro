@@ -1,12 +1,26 @@
 ---
+import SableLaser from '../components/SableLaser.astro'
 export interface Props {
   title: string
+  color: string
 }
 
-const { title } = Astro.props
+const { title, color } = Astro.props
 ---
 
-<h3>
-  {title}
-  <div class="underline"></div>
-</h3>
+<div>
+  <h2>{title}</h2>
+  <SableLaser color={color} />
+</div>
+
+<style lang='scss'>
+  h2 {
+    padding-left: 0.5rem;
+    font-family: var(--font-title);
+    font-size: 2rem;
+  }
+  img {
+    width: min(16.8125rem, 100%);
+    height: 100%;
+  }
+</style>
