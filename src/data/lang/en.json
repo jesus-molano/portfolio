@@ -28,17 +28,17 @@
       {
         "text": "I’m a 27 years old young man from Tenerife🏖️ passionate about web development, video games and movies.",
         "alt": "SVG of console controller",
-        "url": "../../assets/images/about/controller.svg"
+        "url": "/src/assets/images/about/controller.svg"
       },
       {
         "text": "Not long ago my profession was military. I decided to make a drastic change and right now I'm finishing the higher cycle of web application design and learning on my own.",
         "alt": "SVG of changing jobs",
-        "url": "../../assets/images/about/change-work.svg"
+        "url": "/src/assets/images/about/change-work.svg"
       },
       {
         "text": "It was a difficult decision to leave behind good colleagues, experiences that mark you and a stable salary. But being with my family, my partner and my dog Alay is priceless.",
         "alt": "SVG of a dog",
-        "url": "../../assets/images/about/dog.svg"
+        "url": "/src/assets/images/about/dog.svg"
       }
     ]
   },
@@ -47,126 +47,126 @@
     "cards": [
       {
         "title": "Comics Database",
-        "imgURL": "../../assets/images/projects/comics.webp",
+        "imgURL": "/src/assets/images/projects/comics.webp",
         "webURL": "https://react18-heroes.vercel.app/",
         "githubURL": "https://github.com/jesus-molano/react18-heroes",
         "technologies": [
           {
             "name": "React",
             "url": "https://es.reactjs.org/",
-            "icon": "../../assets/images/icons/react.svg"
+            "icon": "/src/assets/images/icons/react.svg"
           },
           {
             "name": "Vite",
             "url": "https://vitejs.dev/",
-            "icon": "../../assets/images/icons/vite.svg"
+            "icon": "/src/assets/images/icons/vite.svg"
           },
           {
             "name": "ChartJS",
             "url": "https://www.chartjs.org/",
-            "icon": "../../assets/images/icons/chartjs.svg"
+            "icon": "/src/assets/images/icons/chartjs.svg"
           },
           {
             "name": "Vercel",
             "url": "https://vercel.com/",
-            "icon": "../../assets/images/icons/vercel.svg"
+            "icon": "/src/assets/images/icons/vercel.svg"
           },
           {
             "name": "Bootstrap",
             "url": "https://getbootstrap.com/",
-            "icon": "../../assets/images/icons/bootstrap.svg"
+            "icon": "/src/assets/images/icons/bootstrap.svg"
           }
         ],
         "definition": "This is a simple application that displays a list of heroes and villains from various comic book publishers, focusing mainly on marvel and dc. It has a 'fake login' to practice with private and public routes."
       },
       {
         "title": "Mapbox App",
-        "imgURL": "../../assets/images/projects/mapbox.webp",
+        "imgURL": "/src/assets/images/projects/mapbox.webp",
         "webURL": "https://vue-map-app.vercel.app/",
         "githubURL": "https://github.com/jesus-molano/vue-map-app",
          "technologies": [
           {
             "name": "Vue",
             "url": "https://vuejs.org/",
-            "icon": "../../assets/images/icons/vue.svg"
+            "icon": "/src/assets/images/icons/vue.svg"
           },
           {
             "name": "Vite",
             "url": "https://vitejs.dev/",
-            "icon": "../../assets/images/icons/vite.svg"
+            "icon": "/src/assets/images/icons/vite.svg"
           },
           {
             "name": "TypesScript",
             "url": "https://www.typescriptlang.org/",
-            "icon": "../../assets/images/icons/typescript.svg"
+            "icon": "/src/assets/images/icons/typescript.svg"
           },
           {
             "name": "Vercel",
             "url": "https://vercel.com/",
-            "icon": "../../assets/images/icons/vercel.svg"
+            "icon": "/src/assets/images/icons/vercel.svg"
           },
           {
             "name": "Mapbox",
             "url": "https://www.mapbox.com/",
-            "icon": "../../assets/images/icons/mapbox.svg"
+            "icon": "/src/assets/images/icons/mapbox.svg"
           }
         ],
         "definition": "An interactive map where we can search for the desired place and trace a route to it."
       },
       {
         "title": "Amigaria EOI",
-        "imgURL": "../../assets/images/projects/amigaria.webp",
+        "imgURL": "/src/assets/images/projects/amigaria.webp",
         "webURL": "https://app.amigaria.com//",
         "githubURL": "https://github.com/AmigariaWeb/web-app",
          "technologies": [
           {
             "name": "Vue",
             "url": "https://vuejs.org/",
-            "icon": "../../assets/images/icons/vue.svg"
+            "icon": "/src/assets/images/icons/vue.svg"
           },
           {
             "name": "Vite",
             "url": "https://vitejs.dev/",
-            "icon": "../../assets/images/icons/vite.svg"
+            "icon": "/src/assets/images/icons/vite.svg"
           },
           {
             "name": "Vercel",
             "url": "https://vercel.com/",
-            "icon": "../../assets/images/icons/vercel.svg"
+            "icon": "/src/assets/images/icons/vercel.svg"
           },
           {
             "name": "Firebase",
             "url": "https://firebase.google.com/",
-            "icon": "../../assets/images/icons/firebase.svg"
+            "icon": "/src/assets/images/icons/firebase.svg"
           }
         ],
         "definition": "Application developed for the EOI Bootcamp. Focused on accessibility, it allows to make 'postits' to socialize or ask for some kind of help with other users."
       },
       {
         "title": "GiFox App",
-        "imgURL": "../../assets/images/projects/gifox.webp",
+        "imgURL": "/src/assets/images/projects/gifox.webp",
         "webURL": "https://gifox-app.vercel.app/",
         "githubURL": "https://github.com/jesus-molano/gifox-app",
         "technologies": [
           {
             "name": "React",
             "url": "https://es.reactjs.org/",
-            "icon": "../../assets/images/icons/react.svg"
+            "icon": "/src/assets/images/icons/react.svg"
           },
           {
             "name": "Webpack",
             "url": "https://webpack.js.org/",
-            "icon": "../../assets/images/icons/webpack.svg"
+            "icon": "/src/assets/images/icons/webpack.svg"
           },
           {
             "name": "Giphy API",
             "url": "https://developers.giphy.com/",
-            "icon": "../../assets/images/icons/giphy.svg"
+            "icon": "/src/assets/images/icons/giphy.svg"
           },
           {
             "name": "Vercel",
             "url": "https://vercel.com/",
-            "icon": "../../assets/images/icons/vercel.svg"
+            "icon": "/src/assets/images/icons/vercel.svg"
           }
         ],
         "definition": "A small gif search application. Allows filtering by categories or by trends."

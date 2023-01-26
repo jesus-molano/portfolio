@@ -1,16 +1,14 @@
 ---
-export interface Props {
-  text: string
-  url: string
-  alt: string
-}
-const { text, url, alt } = Astro.props
-const { default: aboutImg } = await import(url)
+import type { AboutCard } from "@/types/main";
+// import { Image } from '@astrojs/image/components'
+
+const { text, url, alt } = Astro.props as AboutCard
+
 ---
 
 <div class='about-card'>
   <p class='about-description'>{text}</p>
-  <img class='about-img' src={aboutImg} alt={alt} />
+  <img class='about-img' src={url} alt={alt} />
 </div>
 
 <style lang='scss'>

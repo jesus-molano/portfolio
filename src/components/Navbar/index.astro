@@ -1,5 +1,5 @@
 ---
-import type {Link} from '../../types'
+import type {Link} from '@/types/main'
 
 const {links} = Astro.props as {links: Link[]}
 ---
@@ -15,7 +15,6 @@ const {links} = Astro.props as {links: Link[]}
   <nav>
     <ul>
       {links.map(({text, href}) => (
-        // make a link go to the top of the page
         <li>
           <a href={href}>{text}</a>
         </li>

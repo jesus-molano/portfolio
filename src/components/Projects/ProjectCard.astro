@@ -1,34 +1,19 @@
 ---
-import ArrowExpand from '../ArrowExpand.astro'
+import type { ProjectsCard } from '@/types/main'
 
-export interface Props {
-  title: string
-  imgURL: string
-  technologies: {
-    name: string
-    icon: string
-    url: string
-  }[]
-  definition: string
-  webURL: string
-  githubURL: string
-}
-
-const { title, imgURL, technologies, definition, webURL, githubURL }: Props = Astro.props
-const { default: projectImage } = await import(imgURL)
+const { title, imgURL, technologies, definition, webURL, githubURL } = Astro.props as ProjectsCard
 ---
 
 <div class='project-card'>
   <h4>{title}</h4>
-  <img src={projectImage} alt={title} />
+  <img src={imgURL} alt={title} />
   <div class='project-card__technologies'>
     <div class='line'></div>
     {
       technologies.map(async (tech) => {
-        const { default: icon } = await import(tech.icon)
         return (
           <a href={tech.url} target='_blank' rel='noreferrer'>
-            <img src={icon} alt={tech.name} />
+            <img src={tech.icon} alt={tech.name} />
           </a>
         )
       })
