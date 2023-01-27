@@ -9,6 +9,7 @@
     "jsxImportSource": "react",
     "typeRoots": [
       "./types"
-    ]
+    ],
+    "types": ["@astrojs/image/client"]
   }
 }

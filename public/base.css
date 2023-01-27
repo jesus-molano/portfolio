@@ -21,25 +21,25 @@ html{
 
 @font-face {
   font-family: 'Poppins';
-  src: url(../src/assets/fonts/Poppins-Bold.woff2);
+  src: url(./fonts/Poppins-Bold.woff2);
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'Poppins';
-  src: url(../src/assets/fonts/Poppins-Regular.woff2);
+  src: url(./fonts/Poppins-Regular.woff2);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Poppins';
-  src: url(../src/assets/fonts/Poppins-Light.woff2);
+  src: url(./fonts/Poppins-Light.woff2);
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'StarJedi';
-  src: url(../src/assets/fonts/Starjedi.woff2);
+  src: url(./fonts/Starjedi.woff2);
   font-weight: normal;
   font-style: normal;
 }
