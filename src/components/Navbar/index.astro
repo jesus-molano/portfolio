@@ -152,19 +152,25 @@ const { links } = Astro.props as { links: Link[] }
   const nav: HTMLElement | null = document.querySelector('nav')
   const links: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('nav a')
 
-  burgerMenu?.addEventListener('click', () => {
-    // Prevent scrolling when nav is open
-    if (!nav?.classList.contains('open')) {
+    function  enableScroll() {
+      document.documentElement.style.scrollBehavior = 'smooth'
+      window.onscroll = () => {}
+    }
+
+    function disableScroll() {
       document.documentElement.style.scrollBehavior = 'unset'
       const windowX = window.scrollX
       const windowY = window.scrollY
       window.onscroll = () => {
         window.scrollTo(windowX, windowY)
       }
-    } else {
-      document.documentElement.style.scrollBehavior = 'smooth'
-      window.onscroll = () => {}
     }
+
+  burgerMenu?.addEventListener('click', () => {
+    // Prevent scrolling when nav is open
+    !nav?.classList.contains('open')
+      ? disableScroll()
+      : enableScroll()
 
     // Toggle active class and open class
     burgerMenu?.classList.toggle('active')
@@ -173,6 +179,7 @@ const { links } = Astro.props as { links: Link[] }
 
   links.forEach((link) => {
     link.addEventListener('click', () => {
+      enableScroll()
       burgerMenu?.classList.remove('active')
       nav?.classList.remove('open')
     })
