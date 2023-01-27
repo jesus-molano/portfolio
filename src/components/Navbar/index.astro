@@ -1,132 +1,152 @@
 ---
-import type {Link} from '@/types/main'
+import type { Link } from '@/types/main'
 
-const {links} = Astro.props as {links: Link[]}
+const { links } = Astro.props as { links: Link[] }
 ---
 
 <header>
-  <button class="burgerMenu">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <button class='burgerMenu'>
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        d='M3 12H21'
+        stroke='white'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'></path>
+      <path
+        d='M3 6H21'
+        stroke='white'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'></path>
+      <path
+        d='M3 18H21'
+        stroke='white'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'></path>
     </svg>
   </button>
   <nav>
     <ul>
-      {links.map(({text, href}) => (
-        <li>
-          <a href={href}>{text}</a>
-        </li>
-      ))}
+      {
+        links.map(({ text, href }) => (
+          <li>
+            <a href={href}>{text}</a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
 
-<style lang="scss">
- header{
-  position: relative;
-  background: linear-gradient(180deg, var(--color-background) 0%, #00000015 100%);
-  min-height: 5rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font-title);
-
-  .burgerMenu {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: block;
-    height: 100%;
-    padding: 0;
-    position: absolute;
-    right: 0;
+<style lang='scss'>
+  header {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      var(--color-background) 0%,
+      #00000015 100%
+    );
+    min-height: 5rem;
+    position: sticky;
     top: 0;
-    width: 5rem;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-title);
 
-    svg {
-      height: 2rem;
-      width: 2rem;
-    }
+    .burgerMenu {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 5rem;
 
-    &.active {
       svg {
-        //inner shadow
-        
-        path{
-          transition: rotate 0.2s ease-in-out, translate 0.2s ease-in-out;
-        }
-        path:nth-child(2) {
-          rotate: 45deg;
-          translate: 0.5rem;
-          stroke: var(--color-tertiary);
-          filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
-
-        }
-
-        path:nth-child(1) {
-          opacity: 0;
-        }
-
-        path:nth-child(3) {
-          rotate: -45deg;
-          translate: -0.60rem 0.52rem;
-          stroke: var(--color-quaternary);
-          filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
-        }
+        height: 2rem;
+        width: 2rem;
       }
 
-    }
+      &.active {
+        svg {
+          //inner shadow
 
-  }
+          path {
+            transition: rotate 0.2s ease-in-out, translate 0.2s ease-in-out;
+          }
+          path:nth-child(2) {
+            rotate: 45deg;
+            translate: 0.5rem;
+            stroke: var(--color-tertiary);
+            filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
+          }
 
-  nav {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    z-index: 1;
+          path:nth-child(1) {
+            opacity: 0;
+          }
 
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      gap: 2rem;
-
-      li {
-        a {
-          color: var(--color-text);
-          font-size: 1.5rem;
-          text-decoration: none;
-          transition: color 0.2s ease-in-out;
-          &:hover {
-            color: var(--color-tertiary);
+          path:nth-child(3) {
+            rotate: -45deg;
+            translate: -0.6rem 0.52rem;
+            stroke: var(--color-quaternary);
+            filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
           }
         }
       }
     }
 
+    nav {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 1;
 
-    &.open {
-      display: flex;
-      top: 5rem;
-      height: calc(100vh - 5rem);
-      background:var(--color-background);
-      backdrop-filter: blur(10px);
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 2rem;
+
+        li {
+          a {
+            color: var(--color-text);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+            &:hover {
+              color: var(--color-tertiary);
+            }
+          }
+        }
+      }
+
+      &.open {
+        display: flex;
+        top: 5rem;
+        height: calc(100vh - 5rem);
+        background: var(--color-background);
+        backdrop-filter: blur(10px);
+      }
     }
   }
-
-  
-
- }
 </style>
 
 <script>
@@ -135,22 +155,28 @@ const {links} = Astro.props as {links: Link[]}
   const links: NodeListOf<HTMLAnchorElement> = document.querySelectorAll('nav a')
 
   burgerMenu?.addEventListener('click', () => {
-    burgerMenu.classList.toggle('active')
+    // Prevent scrolling when nav is open
+    if (!nav?.classList.contains('open')) {
+      document.documentElement.style.scrollBehavior = 'unset'
+      const windowX = window.scrollX
+      const windowY = window.scrollY
+      window.onscroll = () => {
+        window.scrollTo(windowX, windowY)
+      }
+    } else {
+      document.documentElement.style.scrollBehavior = 'smooth'
+      window.onscroll = () => {}
+    }
+
+    // Toggle active class and open class
+    burgerMenu?.classList.toggle('active')
     nav?.classList.toggle('open')
   })
 
-  links.forEach(link => {
+  links.forEach((link) => {
     link.addEventListener('click', () => {
       burgerMenu?.classList.remove('active')
       nav?.classList.remove('open')
     })
   })
-
-
-
-
-
-
-
-  
 </script>
