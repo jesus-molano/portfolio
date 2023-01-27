@@ -82,8 +82,6 @@ const { links } = Astro.props as { links: Link[] }
 
       &.active {
         svg {
-          //inner shadow
-
           path {
             transition: rotate 0.2s ease-in-out, translate 0.2s ease-in-out;
           }
@@ -120,8 +118,8 @@ const { links } = Astro.props as { links: Link[] }
         list-style: none;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        padding-top: 6rem;
         width: 100%;
         gap: 2rem;
 
