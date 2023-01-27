@@ -1,3 +1,20 @@
+---
+import type {Link} from '@/types/main'
+import Navbar from '@/components/Navbar/index.astro'
+import Footer from '@/components/Footer/index.astro'
+
+type BaseLayoutProps = {
+	title: string;
+	navbarLinks: Link[];
+	footer: {
+		text: string;
+	};
+}
+
+const {title, navbarLinks, footer} = Astro.props as BaseLayoutProps;
+
+---
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,10 +24,14 @@
 		<meta name="generator" content={Astro.generator} />
     <meta name="description" content="Personal web of Jesús Molano Perdomo. Frontend developer 💻">
 		<link rel="stylesheet" href="./base.css">
-		<title>Jesús Molano Website</title>
+		<title>{title} | Jesús Molano</title>
 	</head>
 	<body>
-		<slot />
+		<Navbar links={navbarLinks} />
+		<main>
+			<slot />
+		</main>
+		<Footer text={footer.text} />
 	</body>
 </html>
 

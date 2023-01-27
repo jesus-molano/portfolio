@@ -1,10 +1,14 @@
 ---
-import type { ContentLayoutProps } from '@/types/main'
+import type { CardAbout } from '@/types/main'
 import SectionTitle from '../SectionTitle.astro'
 import AboutCard from './AboutCard.astro'
 
+type AboutMeProps = {
+  title: string,
+  cards: CardAbout[]
+}
 
-const { title, cards } = Astro.props as ContentLayoutProps['about']
+const { title, cards } = Astro.props as AboutMeProps
 ---
 
 <section>

@@ -1,10 +1,16 @@
 ---
-import type { ContentLayoutProps } from "@/types/main";
+import type { ContactForm } from "@/types/main";
 import SectionTitle from "../SectionTitle.astro";
 import SocialNetworts from "./SocialNetworts.astro";
 
-const {title, text, form} = Astro.props as ContentLayoutProps["contact"]
-const {name, email, message, submit} = form
+type ContactProps = {
+  title: string;
+  text: string;
+  form: ContactForm
+}
+
+const {title, text, form} = Astro.props as ContactProps
+const {name, email, message, submit}: ContactForm = form
 
 ---
 

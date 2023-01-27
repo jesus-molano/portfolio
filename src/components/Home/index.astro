@@ -1,13 +1,14 @@
 ---
 import scrollArrow from '@/assets/images/home/deathstar-arrow.svg'
 import trooper from '@/assets/images/home/trooper.svg'
-export interface Props {
+
+type HomeProps = {
   title: string
   myself: string
   rol: string
 }
 
-const { title, myself, rol }: Props = Astro.props
+const { title, myself, rol } = Astro.props as HomeProps
 ---
 
 <section id="home">

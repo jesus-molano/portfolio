@@ -2,11 +2,11 @@
 import astroIcon from '@/assets/images/icons/astro.svg'
 import typescriptIcon from '@/assets/images/icons/typescript.svg'
 
-export interface Props {
+export interface FooterProps {
   text: string
 }
 
-const { text } = Astro.props
+const { text } = Astro.props as FooterProps
 
 const technologies = [
   {

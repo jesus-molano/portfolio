@@ -1,32 +1,6 @@
 // types/main.d.ts
 
-export interface ContentLayoutProps {
-  navbarLinks?: Link[]
-  home: {
-    welcome: string
-    myself: string
-    rol: string
-  }
-  about: {
-    title: string
-    cards: AboutCard[]
-  }
-  projects: {
-    title: string
-    cards: ProjectsCard[]
-  }
-  contact: {
-    title: string
-    text: string
-    form: ContactForm
-  }
-  footer?: {
-    text: string
-    links: Link[]
-  }
-}
-
-export type AboutCard = {
+export type CardAbout = {
   text: string
   url: string
   alt: string
