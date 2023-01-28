@@ -1,7 +1,12 @@
 ---
 import type { Link } from '@/types/main'
 
-const { links } = Astro.props as { links: Link[] }
+const links = [
+  { title: 'Home', path: '/' },
+  { title: 'About', path: '/#about' },
+  { title: 'Projects', path: '/#projects' },
+  { title: 'Contact', path: '/#contact' },
+]
 ---
 
 <header>
@@ -36,9 +41,9 @@ const { links } = Astro.props as { links: Link[] }
   <nav>
     <ul>
       {
-        links.map(({ text, href }) => (
+        links.map(({ title, path }) => (
           <li>
-            <a href={href}>{text}</a>
+            <a href={path}>{title}</a>
           </li>
         ))
       }
@@ -59,6 +64,7 @@ const { links } = Astro.props as { links: Link[] }
     top: 0;
     z-index: 10;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     font-family: var(--font-title);
@@ -86,7 +92,8 @@ const { links } = Astro.props as { links: Link[] }
             transition: rotate 0.2s ease-in-out, translate 0.2s ease-in-out;
           }
           path:nth-child(2) {
-            rotate: 45deg;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(45deg);
             translate: 0.5rem;
             stroke: var(--color-tertiary);
             filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
@@ -97,11 +104,15 @@ const { links } = Astro.props as { links: Link[] }
           }
 
           path:nth-child(3) {
-            rotate: -45deg;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
             translate: -0.6rem 0.52rem;
             stroke: var(--color-quaternary);
             filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
           }
+          // if the browser is safari ios
+          
+
         }
       }
     }
