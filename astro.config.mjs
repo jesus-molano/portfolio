@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config'
-import image from '@astrojs/image'
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,9 +16,5 @@ export default defineConfig({
     host: 'localhost',
     port: 3000
   },
-  integrations: [
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp'
-    })
-  ]
+  integrations: []
 })

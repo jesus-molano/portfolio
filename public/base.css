@@ -24,22 +24,26 @@ html{
   src: url(./fonts/Poppins-Bold.woff2);
   font-weight: bold;
   font-style: normal;
+  font-display: swap
 }
 @font-face {
   font-family: 'Poppins';
   src: url(./fonts/Poppins-Regular.woff2);
   font-weight: normal;
   font-style: normal;
+  font-display: swap
 }
 @font-face {
   font-family: 'Poppins';
   src: url(./fonts/Poppins-Light.woff2);
   font-weight: 300;
   font-style: normal;
+  font-display: swap
 }
 @font-face {
   font-family: 'StarJedi';
   src: url(./fonts/Starjedi.woff2);
   font-weight: normal;
   font-style: normal;
+  font-display: swap
 }

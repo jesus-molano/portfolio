@@ -15,14 +15,9 @@ const { name, rol, image } = Astro.props
     <p class='im'>I'm</p>
     <p class='name'>{name}</p>
     <span>{rol}</span>
-    <Picture
-      src={image}
+    <img
+      src='/images/myself.webp'
       alt='jesus molano profile image'
-      widths={[270]}
-      sizes='270px'
-      aspectRatio='1:1'
-      loading='lazy'
-      background='#040a0e'
     />
   </div>
 </div>
@@ -86,6 +81,7 @@ const { name, rol, image } = Astro.props
       }
       img {
         width: min(17.125rem, 100%);
+        height: auto;
         position: absolute;
         top: -3rem;
         left: -1.5rem;
