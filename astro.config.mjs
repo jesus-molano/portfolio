@@ -6,7 +6,7 @@ export default defineConfig({
   srcDir: './src',
   publicDir: './public',
   outDir: './dist',
-  site: 'https://portfolio-seven-sable-76.vercel.app/',
+  site: 'https://www.jesusmolano.dev/',
   base: '/',
   trailingSlash: 'always',
   build: {
