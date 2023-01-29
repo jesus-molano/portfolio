@@ -4,12 +4,11 @@ import MainTitle from './MainTitle.astro';
 import MyPicture from './MyPicture.astro';
 import ScrollArrow from './ScrollArrow.astro';
 import scrollArrowImg from '/images/deathstar-arrow.svg'
-import trooperImg from '/images/trooper.svg'
 
 ---
 
 <SectionLayout title='Home'>
-  <MainTitle title="Hello There" image={trooperImg} />
+  <MainTitle title="Hello There"/>
   <MyPicture name="Jesús Molano" rol="Frontend Developer" image="/images/myself.webp"/>
   <ScrollArrow image={scrollArrowImg} />
 </SectionLayout>
