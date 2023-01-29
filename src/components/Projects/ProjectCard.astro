@@ -1,158 +1,60 @@
 ---
-import type { ProjectsCard } from '@/types/main'
-import githubIcon from '@/assets/images/icons/github.svg'
-import deathstar from '@/assets/images/home/deathstar.svg'
+interface Props {
+  title: string;
+  image: string;
+  alt: string;
+}
 
-const { title, imgURL, technologies, definition, webURL, githubURL } =
-  Astro.props as ProjectsCard
+const {title, image, alt} = Astro.props
+const slug = title.toLowerCase().replace(/ /g, '-')
 ---
 
-<article>
-  <h4>{title}</h4>
-  <div class='project-card'>
-    <img class='project_img' src={imgURL} alt={title} loading="lazy" />
-    <div class='blur_background'></div>
-    <div class='links'>
-      <a href={webURL} target='_blank' rel='noreferrer'>
-        <img src={deathstar} alt='Deathstar image' loading="lazy" />
-      </a>
-      <a href={githubURL} target='_blank' rel='noreferrer'>
-        <img src={githubIcon} alt='github icon' loading="lazy" />
-      </a>
-    </div>
-    <div class='project-card__technologies'>
-      {
-        technologies.map(async (tech) => {
-          return (
-            <a href={tech.url} target='_blank' rel='noreferrer'>
-              <img class='technology_icon' src={tech.icon} alt={tech.name} loading="lazy" />
-            </a>
-          )
-        })
-      }
-    </div>
-  </div>
-</article>
+<div class="project-card hidden">
+  <a href={`/projects/${slug}`}>
+    <h3>{title}</h3>
+    <img src={image} alt={alt}>
+  </a>
+</div>
 
-<style lang='scss'>
-  article {
-    width: min(30rem, 100%);
-    margin-bottom: 2rem;
-    h4 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-    .project-card {
+
+<style lang="scss">
+  .project-card{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 11.875rem;
+    height: 8.9375rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+    background-color: var(--color-background);
+    box-shadow: var(--color-background) 0 0 10rem 5rem;
+    transition: opacity 0.3s ease-in-out;
+
+    a{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       width: 100%;
-      height: 15rem;
-      position: relative;
-      margin: 0 auto;
+      height: 100%;
+      text-decoration: none;
 
-      .blur_background {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        box-shadow: inset 0px -124px 20px -20px rgba(0, 0, 0, 0.6);
-        z-index: 1;
-        top: 0;
-        left: 0;
-        border-radius: 8px;
+      h3{
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--color-text);
       }
 
-      .project_img {
-        width: 100%;
-        height: 15rem;
+      img {
+        width: 176px;
+        height: 100px;
         object-fit: cover;
-        object-position: center;
-        filter: drop-shadow(0px 0px 14px #41d1ff50);
-        border-radius: 8px;
-        z-index: -2;
-        opacity: 0.5;
-      }
-      .project-card__technologies {
-        padding: 0.5rem;
-        position: absolute;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        background-color: #040a0e;
-        border-radius: 10px;
-        flex-wrap: nowrap;
-        z-index: 1;
-        bottom: -1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(15rem, 100%);
-        margin: 0 auto;
-
-        a {
-          text-decoration: none;
-          display: flex;
-
-          img {
-            width: min(2rem, 100%);
-          }
-
-          &:hover,
-          &:focus {
-            img {
-             filter:drop-shadow(0px 0px 14px #41d1ff90)
-            }
-          }
-        }
-      }
-
-      .links {
-        position: absolute;
-        bottom: 1rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-
-        a {
-          font-weight: 900;
-          z-index: 5;
-          color: var(--color-background);
-          text-shadow: 1px 1px 1px #00000020;
-          background-image: url('../../assets/images/icons/atat.svg');
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center;
-          height: 5rem;
-          min-width: 5rem;
-          text-align: center;
-          padding: 0.4rem 0 0 0.9rem;
-          text-transform: uppercase;
-
-          &:hover,
-          &:focus {
-            color: var(--color-secondary);
-
-            img {
-              transition: filter 0.3s ease-in-out;
-              filter: invert(0);
-            }
-          }
-
-          img {
-            width: 1.5rem;
-            height: 1.5rem;
-            border-radius: 50%;
-            filter: invert(1);
-            background-color: var(--color-text);
-          }
-        }
-      }
-
-      .definition {
-        position: absolute;
-        top: 0;
-        z-index: 2;
-        padding: 1rem 0.5rem;
+        border-radius: 0 0 0.5rem 0.5rem;
       }
     }
   }

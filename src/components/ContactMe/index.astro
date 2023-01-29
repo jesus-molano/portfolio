@@ -1,90 +1,15 @@
 ---
-import type { ContactForm } from "@/types/main";
-import SectionTitle from "../SectionTitle.astro";
-import SocialNetworts from "./SocialNetworts.astro";
-
-type ContactProps = {
-  title: string;
-  text: string;
-  form: ContactForm
-}
-
-const {title, text, form} = Astro.props as ContactProps
-const {name, email, message, submit}: ContactForm = form
+import SectionLayout from '@layouts/SectionLayout.astro'
+import ContactForm from './ContactForm.astro'
+import SocialNetworts from '@components/SocialNetworts.astro'
 
 ---
 
-<section>
-  <SectionTitle title={title} color="#EB294C" />
-  <p>{text}</p>
-  <form>
-    <input type="text" placeholder={name}>
-    <input type="email" placeholder={email}>
-    <textarea placeholder={message}></textarea>
-    <button type="submit">{submit}</button>
-  </form>
+<SectionLayout title='Contact' sableColor='#EB294C'>
+  <p>
+    If you want to contact me for any work, questions, or just to chat, send me
+    an email by filling out the form below or click on my social networks.
+  </p>
+  <ContactForm />
   <SocialNetworts />
-</section>
-<div id="end-contact"></div>
-
-<style lang="scss">
-section {
-  padding: 0 1rem;
-  background: radial-gradient(
-      62.89% 49.17% at 50% 50%,
-      #182235 0%,
-      #040a0e 100%
-    );
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-
-    input, textarea{
-      font-family: var(--font-general);
-      padding: 1rem;
-      border: 3px solid #0D3043;
-      border-radius: 20px;
-      background-color: var(--color-background);
-      color: var(--color-text);
-      &::placeholder {
-        color: var(--color-text);
-      }
-    }
-
-    textarea {
-      resize: none;
-      height: 8rem;
-    }
-
-    button {
-      width: 8rem;
-      align-self: center;
-      font-family: var(--font-general);
-      font-weight: 900;
-      font-size: 1.2rem;
-      padding: 0.8rem;
-      border: 3px solid transparent;
-      border-radius: 20px;
-      background-color: var(--color-primary);
-      color: var(--color-background);
-      transition: all 0.3s ease-in-out;
-      &:hover,
-      &:focus {
-        border: 3px solid var(--color-primary);
-        background-color: transparent;
-        color: var(--color-primary);
-      }
-    }
-  }
-
-
-}
-
-
-  #end-projects {
-    height: 5rem;
-  }
-</style>
+</SectionLayout>

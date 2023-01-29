@@ -1,0 +1,49 @@
+---
+import { Image } from '@astrojs/image/components'
+
+type Props = {
+  image: string
+  title: string
+}
+
+const { title, image } = Astro.props
+---
+
+<div class='title'>
+  <h1>{title}</h1>
+  <Image src={image} alt='stormtrooper image' width={80} height={80} />
+</div>
+
+<style lang='scss'>
+  .title {
+    padding-block: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    animation: drop 1s ease-in-out forwards;
+    @keyframes drop {
+      0% {
+        transform: translateY(-1rem);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: 2.5rem;
+    }
+    img {
+      width: 5rem;
+      position: absolute;
+      top: 2.8rem;
+    }
+  }
+</style>

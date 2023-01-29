@@ -1,18 +1,14 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import Home from '@/components/Home/index.astro'
-import AboutMe from '@/components/AboutMe/index.astro'
-import Projects from '@/components/Projects/index.astro'
-import ContactMe from '@/components/ContactMe/index.astro'
-import enLang from '@/data/lang/en.json'
-// import espLang from '@/data/lang/esp.json' // Outdated
-
-const { navbarLinks, home, about, projects, contact, footer } = enLang
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Home from '@components/Home/index.astro'
+import AboutMe from '@components/AboutMe/index.astro'
+import Projects from '@components/Projects/index.astro'
+import ContactMe from '@components/ContactMe/index.astro'
 ---
 
-<BaseLayout title='Home' navbarLinks={navbarLinks} footer={footer}>
-  <Home title={home.welcome} myself={home.myself} rol={home.rol} />
-  <AboutMe title={about.title} cards={about.cards} />
-  <Projects title={projects.title} cards={projects.cards} />
-  <ContactMe title={contact.title} text={contact.text} form={contact.form} />
+<BaseLayout title='Home'>
+  <Home  />
+  <AboutMe  />
+  <Projects />
+  <ContactMe  />
 </BaseLayout>

@@ -1,0 +1,68 @@
+---
+import BurgerMenu from './BurgerMenu.astro'
+import Navbar from './Navbar.astro'
+---
+
+<header>
+  <BurgerMenu />
+  <Navbar />
+</header>
+
+<style lang='scss'>
+  header {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      var(--color-background) 0%,
+      #00000015 100%
+    );
+    min-height: 5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-title);
+  }
+</style>
+
+<script>
+  const burgerMenu: HTMLDivElement | null =
+    document.querySelector('.burgerMenu')
+  const nav: HTMLElement | null = document.querySelector('nav')
+  const links: NodeListOf<HTMLAnchorElement> =
+    document.querySelectorAll('nav a')
+
+  function enableScroll() {
+    document.documentElement.style.scrollBehavior = 'smooth'
+    window.onscroll = () => {}
+  }
+
+  function disableScroll() {
+    document.documentElement.style.scrollBehavior = 'unset'
+    const windowX = window.scrollX
+    const windowY = window.scrollY
+    window.onscroll = () => {
+      window.scrollTo(windowX, windowY)
+    }
+  }
+
+  burgerMenu?.addEventListener('click', () => {
+    // Prevent scrolling when nav is open
+    !nav?.classList.contains('open') ? disableScroll() : enableScroll()
+
+    // Toggle active class and open class
+    burgerMenu?.classList.toggle('active')
+    nav?.classList.toggle('open')
+  })
+
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      enableScroll()
+      burgerMenu?.classList.remove('active')
+      nav?.classList.remove('open')
+    })
+  })
+</script>

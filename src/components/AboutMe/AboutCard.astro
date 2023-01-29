@@ -1,13 +1,17 @@
 ---
-import type { AboutCard } from "@/types/main";
+interface Props {
+  image: string
+  alt: string
+}
 
-const { text, url, alt } = Astro.props as AboutCard
-
+const { image, alt } = Astro.props
 ---
 
 <div class='about-card'>
-  <p class='about-description'>{text}</p>
-  <img class='about-img' loading="lazy" src={url} alt={alt} />
+  <p class='about-description'>
+    <slot />
+  </p>
+  <img class='about-img' loading='lazy' src={image} alt={alt} />
 </div>
 
 <style lang='scss'>
@@ -17,7 +21,7 @@ const { text, url, alt } = Astro.props as AboutCard
     margin-bottom: 4rem;
     gap: 1rem;
 
-    img{
+    img {
       align-self: center;
     }
 

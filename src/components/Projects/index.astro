@@ -1,70 +1,48 @@
 ---
-import SectionTitle from '../SectionTitle.astro'
-import ProjectCard from './ProjectCard.astro'
-
-export interface Props {
-  title: string
-  cards: {
-    title: string
-    imgURL: string
-    definition: string
-    githubURL: string
-    technologies: {
-      name: string
-      url: string
-      icon: string
-    }[]
-    webURL: string
-  }[]
-}
-
-const { title, cards }: Props = Astro.props
+import SectionLayout from '@layouts/SectionLayout.astro'
+import Library from './Library.astro'
 ---
 
-<section>
-  <SectionTitle title={title} color='#3CFF5B' />
-  <div class='projects_cards'>
-    {
-      cards.map(
-        ({ title, imgURL, definition, githubURL, technologies, webURL }) => {
-          return (
-            <ProjectCard
-              title={title}
-              imgURL={imgURL}
-              technologies={technologies}
-              definition={definition}
-              webURL={webURL}
-              githubURL={githubURL}
-            />
-          )
-        }
-      )
-    }
+<SectionLayout title='Projects' sableColor='#3CFF5B'>
+  <div class='projects-text'>
+    <p>
+      Here in my "Jedy library" you can see some of the projects I have made to learn and practice.
+    </p>
+    <p>
+      You can click on the <span>green</span> zones or on “All projects" below.
+    </p>
   </div>
-</section>
-<div id="end-projects"></div>
+  <Library />
+  <a href='/projects'>All projects</a>
+</SectionLayout>
 
 <style lang='scss'>
-  section {
+  .projects-text {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     gap: 1rem;
-    background: radial-gradient(
-      62.89% 49.17% at 50% 50%,
-      #182235 0%,
-      #040a0e 100%
-    );
-
-    .projects_cards {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
+    p {
+      span {
+        color: #3cff5b;
+      }
     }
   }
-  #end-projects {
-    height: 5rem;
+  a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    font-weight: 900;
+    font-size: 1.2rem;
+    border: 3px solid var(--color-quaternary);
+    border-radius: 20px;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    &:hover {
+      background-color:  var(--color-quaternary);
+      color: #000;
+    }
   }
 </style>

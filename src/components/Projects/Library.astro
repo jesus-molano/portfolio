@@ -1,0 +1,83 @@
+---
+import GreenBook from './GreenBook.astro'
+import ProjectCard from './ProjectCard.astro'
+---
+
+<div class='library'>
+  <GreenBook>
+    <ProjectCard
+      title='Comics Database'
+      alt='Comics Database Project'
+      image='/images/comics.webp'
+    />
+  </GreenBook>
+  <GreenBook>
+    <ProjectCard
+      title='Mapbox App'
+      alt='Mapbox Project'
+      image='/images/mapbox.webp'
+    />
+  </GreenBook>
+  <GreenBook>
+    <ProjectCard
+      title='Amigaria EOI'
+      alt='Amigaria Project'
+      image='/images/amigaria.webp'
+    />
+  </GreenBook>
+  <GreenBook>
+    <ProjectCard
+      title='GiFox App'
+      alt='Gifox Project'
+      image='/images/gifox.webp'
+    />
+  </GreenBook>
+</div>
+
+<style lang='scss'>
+  .library {
+    display: flex;
+    align-self: center;
+    position: relative;
+    border-radius: 8px;
+    gap: 1rem;
+    background-image: url('/images/library.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: min(341px, 100%);
+    height: 260px;
+  }
+  :global(.hidden) {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const projectCards = document.querySelectorAll('.project-card')
+
+  // Si hay algún projectCard mostrandose, ocultarlo al hacer click en cualquier lado
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLButtonElement
+    if (target.classList.contains('green-book')) {
+      closeProjectCards()
+      const target = e.target as HTMLButtonElement
+      const projectCard = target.nextElementSibling as HTMLDivElement
+      projectCard.classList.toggle('hidden')
+      return
+    }
+    closeProjectCards()
+  })
+
+  function closeProjectCards() {
+    projectCards?.forEach((projectCard) => {
+      if (!projectCard.classList.contains('hidden')) {
+        projectCard.classList.add('hidden')
+      }
+    })
+  }
+
+
+</script>

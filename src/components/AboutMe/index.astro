@@ -1,23 +1,20 @@
 ---
-import type { CardAbout } from '@/types/main'
 import SectionTitle from '../SectionTitle.astro'
 import AboutCard from './AboutCard.astro'
 
-type AboutMeProps = {
-  title: string,
-  cards: CardAbout[]
-}
-
-const { title, cards } = Astro.props as AboutMeProps
 ---
 
 <section>
-  <SectionTitle title={title} color="#3CC4FF" />
-  {
-    cards.map((card) => (
-      <AboutCard text={card.text} url={card.url} alt={card.alt} />
-    ))
-  }
+  <SectionTitle title="About me" color="#3CC4FF" />
+  <AboutCard image="/images/controller.svg" alt="videogames controller">
+    I’m a 27 years old young man from Tenerife🏖️ passionate about web development, video games and movies.
+  </AboutCard>
+  <AboutCard image="/images/change-work.svg" alt="change work">
+    Not long ago my profession was military. I decided to make a drastic change and right now I'm finishing the higher cycle of web application design and learning on my own.
+  </AboutCard>
+  <AboutCard image="/images/dog.svg" alt="a little dog">
+    It was a difficult decision to leave behind good colleagues, experiences that mark you and a stable salary. But being with my family, my partner and my dog Alay is priceless.
+  </AboutCard>
 </section>
 <div id="end-about"></div>
 

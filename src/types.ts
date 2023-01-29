@@ -1,12 +1,11 @@
-// types/main.d.ts
 
-export type CardAbout = {
+type CardAbout = {
   text: string
   url: string
   alt: string
 }
 
-export type ProjectsCard = {
+type ProjectsCard = {
   title: string
   imgURL: string
   definition: string
@@ -19,14 +18,16 @@ export type ProjectsCard = {
   webURL: string
 }
 
-export type ContactForm = {
+type ContactForm = {
   name: string
   email: string
   message: string
   submit: string
 }
 
-export type Link = {
+type Link = {
   text?: string
   href: string
 }
+
+export type { CardAbout, ProjectsCard, ContactForm, Link}

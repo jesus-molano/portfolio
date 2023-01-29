@@ -1,17 +1,12 @@
 ---
-import type {Link} from '@/types/main'
-import Navbar from '@/components/Navbar/index.astro'
-import Footer from '@/components/Footer/index.astro'
+import Header from '@components/Header/index.astro'
+import Footer from '@components/Footer/index.astro'
 
-type BaseLayoutProps = {
+type Props = {
 	title: string;
-	navbarLinks: Link[];
-	footer: {
-		text: string;
-	};
 }
 
-const {title, navbarLinks, footer} = Astro.props as BaseLayoutProps;
+const {title} = Astro.props;
 
 ---
 
@@ -27,11 +22,11 @@ const {title, navbarLinks, footer} = Astro.props as BaseLayoutProps;
 		<title>{title} | Jesús Molano</title>
 	</head>
 	<body>
-		<Navbar links={navbarLinks} />
+		<Header />
 		<main>
 			<slot />
 		</main>
-		<Footer text={footer.text} />
+		<Footer />
 	</body>
 </html>
 

@@ -1,7 +1,14 @@
 ---
-import linkedinIcon from '@/assets/images/icons/linkedin.svg'
-import githubIcon from '@/assets/images/icons/github.svg'
-import twitterIcon from '@/assets/images/icons/twitter.svg'
+import linkedinIcon from '/images/linkedin.svg'
+import githubIcon from '/images/github.svg'
+import twitterIcon from '/images/twitter.svg'
+
+
+interface Props{
+  direction?: 'row' | 'column'
+}
+
+const {padding= 0.5, direction = 'row'} = Astro.props
 
 const socials = [
   {
@@ -35,21 +42,14 @@ const socials = [
  </ul>
 </div>
 
-<style lang="scss">
+<style lang="scss" define:vars={{direction}}>
   .social_networts {
-    margin: 2rem auto 5rem;
-    height: 8rem;
-    width: min(21.375rem, 100%);
-    background-image: url("../../assets/images/contact/destructor.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    padding: 4.6rem 2rem 2rem 2rem;
     ul {
       display: flex;
       justify-content: center;
       align-items: center;
       list-style: none;
+      flex-direction: var(--direction);
       gap: 1rem;
       li {
         a {

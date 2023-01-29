@@ -1,12 +1,9 @@
 ---
-import astroIcon from '@/assets/images/icons/astro.svg'
-import typescriptIcon from '@/assets/images/icons/typescript.svg'
+import SocialNetworts from '@components/SocialNetworts.astro';
+import astroIcon from '/images/astro.svg'
+import typescriptIcon from '/images/typescript.svg'
 
-export interface FooterProps {
-  text: string
-}
 
-const { text } = Astro.props as FooterProps
 
 const technologies = [
   {
@@ -23,33 +20,32 @@ const technologies = [
 ---
 
 <footer>
+  <SocialNetworts />
   <p>
-    {text}
+    This site is made with ❤️ and 
     {
       technologies.map(({ name, url, icon }) => (
         <a href={url} target='_blank' rel='noopener noreferrer'>
-          <img src={icon} alt={name} loading="lazy" width='32' height='32' />
+          <img src={icon} alt={name} loading="lazy" width={32} height={32} />
         </a>
       ))
     }
   </p>
 </footer>
 
-<style lang='scss'>
+<style lang='scss' >
   footer {
-    height: 5rem;
+    min-height: 5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: #050e13;
     font-size: 0.8rem;
+    gap: 1rem;
 
     p {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
+      text-align: end;
       a {
         text-decoration: none;
         display: inline-block;

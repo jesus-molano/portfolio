@@ -1,0 +1,95 @@
+---
+import { Picture } from '@astrojs/image/components'
+
+interface Props {
+  name: string
+  rol: string
+  image: string
+}
+
+const { name, rol, image } = Astro.props
+---
+
+<div class='myself-container'>
+  <div class='myself-background'>
+    <p class='im'>I'm</p>
+    <p class='name'>{name}</p>
+    <span>{rol}</span>
+    <Picture
+      src={image}
+      alt='jesus molano profile image'
+      widths={[270]}
+      sizes='270px'
+      aspectRatio='1:1'
+      loading='lazy'
+      background='#040a0e'
+    />
+  </div>
+</div>
+
+<style lang='scss'>
+  .myself-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-weight: 900;
+    animation: fade-in 1s ease-in-out forwards;
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateX(-1rem);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .myself-background {
+      position: relative;
+      display: flex;
+      width: 14.125rem;
+      height: 15.4375rem;
+      background-color: var(--color-background);
+      border-radius: 3.125rem;
+
+      .im {
+        font-size: 1.25rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 5.6rem;
+        left: 0.5rem;
+
+        @media (max-width: 250px) {
+          bottom: 8.6rem;
+        }
+      }
+      .name {
+        font-size: 1.875rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 3.6rem;
+        left: 0.5rem;
+      }
+      span {
+        font-size: 1rem;
+        color: var(--color-primary);
+        position: absolute;
+        z-index: 1;
+        bottom: 2.6rem;
+        right: 0.5rem;
+        @media (max-width: 200px) {
+          bottom: 0.6rem;
+          text-align: center;
+        }
+      }
+      img {
+        width: min(17.125rem, 100%);
+        position: absolute;
+        top: -3rem;
+        left: -1.5rem;
+      }
+    }
+  }
+</style>

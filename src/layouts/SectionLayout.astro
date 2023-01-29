@@ -1,0 +1,35 @@
+---
+import SectionTitle from "@components/SectionTitle.astro"
+
+interface Props {
+  title?: string
+  sableColor?: string
+}
+
+const {title = "", sableColor = ""} = Astro.props
+const endSection= `end-${title}`.toLowerCase()
+---
+
+<section>
+  {sableColor && <SectionTitle title={title} color={sableColor} />}
+  <slot />
+</section>
+<div class="end-section" id={endSection}></div>
+
+
+<style lang="scss">
+  section {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    background: radial-gradient(
+      62.89% 49.17% at 50% 50%,
+      #182235 0%,
+      #040a0e 100%
+    );
+  }
+  .end-section {
+    height: 5rem;
+  }
+</style>

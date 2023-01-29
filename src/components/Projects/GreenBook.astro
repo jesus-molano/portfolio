@@ -1,0 +1,39 @@
+---
+---
+
+<button class='green-book'> </button>
+<slot />
+
+<style lang='scss'>
+  .green-book {
+    display: flex;
+    position: absolute;
+    width: 0.5rem;
+    height: 1.58rem;
+    border-radius: 10%;
+    border: 1px solid #a6ff9b;
+    background: var(--color-quaternary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+      background: #7aeeae;
+      box-shadow: #ffffff 0px 0px 10px 0px;
+    }
+    &:nth-child(1) {
+      top: 2.08rem;
+      left: 5.45rem;
+    }
+    &:nth-child(5) {
+      top: 0.08rem;
+      right: 3rem;
+    }
+    &:nth-child(3) {
+      bottom: 4.55rem;
+      left: 7.8rem;
+    }
+    &:nth-child(7) {
+      bottom: 6.6rem;
+      right: 4rem;
+    }
+  }
+</style>

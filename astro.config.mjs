@@ -3,7 +3,6 @@ import image from '@astrojs/image'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [image()],
   root: '.',
   srcDir: './src',
   publicDir: './public',
@@ -17,5 +16,10 @@ export default defineConfig({
   server: {
     host: 'localhost',
     port: 3000
-  }
+  },
+  integrations: [
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp'
+    })
+  ]
 })
