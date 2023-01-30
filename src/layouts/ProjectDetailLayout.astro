@@ -32,6 +32,7 @@ const { title, tags } = Astro.props.frontmatter
 
     p {
       margin-bottom: 1rem;
+      display: grid;
       
       &:has(a){
         display: flex;
@@ -46,14 +47,15 @@ const { title, tags } = Astro.props.frontmatter
           text-align: center;
         }
       }
-    }
-    img {
-      width: min(52.25rem, 100%);
-      height: auto;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 8px;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+      img {
+        justify-self: center;
+        width: min(52.25rem, 100%);
+        height: auto;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 8px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+      }
     }
     a {
       color: var(--color-primary);
