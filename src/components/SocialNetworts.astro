@@ -7,9 +7,10 @@ import twitterIcon from '/images/twitter.svg'
 interface Props{
   direction?: 'row' | 'column',
   width?: string,
+  showText?: boolean,
 }
 
-const { direction = 'row', width = '100%'} = Astro.props
+const { direction = 'row', width = '100%', showText = false} = Astro.props
 
 const socials = [
   {
@@ -36,6 +37,7 @@ const socials = [
       <li>
         <a href={url} target="_blank" rel="noopener noreferrer">
           <img src={icon} alt={name} loading="lazy" />
+          {showText && <span>{name}</span>}
         </a>
       </li>
     ))
@@ -58,9 +60,15 @@ const socials = [
           display: flex;
           justify-content: center;
           align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
           img {
             width: var(--width);
             height: 100%;
+          }
+          span {
+            text-transform: capitalize;
+            color: var(--color-text);
           }
         }
       }
