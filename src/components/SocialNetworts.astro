@@ -5,10 +5,11 @@ import twitterIcon from '/images/twitter.svg'
 
 
 interface Props{
-  direction?: 'row' | 'column'
+  direction?: 'row' | 'column',
+  width?: string,
 }
 
-const {padding= 0.5, direction = 'row'} = Astro.props
+const { direction = 'row', width = '100%'} = Astro.props
 
 const socials = [
   {
@@ -42,7 +43,7 @@ const socials = [
  </ul>
 </div>
 
-<style lang="scss" define:vars={{direction}}>
+<style lang="scss" define:vars={{direction}, {width}}>
   .social_networts {
     ul {
       display: flex;
@@ -54,8 +55,11 @@ const socials = [
       li {
         a {
           padding: 0.1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           img {
-            width: 100%;
+            width: var(--width);
             height: 100%;
           }
         }
