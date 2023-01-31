@@ -1,15 +1,15 @@
 ---
 layout: '../../layouts/ProjectDetailLayout.astro'
 title: 'Comics Database'
+date: 2022-08-19
 tags:
   [
     'react',
     'vite',
     'bootstrap',
-    'react-router',
-    'chart.js',
+    'r-router',
+    'api',
     'vercel',
-    'superhero-api'
   ]
 draft: false
 ---

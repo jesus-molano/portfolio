@@ -1,19 +1,11 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro"
+import type { ProjectFrontmatter } from '@types'
+import ProjectsListLayout from '@layouts/ProjectsListLayout.astro';
+import ProjectsList from '@components/ProjectsList.astro';
 
-const projects = await Astro.glob('./*.md')
+let projects = await Astro.glob<ProjectFrontmatter>('./*.md')
 ---
 
-
-<BaseLayout title="Projects" >
-  <h1>All projects</h1>
-  <div>
-    {
-      projects.map(project => (
-        <div>
-          <a href={project.url}>{project.frontmatter.title}</a>
-        </div>
-      ))
-    }
-  </div>
-</BaseLayout>
+<ProjectsListLayout title="Projects" >
+  <ProjectsList projects={projects} />
+</ProjectsListLayout>

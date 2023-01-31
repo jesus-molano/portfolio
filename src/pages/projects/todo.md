@@ -1,15 +1,15 @@
 ---
 layout: '../../layouts/ProjectDetailLayout.astro'
 title: 'TODO App'
+date: 2022-09-18
 tags:
   [
+    'typescript',
     'react',
     'vite',
-    'bootstrap',
-    'react-router',
-    'chart.js',
     'vercel',
-    'superhero-api'
+    'nes-css',
+    'cypress',
   ]
 draft: false
 ---

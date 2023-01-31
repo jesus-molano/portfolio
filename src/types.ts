@@ -1,33 +1,10 @@
-
-type CardAbout = {
-  text: string
-  url: string
-  alt: string
+interface ProjectFrontmatter {
+  title: string,
+  date: string,
+  tags?: string[],
+  draft?: boolean,
 }
 
-type ProjectsCard = {
-  title: string
-  imgURL: string
-  definition: string
-  githubURL: string
-  technologies: {
-    name: string
-    url: string
-    icon: string
-  }[]
-  webURL: string
+export type {
+  ProjectFrontmatter
 }
-
-type ContactForm = {
-  name: string
-  email: string
-  message: string
-  submit: string
-}
-
-type Link = {
-  text?: string
-  href: string
-}
-
-export type { CardAbout, ProjectsCard, ContactForm, Link}

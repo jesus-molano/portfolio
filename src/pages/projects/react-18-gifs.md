@@ -1,15 +1,13 @@
 ---
 layout: '../../layouts/ProjectDetailLayout.astro'
 title: 'React 18 - Gifs'
+date: 2022-07-29
 tags:
   [
     'react',
     'vite',
-    'bootstrap',
-    'react-router',
-    'chart.js',
-    'vercel',
-    'superhero-api'
+    'api',
+    'netlify',
   ]
 draft: false
 ---

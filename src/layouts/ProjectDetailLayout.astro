@@ -1,13 +1,29 @@
 ---
+import type { MarkdownLayoutProps } from 'astro'
+import type { ProjectFrontmatter } from '@types'
 import BaseLayout from './BaseLayout.astro'
+import { formatDate } from '@utils'
+import GoBack from '@components/GoBack.astro'
 
-const { title, tags } = Astro.props.frontmatter
+type Props = MarkdownLayoutProps<ProjectFrontmatter>
+
+const { title, date, tags, draft } = Astro.props.frontmatter
 ---
 
 <BaseLayout title='Project'>
   <section class='project-detail'>
-    <a href='/projects'>← Back to projects</a>
-    <h1>{title}</h1>
+    <GoBack  />
+    {
+    tags && 
+      <div class="tags">
+        {tags.map(tag => (<a href={`/projects/tag/${tag.toLocaleLowerCase()}`}>{tag}</a>))}
+      </div>
+    }
+    <div class='title'>
+      <h1>{title}</h1>
+      {draft && <span>DRAFT</span>}
+      <small>{formatDate(date)}</small>
+    </div>
     <slot />
   </section>
 </BaseLayout>
@@ -21,9 +37,55 @@ const { title, tags } = Astro.props.frontmatter
       #040a0e 100%
     );
 
-    h1 {
-      font-size: 2rem;
-      margin-block: 1rem;
+    .tags{
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 8px;
+        color: var(--color-text);
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 0.75rem;
+        text-align: center;
+        text-decoration: none;
+        background-color: #182235;
+        padding: 0.25rem 0.50rem;
+        transition: background-color 0.2s ease;
+
+        &:hover,
+        &:focus {
+          background-color: var(--color-secondary);
+        }
+      }
+    }
+
+    .title {
+      margin: 1rem 0;
+      h1 {
+        font-size: 2rem;
+      }
+      small {
+        color: #a9aaad;
+        font-weight: 900;
+        text-align: end;
+      }
+      span {
+        color: var(--color-text);
+        background-color: var(--color-secondary);
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
     }
 
     h2 {
@@ -33,14 +95,14 @@ const { title, tags } = Astro.props.frontmatter
     p {
       margin-bottom: 1rem;
       display: grid;
-      
-      &:has(a){
+
+      &:has(a) {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 2rem;
 
-        a{
+        a {
           color: var(--color-secondary);
           font-weight: 900;
           text-decoration: underline;

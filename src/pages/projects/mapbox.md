@@ -1,15 +1,13 @@
 ---
 layout: '../../layouts/ProjectDetailLayout.astro'
 title: 'Mapbox App'
+date: 2022-06-22
 tags:
   [
-    'react',
+    'vue',
     'vite',
-    'bootstrap',
-    'react-router',
-    'chart.js',
     'vercel',
-    'superhero-api'
+    'api'
   ]
 draft: false
 ---

@@ -1,15 +1,13 @@
 ---
 layout: '../../layouts/ProjectDetailLayout.astro'
 title: 'Amigaria EOI'
+date: 2022-06-03
 tags:
   [
-    'react',
+    'vue',
     'vite',
-    'bootstrap',
-    'react-router',
-    'chart.js',
     'vercel',
-    'superhero-api'
+    'firebase',
   ]
 draft: false
 ---

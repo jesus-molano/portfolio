@@ -1,0 +1,23 @@
+
+<button class='go-back'>↩ Go back</button>
+
+<style>
+  .go-back {
+      color: var(--color-primary);
+      text-decoration: none;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-family: var(--font-general);
+    }
+</style>
+
+<script>
+  type button = HTMLButtonElement | null
+
+  const goBack: button = document.querySelector('.go-back')
+  goBack?.addEventListener('click', (e) => {
+    e.preventDefault()
+    window.history.back()
+  })
+</script>

@@ -1,0 +1,62 @@
+---
+import type { MarkdownInstance } from 'astro'
+import type { ProjectFrontmatter } from '@types'
+
+type Project = MarkdownInstance<ProjectFrontmatter>
+
+interface Props {
+  projects: Project[]
+}
+
+let { projects } = Astro.props
+projects = projects.sort((a: Project, b: Project): number => {
+  if (a.frontmatter.date > b.frontmatter.date) return -1
+  if (b.frontmatter.date > a.frontmatter.date) return 1
+  return 0
+})
+
+if (import.meta.env.PROD) {
+  projects = projects.filter((project) => !project.frontmatter.draft)
+}
+---
+
+<div class='projects-container'>
+  {
+    projects.map((project) => (
+      <a href={project.url} class='project'>
+        {project.frontmatter.draft && <span>DRAFT</span>}
+        {project.frontmatter.title}
+      </a>
+    ))
+  }
+</div>
+
+<style lang='scss'>
+  .projects-container {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+
+    .project {
+      text-decoration: none;
+      color: var(--color-text);
+      border-bottom: 1px solid #ccc;
+      padding: 1rem;
+
+      &:first-child {
+        border-top: 1px solid #ccc;
+      }
+      &:nth-child(odd) {
+        background-color: #050f14;
+      }
+      span {
+        color: var(--color-text);
+        background-color: var(--color-secondary);
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+    }
+  }
+</style>

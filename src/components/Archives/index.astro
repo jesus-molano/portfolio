@@ -3,21 +3,21 @@ import SectionLayout from '@layouts/SectionLayout.astro'
 import Library from './Library.astro'
 ---
 
-<SectionLayout title='Projects' sableColor='#3CFF5B'>
-  <div class='projects-text'>
+<SectionLayout title='Archives' sableColor='#3CFF5B'>
+  <div class='archives-text'>
     <p>
       Here in my "Jedi archives" you can see some of the projects I have made to learn and practice.
     </p>
     <p>
-      You can click on the <span>green</span> zones or on “All projects" below.
+      You can click on the <span>green</span> zones or on “Go to projects" below.
     </p>
   </div>
   <Library />
-  <a href='/projects'>All projects</a>
+  <a href='/projects'>Go to projects</a>
 </SectionLayout>
 
 <style lang='scss'>
-  .projects-text {
+  .archives-text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -28,21 +28,17 @@ import Library from './Library.astro'
     }
   }
   a {
-    display: block;
-    width: fit-content;
     margin: 0 auto;
-    padding: 0.5rem 1rem;
     font-weight: 900;
     font-size: 1.2rem;
-    border: 3px solid var(--color-quaternary);
-    border-radius: 20px;
+    border-bottom: 3px solid var(--color-quaternary);
     color: var(--color-text);
     text-decoration: none;
     transition: all 0.3s ease;
     margin-bottom: 2rem;
     &:hover {
-      background-color:  var(--color-quaternary);
-      color: #000;
+      border-bottom: 3px solid var(--color-tertiary);
+      color: rgb(187, 185, 185);
     }
   }
 </style>

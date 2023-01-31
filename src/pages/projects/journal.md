@@ -1,15 +1,16 @@
 ---
 layout: '../../layouts/ProjectDetailLayout.astro'
 title: 'Journal App'
+date: 2022-08-29
 tags:
   [
     'react',
     'vite',
-    'bootstrap',
-    'react-router',
-    'chart.js',
+    'material',
+    'r-router',
     'vercel',
-    'superhero-api'
+    'redux',
+    'firebase',
   ]
 draft: false
 ---

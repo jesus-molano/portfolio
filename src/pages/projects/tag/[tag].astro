@@ -1,0 +1,54 @@
+---
+import ProjectsList from '@components/ProjectsList.astro'
+import ProjectsListLayout from '@layouts/ProjectsListLayout.astro'
+import type { ProjectFrontmatter } from '@types'
+import { capitalizeSentence } from '@utils'
+
+export async function getStaticPaths() {
+  const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
+  let tags: string[] = []
+  projects.forEach((project) => {
+    if (project.frontmatter.tags) {
+      tags.push(...project.frontmatter.tags)
+    }
+  })
+  return tags.map((tag) => ({
+    params: {
+      tag: tag.toLocaleLowerCase(),
+    },
+  }))
+}
+
+const { tag } = Astro.params
+
+let projects = await Astro.glob<ProjectFrontmatter>('../*.md')
+projects = projects.filter((project) => {
+  let shouldShow = false
+  project.frontmatter.tags?.forEach((projectTag) => {
+    if (projectTag.toLocaleLowerCase() === tag) {
+      shouldShow = true
+    }
+  })
+  return shouldShow
+})
+---
+
+<ProjectsListLayout title={`${capitalizeSentence(tag as string)} Projects`}>
+  <p>Projects with <span class='tag'>{tag?.toLocaleUpperCase()}</span> tag:</p>
+  <ProjectsList projects={projects} />
+</ProjectsListLayout>
+
+<style lang='scss'>
+  .tag {
+    text-align: center;
+    border-radius: 8px;
+    color: var(--color-background);
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--color-tertiary);
+    padding: 0.25rem 0.5rem;
+  }
+</style>

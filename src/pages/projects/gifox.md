@@ -1,15 +1,13 @@
 ---
 layout: '../../layouts/ProjectDetailLayout.astro'
 title: 'GiFox App'
+date: 2021-09-07
 tags:
   [
     'react',
-    'vite',
-    'bootstrap',
-    'react-router',
-    'chart.js',
+    'webpack',
     'vercel',
-    'superhero-api'
+    'api'
   ]
 draft: false
 ---
