@@ -9,7 +9,7 @@
   --font-general: 'Poppins', sans-serif;
   --font-title: 'StarJedi', sans-serif;
 }
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -17,6 +17,7 @@
 
 html{
   scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
 @font-face {

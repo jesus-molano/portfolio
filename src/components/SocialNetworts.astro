@@ -3,14 +3,13 @@ import linkedinIcon from '/images/linkedin.svg'
 import githubIcon from '/images/github.svg'
 import twitterIcon from '/images/twitter.svg'
 
-
-interface Props{
-  direction?: 'row' | 'column',
-  width?: string,
-  showText?: boolean,
+interface Props {
+  direction: 'row' | 'column'
+  width?: string
+  showText?: boolean
 }
 
-const { direction = 'row', width = '100%', showText = false} = Astro.props
+const { direction, width = '100%', showText = false } = Astro.props
 
 const socials = [
   {
@@ -30,47 +29,36 @@ const socials = [
   },
 ]
 ---
-<div class="social_networts">
- <ul>
+
+<div class='social_networts'>
   {
-    socials.map(({name, url, icon}) => (
-      <li>
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          <img src={icon} alt={name} loading="lazy" />
-          {showText && <span>{name}</span>}
-        </a>
-      </li>
+    socials.map(({ name, url, icon }) => (
+      <a href={url} target='_blank' rel='noopener noreferrer'>
+        <img src={icon} alt={name} loading='lazy' />
+        {showText && <span>{name}</span>}
+      </a>
     ))
   }
- </ul>
 </div>
 
-<style lang="scss" define:vars={{direction}, {width}}>
+<style lang='scss' define:vars={({ direction ,  width })}>
   .social_networts {
-    ul {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: var(--direction);
+    gap: 1rem;
+    a {
+      padding: 0.1rem;
       display: flex;
-      justify-content: center;
       align-items: center;
-      list-style: none;
-      flex-direction: var(--direction);
-      gap: 1rem;
-      li {
-        a {
-          padding: 0.1rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 0.5rem;
-          text-decoration: none;
-          img {
-            width: var(--width);
-            height: 100%;
-          }
-          span {
-            text-transform: capitalize;
-            color: var(--color-text);
-          }
-        }
+      gap: 0.5rem;
+      text-decoration: none;
+      img {
+        width: var(--width);
+      }
+      span {
+        text-transform: capitalize;
+        color: var(--color-text);
       }
     }
   }
