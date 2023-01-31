@@ -1,1 +1,51 @@
-<h1> 404 NOT FOUND</h1>
+---
+import GoBack from '@components/GoBack.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
+---
+
+<BaseLayout title='Page not found'>
+  <section>
+    <h1>404</h1>
+    <p>Not found, this page is. Hmm?</p>
+    <img src='/images/yoda.svg' alt='yoda 404' />
+    <a href="/">{'<'}Go Home</a>
+  </section>
+</BaseLayout>
+
+<style lang='scss'>
+  section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(
+      62.89% 49.17% at 50% 50%,
+      #182235 0%,
+      #040a0e 100%
+    );
+
+    h1 {
+      color: var(--color-secondary);
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 8rem;
+    }
+    a{
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 900;
+    }
+  }
+</style>
