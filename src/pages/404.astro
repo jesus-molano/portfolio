@@ -5,9 +5,11 @@ import BaseLayout from '@layouts/BaseLayout.astro'
 
 <BaseLayout title='Page not found'>
   <section>
-    <h1>404</h1>
-    <p>Not found, this page is. Hmm?</p>
-    <img src='/images/yoda.svg' alt='yoda 404' />
+    <div class="grogu">
+      <img src='/images/grogu_500x250.webp' alt='yoda 404' />
+      <h1>404</h1>
+    </div>
+    <p>This is NOT the way</p>
     <a href="/">{'<'}Go Home</a>
   </section>
 </BaseLayout>
@@ -25,25 +27,35 @@ import BaseLayout from '@layouts/BaseLayout.astro'
       #040a0e 100%
     );
 
-    h1 {
-      color: var(--color-secondary);
-      text-align: center;
-      font-size: 3rem;
-      margin-top: 2rem;
+    .grogu {
+      h1 {
+        color: var(--color-secondary);
+        text-align: center;
+        font-size: 3rem;
+        font-weight: bold;
+        background-color: #050d13;
+        border-radius: 0 0 60px 60px;
+        box-shadow: #2b3953 0 0 15px;
+      }
+    
+  
+      img {
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        width: 150px;
+        filter: drop-shadow(0 0 0.75rem #2b3953);
+        -webkit-filter: drop-shadow(0 0 0.75rem #2b3953);
+      }
+      
     }
-
     p {
       text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    img {
-      display: block;
-      margin: 0 auto;
-      height: auto;
-      width: 8rem;
+      font-size: 1.5rem;
+      font-weight: 900;
     }
     a{
+      margin-top: 2rem;
       color: var(--color-primary);
       text-decoration: none;
       font-weight: 900;
