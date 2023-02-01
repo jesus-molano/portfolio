@@ -7,7 +7,8 @@ interface Props {
 }
 
 const { title = '', sableColor = '' } = Astro.props
-const endSection = `end-${title}`.toLowerCase()
+// replace spaces with dashes
+const endSection = `end-${title.replace(/\s/g, '-')}`.toLowerCase()
 ---
 
 <section>
