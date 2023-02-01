@@ -19,34 +19,87 @@ const { image, alt } = Astro.props
     display: flex;
     flex-direction: column;
     margin-bottom: 4rem;
-    gap: 1rem;
+    gap: 2rem;
 
     img {
       align-self: center;
+      transition: rotate 0.5s ease-in-out;
     }
 
-    &:nth-child(2) {
+    &:nth-child(1) {
       img {
         width: 10rem;
-        height: 100%;
+        height: auto;
         object-fit: cover;
         rotate: 25deg;
       }
     }
 
-    &:nth-child(3) {
+    &:nth-child(2) {
       img {
         width: min(20rem, 100%);
-        height: 100%;
+        height: auto;
         object-fit: cover;
       }
     }
 
-    &:nth-child(4) {
+    &:nth-child(3) {
       img {
         width: 6rem;
-        height: 100%;
+        height: auto;
         object-fit: cover;
+      }
+    }
+
+    @media (min-width: 769px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+
+      .about-description {
+        max-width: 600px;
+        width: 100%;
+      }
+      &:nth-child(1) {
+        img {
+          width: 13rem;
+        }
+      }
+      &:nth-child(2) {
+        img {
+          width: 20rem;
+          height: 8rem;
+          object-fit: contain;
+        }
+      }
+
+      &:nth-child(3) {
+        img {
+          width: 10rem;
+        }
+      }
+    }
+    @media (min-width: 1440px) {
+      &:nth-child(1) {
+        width: 100%;
+        .about-description{
+          max-width: 800px;
+          width: 100%;
+        }
+        img{
+          rotate: -25deg;
+        }
+      }
+      
+      &:nth-child(2) {
+        flex: 1;
+        
+      }
+      
+      &:nth-child(3) {
+        flex: 1;
       }
     }
   }

@@ -22,6 +22,11 @@ import Navbar from './Navbar.astro'
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     font-family: var(--font-title);
+
+    @media(min-width: 1460px) {
+      width: 1440px;
+      margin: 0 auto;
+    }
   }
 </style>
 
@@ -62,4 +67,5 @@ import Navbar from './Navbar.astro'
       nav?.classList.remove('open')
     })
   })
+
 </script>

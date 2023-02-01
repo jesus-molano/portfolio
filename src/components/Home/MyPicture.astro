@@ -1,5 +1,4 @@
 ---
-
 interface Props {
   name: string
   rol: string
@@ -10,19 +9,21 @@ const { name, rol, image } = Astro.props
 ---
 
 <div class='myself-container'>
+  <p class='im'>I'm</p>
+  <p class='name'>{name}</p>
+  <span>{rol}</span>
   <div class='myself-background'>
-    <p class='im'>I'm</p>
-    <p class='name'>{name}</p>
-    <span>{rol}</span>
-    <img
+    <div class='image'></div>
+    <!-- <img
       src='/images/myself_452x414.webp'
       alt='jesus molano profile image'
-    />
+    /> -->
   </div>
 </div>
 
 <style lang='scss'>
   .myself-container {
+    width: min(19rem, 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,50 +41,128 @@ const { name, rol, image } = Astro.props
       }
     }
 
+    .im {
+      font-size: 1.25rem;
+      position: absolute;
+      z-index: 1;
+      bottom: 5.6rem;
+      left: 2.5rem;
+    }
+    .name {
+      font-size: 1.875rem;
+      position: absolute;
+      z-index: 1;
+      bottom: 3.6rem;
+      left: 2.5rem;
+    }
+    span {
+      font-size: 1rem;
+      color: var(--color-primary);
+      position: absolute;
+      z-index: 1;
+      bottom: 2.6rem;
+      right: 2.5rem;
+    }
     .myself-background {
       position: relative;
       display: flex;
-      width: 14.125rem;
-      height: 15.4375rem;
+      width: 15.125rem;
+      height: 14.4375rem;
       background-color: var(--color-background);
       border-radius: 3.125rem;
-
-      .im {
-        font-size: 1.25rem;
-        position: absolute;
-        z-index: 1;
-        bottom: 5.6rem;
-        left: 0.5rem;
-
-        @media (max-width: 250px) {
-          bottom: 8.6rem;
-        }
-      }
-      .name {
-        font-size: 1.875rem;
-        position: absolute;
-        z-index: 1;
-        bottom: 3.6rem;
-        left: 0.5rem;
-      }
-      span {
-        font-size: 1rem;
-        color: var(--color-primary);
-        position: absolute;
-        z-index: 1;
-        bottom: 2.6rem;
-        right: 0.5rem;
-        @media (max-width: 200px) {
-          bottom: 0.6rem;
-          text-align: center;
-        }
-      }
-      img {
+      .image {
         width: min(17.125rem, 100%);
-        height: auto;
+        height: 100%;
         position: absolute;
         top: -3rem;
         left: -1.5rem;
+        background-image: url('/images/myself_452x414.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+
+    @media (min-width: 769px) {
+      width: min(28rem, 100%);
+
+      .im {
+        font-size: 1.5rem;
+        bottom: 8.2rem;
+        left: 1.5rem;
+      }
+      .name {
+        font-size: 2.375rem;
+        bottom: 5.6rem;
+        left: 2.5rem;
+      }
+      span {
+        font-size: 1.25rem;
+        bottom: 4.6rem;
+        right: 2.5rem;
+      }
+      .myself-background {
+        width: 18.125rem;
+        height: 19.4375rem;
+        image {
+          width: min(21.125rem, 100%);
+          height: auto;
+          top: -3rem;
+          left: -1.5rem;
+        }
+      }
+    }
+    @media (min-width: 1440px) {
+      width: 80rem;
+      justify-content: end;
+      @keyframes slide-left {
+        0% {
+          opacity: 0;
+          transform: translateX(-1rem);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .im {
+        font-size: 2rem;
+        top: 4.2rem;
+        left: 8.5rem;
+        animation: slide-left 1s ease-in-out forwards;
+      }
+      .name {
+        font-size: 4rem;
+        top: 5.6rem;
+        left: 8.5rem;
+        animation: slide-left 1s ease-in-out forwards;
+      }
+      span {
+        font-size: 2rem;
+        top: 10rem;
+        left: 16rem;
+        animation: slide-left 1s ease-in-out forwards;
+      }
+      .myself-background {
+        height: 25.4375rem;
+        width: 26.125rem;
+        margin: 5rem 10rem 0 0;
+        animation: slide-right 1s ease-in-out forwards;
+        .image {
+          background-image: url('/images/myself.webp');
+          width: min(27.125rem, 100%);
+        }
+        @keyframes slide-right {
+          0% {
+            opacity: 0;
+            transform: translateX(1rem);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
       }
     }
   }

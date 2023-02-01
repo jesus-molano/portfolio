@@ -4,41 +4,78 @@ import Library from './Library.astro'
 ---
 
 <SectionLayout title='Archives' sableColor='#3CFF5B'>
-  <div class='archives-text'>
-    <p>
-      Here in my "Jedi archives" you can see some of the projects I have made to learn and practice.
-    </p>
-    <p>
-      You can click on the <span>green</span> zones or on “Go to projects" below.
-    </p>
+  <div class='archives-container'>
+    <div class='archives-text'>
+      <p>
+        Here in my "Jedi archives" you can see some of the projects I have made
+        to learn and practice. If you click on a project you will see more
+        details about it, the technologies used and links to the github and
+        website.
+      </p>
+      <p>
+        Try clicking on the <span>green</span> areas or directly on "Go to all projects".
+        If you find any bugs or things to improve, don't hesitate to let me know.
+      </p>
+    </div>
+    <div class='projects-zone'>
+      <Library />
+      <a href='/projects'>Go to all projects</a>
+    </div>
   </div>
-  <Library />
-  <a href='/projects'>Go to projects</a>
 </SectionLayout>
 
 <style lang='scss'>
-  .archives-text {
+  .archives-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    p {
-      span {
-        color: #3cff5b;
+    gap: 2rem;
+    .archives-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      p {
+        span {
+          color: #3cff5b;
+        }
       }
     }
-  }
-  a {
-    margin: 0 auto;
-    font-weight: 900;
-    font-size: 1.2rem;
-    border-bottom: 3px solid var(--color-quaternary);
-    color: var(--color-text);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    margin-bottom: 2rem;
-    &:hover {
-      border-bottom: 3px solid var(--color-tertiary);
-      color: rgb(187, 185, 185);
+    .projects-zone {
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      margin: 2rem auto;
+      font-weight: 900;
+      font-size: 1.2rem;
+      border-bottom: 3px solid var(--color-quaternary);
+      color: var(--color-text);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+      &:hover {
+        border-bottom: 3px solid var(--color-tertiary);
+        color: rgb(187, 185, 185);
+      }
+    }
+    @media (min-width: 769px) {
+      .archives-text {
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        p {
+          max-width: 37.5rem;
+        }
+      }
+    }
+    @media(min-width: 1440px) {
+      flex-direction: row;
+      align-items: flex-start;
+      .archives-text {
+        flex: 1;
+      }
+      .projects-zone {
+        flex: 1;
+      }
     }
   }
 </style>

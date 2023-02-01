@@ -58,5 +58,23 @@ const links = [
       background: var(--color-background);
       backdrop-filter: blur(10px);
     }
+
+    @media (min-width: 769px) {
+      display: flex;
+      position: static;
+      height: 5rem;
+      
+      ul {
+        flex-direction: row;
+        padding: 0 2rem;
+        gap: 1rem;
+        li {
+          a {
+            font-size: 1rem;
+            font-family: var(--font-general);
+          }
+        }
+      }
+    }
   }
 </style>

@@ -4,7 +4,7 @@ import SocialNetworts from '@components/SocialNetworts.astro'
 ---
 
 <SectionLayout title='Contact' sableColor='#EB294C'>
-  <p>
+  <p class="contact-text">
     If you want to contact me for any work, questions, or just to chat, feel
     free to send me an 
     <a href='mailto:dev.jesusmolano@gmail.com'>email</a> 
@@ -14,11 +14,17 @@ import SocialNetworts from '@components/SocialNetworts.astro'
 </SectionLayout>
 
 <style lang='scss'>
-  p {
+  .contact-text {
+    margin-bottom: 3rem;
     a {
       color: #eb294c;
       font-weight: 900;
       font-size: 1rem;
+    }
+
+    @media(min-width: 769px) {
+      width: 600px;
+      margin: 0rem auto 2rem auto;
     }
   }
 </style>

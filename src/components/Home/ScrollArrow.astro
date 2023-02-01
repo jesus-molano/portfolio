@@ -43,11 +43,23 @@ const { image } = Astro.props
       }
     }
 
-    a{
-      img{
+    a {
+      img {
         height: 75px;
         width: 40px;
       }
+    }
+
+    @media (min-width: 769px) {
+      a {
+        img {
+          height: auto;
+          width: 50px;
+        }
+      }
+    }
+    @media (min-width: 1440px) {
+      height: 8rem;
     }
   }
 </style>

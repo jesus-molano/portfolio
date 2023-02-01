@@ -8,19 +8,23 @@ export interface Props {
 const { title, color } = Astro.props
 ---
 
-<div>
+<div class="title-container">
   <h2>{title}</h2>
   <SableLaser color={color} />
 </div>
 
 <style lang='scss'>
-  h2 {
-    padding-left: 0.5rem;
-    font-family: var(--font-title);
-    font-size: 2rem;
-
+  .title-container{
+    h2 {
+      padding-left: 0.5rem;
+      font-family: var(--font-title);
+      font-size: 2rem;
+  
+    }
     @media (max-width: 258px) {
-      font-size: 1.5rem;
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   }
 </style>
