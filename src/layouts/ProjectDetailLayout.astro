@@ -12,32 +12,32 @@ const { title, date, tags, draft } = Astro.props.frontmatter
 
 <BaseLayout title='Project'>
   <section class='project-detail'>
-    <GoBack  />
+    <GoBack />
     {
-    tags && 
-      <div class="tags">
-        {tags.map(tag => (<a href={`/projects/tag/${tag.toLocaleLowerCase()}`}>{tag}</a>))}
-      </div>
+      tags && (
+        <div class='tags'>
+          {tags.map((tag) => (
+            <a href={`/projects/tag/${tag.toLocaleLowerCase()}`}>{tag}</a>
+          ))}
+        </div>
+      )
     }
     <div class='title'>
       <h1>{title}</h1>
       {draft && <span>DRAFT</span>}
       <small>{formatDate(date)}</small>
     </div>
-    <slot />
+    <div class='content'>
+      <slot />
+    </div>
   </section>
 </BaseLayout>
 
 <style lang='scss' is:global>
   .project-detail {
     padding: 1rem;
-    background: radial-gradient(
-      62.89% 49.17% at 50% 50%,
-      #182235 0%,
-      #040a0e 100%
-    );
 
-    .tags{
+    .tags {
       margin-top: 1rem;
       display: flex;
       align-items: center;
@@ -58,7 +58,7 @@ const { title, date, tags, draft } = Astro.props.frontmatter
         text-align: center;
         text-decoration: none;
         background-color: #182235;
-        padding: 0.25rem 0.50rem;
+        padding: 0.25rem 0.5rem;
         transition: background-color 0.2s ease;
 
         &:hover,
@@ -88,45 +88,66 @@ const { title, date, tags, draft } = Astro.props.frontmatter
       }
     }
 
-    h2 {
-      margin-bottom: 1rem;
-    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      h2 {
+        margin-bottom: 1rem;
+      }
 
-    p {
-      margin-bottom: 1rem;
-      display: grid;
+      p {
+        margin-bottom: 2rem;
+        display: grid;
 
-      &:has(a) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
+        &:has(a) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
 
-        a {
-          color: var(--color-secondary);
-          font-weight: 900;
-          text-decoration: underline;
-          text-align: center;
+          a {
+            color: var(--color-primary);
+            font-weight: 900;
+            text-decoration: underline;
+            text-align: center;
+            transition: color 0.2s ease;
+
+            &:hover,
+            &:focus {
+              color: var(--color-secondary);
+            }
+          }
+        }
+        img {
+          justify-self: center;
+          width: min(52.25rem, 100%);
+          height: auto;
+          object-fit: cover;
+          object-position: top;
+          border-radius: 8px;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
         }
       }
-      img {
-        justify-self: center;
-        width: min(52.25rem, 100%);
-        height: auto;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 8px;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      ul {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
       }
     }
-    a {
-      color: var(--color-primary);
-      text-decoration: none;
+    @media (min-width: 769px) {
+      padding: 2rem;
     }
-
-    ul {
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
+    @media (min-width: 1025px) {
+      padding-inline: 5rem;
+      .content{
+        p{
+          line-height: 2.2rem;
+        }
+      }
     }
   }
 </style>

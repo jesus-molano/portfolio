@@ -1,6 +1,7 @@
 ---
 import type { MarkdownInstance } from 'astro'
 import type { ProjectFrontmatter } from '@types'
+import { formatDate } from '@utils'
 
 type Project = MarkdownInstance<ProjectFrontmatter>
 
@@ -22,12 +23,16 @@ if (import.meta.env.PROD) {
 
 <div class='projects-container'>
   {
-    projects.map((project) => (
-      <a href={project.url} class='project'>
-        {project.frontmatter.draft && <span>DRAFT</span>}
-        {project.frontmatter.title}
-      </a>
-    ))
+    projects.map((project) => {
+      const formatedDate = formatDate(project.frontmatter.date)
+      return (
+        <a href={project.url} class='project'>
+          {project.frontmatter.draft && <span class='draft'>DRAFT</span>}
+          {project.frontmatter.title}
+          {project.frontmatter.date && <span class='date'>{formatedDate}</span>}
+        </a>
+      )
+    })
   }
 </div>
 
@@ -36,26 +41,36 @@ if (import.meta.env.PROD) {
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
-
+    
     .project {
+      display: flex;
+      justify-content: space-between;
       text-decoration: none;
       color: var(--color-text);
       border-bottom: 1px solid #ccc;
       padding: 1rem;
+      gap: 1rem;
+      align-items: center;
 
       &:first-child {
         border-top: 1px solid #ccc;
       }
       &:nth-child(odd) {
-        background-color: #050f14;
+        background-color: #071118;
       }
-      span {
+      .draft {
         color: var(--color-text);
         background-color: var(--color-secondary);
         padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
         font-size: 0.75rem;
         font-weight: 600;
+      }
+      .date {
+        color: var(--color-primary);
+        font-size: 0.75rem;
+        font-weight: 900;
+        text-align: center;;
       }
     }
   }

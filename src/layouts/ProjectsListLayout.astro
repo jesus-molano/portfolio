@@ -1,9 +1,9 @@
 ---
-import GoBack from '@components/GoBack.astro';
+import GoBack from '@components/GoBack.astro'
 import BaseLayout from './BaseLayout.astro'
 
 interface Props {
-  title: string,
+  title: string
 }
 
 const { title, goBack } = Astro.props
@@ -11,7 +11,7 @@ const { title, goBack } = Astro.props
 
 <BaseLayout title={title}>
   <section>
-    <GoBack  />
+    <GoBack />
     <h1>{title}</h1>
     <slot />
   </section>
@@ -20,15 +20,15 @@ const { title, goBack } = Astro.props
 <style lang='scss'>
   section {
     flex: 1;
-    background: radial-gradient(
-      62.89% 49.17% at 50% 50%,
-      #182235 0%,
-      #040a0e 100%
-    );
     padding: 1rem;
     h1 {
       padding: 1rem 0;
     }
-    
+    @media (min-width: 769px) {
+      padding: 2rem;
+    }
+    @media (min-width: 1025px) {
+      padding-inline: 5rem;
+    }
   }
 </style>
