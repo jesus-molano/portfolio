@@ -11,7 +11,10 @@ import SocialNetworts from '@components/SocialNetworts.astro'
       <a href='mailto:dev.jesusmolano@gmail.com'>email</a>
       or  a message to one of my social networks. I will be happy to answer you as soon as I can.
     </p>
-    <SocialNetworts direction='column' showText={true} width='1.6rem' />
+    <div class="hologram">
+      <SocialNetworts direction='column' showText={true} width='1.6rem' />
+      <img src="/images/hologram.svg" alt="hologram">
+    </div>
   </div>
 </SectionLayout>
 
@@ -24,18 +27,31 @@ import SocialNetworts from '@components/SocialNetworts.astro'
       a {
         color: var(--color-primary);
         font-weight: 900;
-        font-size: 1rem;
       }
     }
+
+    .hologram{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      img{
+        width: min(15rem, 100%);
+        position: absolute;
+        top: 6rem;
+      }
+    }
+
+
     @media (min-width: 769px) {
       .contact-text {
-        width: 600px;
+        width: 800px;
         margin: 0rem auto 2rem auto;
       }
     }
     @media (min-width: 1440px) {
       flex-direction: row;
-      gap: 19rem;
       .contact-text {
         margin: 0;
       }
