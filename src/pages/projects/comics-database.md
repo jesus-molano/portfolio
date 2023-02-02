@@ -11,6 +11,8 @@ tags:
     'api',
     'vercel',
   ]
+image: '/images/comics.webp'
+smallImage: '/images/comics_192X142.webp'
 draft: false
 ---
 

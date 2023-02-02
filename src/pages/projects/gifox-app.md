@@ -9,12 +9,14 @@ tags:
     'vercel',
     'api'
   ]
+image: '/images/gifox.webp'
+smallImage: '/images/gifox_192X142.webp'
 draft: false
 ---
 
 One of my first React projects. A small gifs search application made with React version 17 and the Giphy API. It allows filtering by categories or by trends.
 
-![Comics Database](/images/gifox.webp)
+![Gifox App](/images/gifox.webp)
 
 [View Project>](https://gifox-app.vercel.app/)
 [View Source Code>](https://github.com/jesus-molano/gifox-app)

@@ -1,7 +1,7 @@
 ---
 import type { MarkdownInstance } from 'astro'
 import type { ProjectFrontmatter } from '@types'
-import { formatDate } from '@utils'
+import { formatDate, sortElementsByDate } from '@utils'
 
 type Project = MarkdownInstance<ProjectFrontmatter>
 
@@ -10,11 +10,7 @@ interface Props {
 }
 
 let { projects } = Astro.props
-projects = projects.sort((a: Project, b: Project): number => {
-  if (a.frontmatter.date > b.frontmatter.date) return -1
-  if (b.frontmatter.date > a.frontmatter.date) return 1
-  return 0
-})
+projects = sortElementsByDate(projects)
 
 if (import.meta.env.PROD) {
   projects = projects.filter((project) => !project.frontmatter.draft)

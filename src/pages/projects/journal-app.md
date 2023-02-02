@@ -12,12 +12,14 @@ tags:
     'redux',
     'firebase',
   ]
+image: '/images/journal.webp'
+smallImage: '/images/journal_192X142.webp'
 draft: false
 ---
 
 Web application made with React version 18 where you can make records of your day, as if it were a diary, and even add one or more images. The visual part is made with Material UI and the data storage and images are managed with Firebase and Cloudinary.
 
-![Comics Database](/images/journal.webp)
+![Journal App](/images/journal.webp)
 
 [View Project>](https://react18-journal-app.vercel.app/)
 [View Source Code>](https://github.com/jesus-molano/react18-journal-app)
