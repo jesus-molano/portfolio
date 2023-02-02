@@ -10,7 +10,7 @@ tags:
     'api'
   ]
 image: '/images/gifox.webp'
-smallImage: '/images/gifox_192X142.webp'
+icon: '/images/react.svg'
 draft: false
 ---
 

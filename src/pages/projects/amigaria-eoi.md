@@ -10,7 +10,7 @@ tags:
     'firebase',
   ]
 image: '/images/amigaria.webp'
-smallImage: '/images/amigaria_192X142.webp'
+icon: '/images/vue.svg'
 draft: false
 ---
 

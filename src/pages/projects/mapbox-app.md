@@ -10,7 +10,7 @@ tags:
     'api'
   ]
 image: '/images/mapbox.webp'
-smallImage: '/images/mapbox_192X142.webp'
+icon: '/images/vue.svg'
 draft: false
 ---
 

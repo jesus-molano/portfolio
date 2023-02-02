@@ -24,8 +24,13 @@ if (import.meta.env.PROD) {
       return (
         <a href={project.url} class='project'>
           {project.frontmatter.draft && <span class='draft'>DRAFT</span>}
-          {project.frontmatter.title}
-          {project.frontmatter.date && <span class='date'>{formatedDate}</span>}
+          <img class="technology-icon" src={project.frontmatter.icon} alt='technology icon' />
+          <div class='project-texts'>
+            {project.frontmatter.title}
+            {project.frontmatter.date && (
+              <span class='date'>{formatedDate}</span>
+            )}
+          </div>
         </a>
       )
     })
@@ -37,22 +42,33 @@ if (import.meta.env.PROD) {
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    
+
     .project {
       display: flex;
-      justify-content: space-between;
       text-decoration: none;
       color: var(--color-text);
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #1d425c;
       padding: 1rem;
       gap: 1rem;
       align-items: center;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #1d425c;
+      }
+
+      .technology-icon {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .project-texts {
+        display: flex;
+        flex-direction: column;
+      }
 
       &:first-child {
-        border-top: 1px solid #ccc;
-      }
-      &:nth-child(odd) {
-        background-color: #071118;
+        border-top: 1px solid #1d425c;
       }
       .draft {
         color: var(--color-text);
@@ -63,10 +79,9 @@ if (import.meta.env.PROD) {
         font-weight: 600;
       }
       .date {
-        color: var(--color-primary);
+        color: rgb(151, 151, 151);
         font-size: 0.75rem;
         font-weight: 900;
-        text-align: center;;
       }
     }
   }

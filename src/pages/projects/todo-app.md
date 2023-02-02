@@ -13,6 +13,7 @@ tags:
   ]
 draft: false
 image: '/images/todo.webp'
+icon: '/images/typescript.svg'
 ---
 
 Small task list application to learn Typescript and also some testing with Cypress. The styling part is done with NESS CSS Framework.

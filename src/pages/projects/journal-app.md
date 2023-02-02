@@ -13,7 +13,7 @@ tags:
     'firebase',
   ]
 image: '/images/journal.webp'
-smallImage: '/images/journal_192X142.webp'
+icon: '/images/react.svg'
 draft: false
 ---
 

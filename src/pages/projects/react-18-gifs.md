@@ -10,6 +10,7 @@ tags:
     'netlify',
   ]
 image: '/images/reacts18gifs.webp'
+icon: '/images/react.svg'
 draft: false
 ---
 
