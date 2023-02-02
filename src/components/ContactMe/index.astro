@@ -4,27 +4,41 @@ import SocialNetworts from '@components/SocialNetworts.astro'
 ---
 
 <SectionLayout title='Contact' sableColor='#EB294C'>
-  <p class="contact-text">
-    If you want to contact me for any work, questions, or just to chat, feel
-    free to send me an 
-    <a href='mailto:dev.jesusmolano@gmail.com'>email</a> 
-    or click on my social networks below.
-  </p>
-  <SocialNetworts direction="column" showText={true} width="1.6rem" />
+  <div class='contact'>
+    <p class='contact-text'>
+      If you want to contact me for any work, questions, or just to chat, feel
+      free to send me an
+      <a href='mailto:dev.jesusmolano@gmail.com'>email</a>
+      or  a message to one of my social networks. I will be happy to answer you as soon as I can.
+    </p>
+    <SocialNetworts direction='column' showText={true} width='1.6rem' />
+  </div>
 </SectionLayout>
 
 <style lang='scss'>
-  .contact-text {
-    margin-bottom: 3rem;
-    a {
-      color: var(--color-primary);
-      font-weight: 900;
-      font-size: 1rem;
+  .contact {
+    display: flex;
+    flex-direction: column;
+    .contact-text {
+      margin-bottom: 3rem;
+      a {
+        color: var(--color-primary);
+        font-weight: 900;
+        font-size: 1rem;
+      }
     }
-
-    @media(min-width: 769px) {
-      width: 600px;
-      margin: 0rem auto 2rem auto;
+    @media (min-width: 769px) {
+      .contact-text {
+        width: 600px;
+        margin: 0rem auto 2rem auto;
+      }
+    }
+    @media (min-width: 1440px) {
+      flex-direction: row;
+      gap: 19rem;
+      .contact-text {
+        margin: 0;
+      }
     }
   }
 </style>
