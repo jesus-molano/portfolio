@@ -47,7 +47,7 @@ const { title } = Astro.props
     display: flex;
     flex-direction: column;
     background: radial-gradient(
-      40.89% 40.17% at 50% 50%,
+      70.89% 40.17% at 50% 50%,
       #263653 0%,
       #071118 100%
     );
@@ -62,6 +62,12 @@ const { title } = Astro.props
       align-self: center;
     }
     @media (min-width: 769px) {
+      background: radial-gradient(
+      40.89% 40.17% at 50% 50%,
+      #1c283d 0%,
+      #071118 100%
+    );
+    background-attachment: fixed;
       main {
         font-size: 1.2rem;
       }
@@ -69,7 +75,7 @@ const { title } = Astro.props
     @media (min-width: 1440px) {
       background: radial-gradient(
         33.89% 40.17% at 50% 50%,
-        #263653 0%,
+        #1c283d 0%,
         #071118 100%
       );
       background-attachment: fixed;
