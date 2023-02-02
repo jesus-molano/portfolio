@@ -19,6 +19,7 @@
 html{
   scroll-behavior: smooth;
   min-height: 100vh;
+  background-color: var(--color-background);
 }
 
 @font-face {
