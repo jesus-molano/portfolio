@@ -1,0 +1,70 @@
+---
+import SectionLayout from '@layouts/SectionLayout.astro'
+import TechList from './TechList.astro';
+
+const frontendStacks = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Redux',
+  'React Router',
+  'Vue',
+  'Astro',
+  'TailwindCSS',
+  'Bootstrap',
+  'Material UI',
+  'Sass',
+]
+const backendStacks = [
+  'NodeJS',
+  'Express',
+  'Php',
+  'MongoDB',
+  'Mongoose',
+  'MySQL',
+  'SQLServer',
+  'Firebase',
+]
+---
+
+<SectionLayout sableColor='#FFC83C' title='Technologies'>
+  <div class='technologies-container'>
+    <p>
+      These are the technologies that I have learned and used to a greater or
+      lesser extent. I tend to focus a lot on the frontend, but I can do backend
+      without problems.
+    </p>
+
+    <div class='technologies frontend'>
+      <h3>Frontend</h3>
+      <TechList technologies={frontendStacks} />
+    </div>
+    <div class='technologies backend'>
+      <h3>Backend</h3>
+      <TechList technologies={backendStacks} />
+    </div>
+  </div>
+</SectionLayout>
+
+<style lang="scss">
+.technologies-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  .technologies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+}
+</style>
