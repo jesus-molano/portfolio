@@ -13,7 +13,7 @@
   --color-bg-dark: #040A0E;
 }
 :root[data-theme='light'] {
-  --color-primary: #039BE5;
+  --color-primary: #006497;
   --color-secondary: #EB294C;
   --color-tertiary: #9E9D24;
   --color-quaternary: #689F38;
