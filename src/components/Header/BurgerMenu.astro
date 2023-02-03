@@ -1,4 +1,9 @@
-<button name="burger menu" class='burgerMenu' role="button" aria-label="burger menu">
+<button
+  name='burger menu'
+  class='burgerMenu'
+  role='button'
+  aria-label='burger menu'
+>
   <svg
     width='24'
     height='24'
@@ -43,6 +48,10 @@
     svg {
       height: 2rem;
       width: 2rem;
+
+      path{
+        stroke: var(--color-text);
+      }
     }
 
     &.active {
@@ -54,8 +63,9 @@
           transform: rotate(-45deg);
           -webkit-transform: rotate(45deg);
           translate: 0.5rem;
-          stroke: var(--color-tertiary);
+          stroke: var(--color-secondary);
           filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
+          -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
         }
 
         path:nth-child(1) {
@@ -66,8 +76,9 @@
           transform: rotate(-45deg);
           -webkit-transform: rotate(-45deg);
           translate: -0.6rem 0.52rem;
-          stroke: var(--color-quaternary);
+          stroke: var(--color-secondary);
           filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
+          -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
         }
       }
     }

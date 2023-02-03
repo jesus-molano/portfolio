@@ -47,14 +47,14 @@ if (import.meta.env.PROD) {
       display: flex;
       text-decoration: none;
       color: var(--color-text);
-      border-bottom: 1px solid #1d425c;
+      border-bottom: 1px solid var(--color-bg-soft);
       padding: 1rem;
       gap: 1rem;
       align-items: center;
       transition: background-color 0.2s ease-in-out;
 
       &:hover {
-        background-color: #1d425c;
+        background-color: var(--color-bg-soft);
       }
 
       .technology-icon {
@@ -68,7 +68,7 @@ if (import.meta.env.PROD) {
       }
 
       &:first-child {
-        border-top: 1px solid #1d425c;
+        border-top: 1px solid var(--color-bg-soft);
       }
       .draft {
         color: var(--color-text);
@@ -79,7 +79,7 @@ if (import.meta.env.PROD) {
         font-weight: 600;
       }
       .date {
-        color: rgb(151, 151, 151);
+        color: var(--color-tertiary);
         font-size: 0.75rem;
         font-weight: 900;
       }

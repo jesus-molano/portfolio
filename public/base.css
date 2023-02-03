@@ -1,22 +1,36 @@
 :root {
+  --font-general: 'Poppins', sans-serif;
+  --font-title: 'StarJedi', sans-serif;
+} 
+:root[data-theme='dark'] {
   --color-primary: #FFC83C;
   --color-secondary: #EB294C;
   --color-tertiary: #3CC4FF;
   --color-quaternary: #3CFF5B;
   --color-text: #FFFFFF;
   --color-background: #071118;
-  /* --color-background: #040A0E; */
-
-  --font-general: 'Poppins', sans-serif;
-  --font-title: 'StarJedi', sans-serif;
+  --color-bg-soft: #1c283d;
+  --color-bg-dark: #040A0E;
 }
-*, *::before, *::after {
+:root[data-theme='light'] {
+  --color-primary: #039BE5;
+  --color-secondary: #EB294C;
+  --color-tertiary: #9E9D24;
+  --color-quaternary: #689F38;
+  --color-text: #000000;
+  --color-background: #FFFFFF;
+  --color-bg-soft: #c9f2f5;
+  --color-bg-dark: #bfe7ec;
+}
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html{
+html {
   scroll-behavior: smooth;
   min-height: 100vh;
   background-color: var(--color-background);
@@ -27,26 +41,26 @@ html{
   src: url(./fonts/Poppins-Bold.woff2);
   font-weight: bold;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 @font-face {
   font-family: 'Poppins';
   src: url(./fonts/Poppins-Regular.woff2);
   font-weight: normal;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 @font-face {
   font-family: 'Poppins';
   src: url(./fonts/Poppins-Light.woff2);
   font-weight: 300;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }
 @font-face {
   font-family: 'StarJedi';
   src: url(./fonts/Starjedi.woff2);
   font-weight: normal;
   font-style: normal;
-  font-display: swap
+  font-display: swap;
 }

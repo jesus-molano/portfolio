@@ -14,10 +14,6 @@ const { name, rol, image } = Astro.props
   <span>{rol}</span>
   <div class='myself-background'>
     <div class='image'></div>
-    <!-- <img
-      src='/images/myself_452x414.webp'
-      alt='jesus molano profile image'
-    /> -->
   </div>
 </div>
 
@@ -45,22 +41,33 @@ const { name, rol, image } = Astro.props
       font-size: 1.25rem;
       position: absolute;
       z-index: 1;
-      bottom: 5.6rem;
+      bottom: 2.6rem;
       left: 2.5rem;
+      color: var(--color-text);
     }
     .name {
       font-size: 1.875rem;
       position: absolute;
       z-index: 1;
-      bottom: 3.6rem;
+      bottom: 0.6rem;
       left: 2.5rem;
+      background: linear-gradient(
+        90deg,
+        var(--color-primary) 0%,
+        var(--color-secondary) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+
     }
     span {
       font-size: 1rem;
-      color: var(--color-primary);
+      color: var(--color-text);
       position: absolute;
       z-index: 1;
-      bottom: 2.6rem;
+      bottom: -0.2rem;
       right: 2.5rem;
     }
     .myself-background {
@@ -69,6 +76,7 @@ const { name, rol, image } = Astro.props
       width: 15.125rem;
       height: 14.4375rem;
       background-color: var(--color-background);
+      box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.25) ;
       border-radius: 3.125rem;
       .image {
         width: min(17.125rem, 100%);
@@ -88,17 +96,17 @@ const { name, rol, image } = Astro.props
 
       .im {
         font-size: 1.5rem;
-        bottom: 8.2rem;
+        bottom: 4.2rem;
         left: 1.5rem;
       }
       .name {
         font-size: 2.375rem;
-        bottom: 5.6rem;
+        bottom: 1.6rem;
         left: 2.5rem;
       }
       span {
         font-size: 1.25rem;
-        bottom: 4.6rem;
+        bottom: 0.6rem;
         right: 2.5rem;
       }
       .myself-background {

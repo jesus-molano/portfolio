@@ -34,7 +34,7 @@ const socials = [
   {
     socials.map(({ name, url, icon }) => (
       <a href={url} target='_blank' rel='noopener noreferrer'>
-        <img src={icon} alt={name} loading='lazy' />
+        <img src={icon} alt={name} loading='lazy' data-name={name} />
         {showText && <span>{name}</span>}
       </a>
     ))
@@ -57,6 +57,11 @@ const socials = [
       img {
         width: var(--width);
         height: 100%;
+      }
+      img[data-name='github'] {
+        background-color: #132c3d;
+        border-radius: 50%;
+        padding: 0.1rem;
       }
       span {
         text-transform: capitalize;

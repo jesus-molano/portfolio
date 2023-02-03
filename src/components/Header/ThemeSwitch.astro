@@ -1,0 +1,70 @@
+<div class="themeSwitch">
+  <input type="checkbox" id='themeToggler'>
+  <label for="themeToggler">
+    <span class="moon">🌙</span>
+    <span class="sun">☀️</span>
+  </label>
+</div>
+
+<style lang="scss">
+
+.themeSwitch {
+  padding: 1rem;
+}
+  input[type="checkbox"] {
+  display: none;
+}
+
+.moon,
+.sun {
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1.5rem;
+}
+
+.sun {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label .moon {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label .sun {
+  display: block;
+}
+
+</style>
+
+<script>
+  type Theme = 'light' | 'dark'
+
+  let colorMode: Theme = 'light'
+  const storedColorMode = localStorage.getItem('color-mode')
+  
+  function setColorMode(mode: Theme) {
+    document.documentElement.dataset.theme = mode
+    localStorage.setItem('color-mode', mode)
+  }
+
+  function toggleColorMode() {
+    colorMode = colorMode === 'light' ? 'dark' : 'light'
+    setColorMode(colorMode)
+  }
+
+  const themeToggler = document.getElementById('themeToggler')
+  themeToggler?.addEventListener('change', toggleColorMode)
+
+  if (storedColorMode) {
+    colorMode = storedColorMode as Theme
+    setColorMode(colorMode)
+  }else {
+    colorMode =
+      typeof window !== 'undefined'
+        ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+        : 'light'
+    setColorMode(colorMode)
+  }
+</script>

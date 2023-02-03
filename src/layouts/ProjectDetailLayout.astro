@@ -57,7 +57,7 @@ const { title, date, tags, draft } = Astro.props.frontmatter
         font-size: 0.75rem;
         text-align: center;
         text-decoration: none;
-        background-color: #182235;
+        background-color: var(--color-bg-soft);
         padding: 0.25rem 0.5rem;
         transition: background-color 0.2s ease;
 
@@ -74,7 +74,7 @@ const { title, date, tags, draft } = Astro.props.frontmatter
         font-size: 2rem;
       }
       small {
-        color: #a9aaad;
+        color: var(--color-tertiary);
         font-weight: 900;
         text-align: end;
       }

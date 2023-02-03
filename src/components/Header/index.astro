@@ -1,15 +1,20 @@
 ---
 import BurgerMenu from './BurgerMenu.astro'
 import Navbar from './Navbar.astro'
+import ThemeSwitch from './ThemeSwitch.astro';
 ---
 
 <header>
-  <BurgerMenu />
   <Navbar />
+  <ThemeSwitch />
+  <BurgerMenu />
 </header>
 
 <style lang='scss'>
   header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     min-height: 5rem;
     position: sticky;
     top: 0;
