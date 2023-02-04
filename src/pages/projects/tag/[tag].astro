@@ -4,7 +4,6 @@ import ProjectsListLayout from '@layouts/ProjectsListLayout.astro'
 import type { ProjectFrontmatter } from '@types'
 import { capitalizeSentence } from '@utils'
 
-
 // getStaticPaths is ignored with output: 'server' in Astro.config.mjs
 // export async function getStaticPaths() {
 //   const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
@@ -39,8 +38,20 @@ const filterProjects = projects.filter((project) => {
   <p>Projects with <span class='tag'>{tag?.toLocaleUpperCase()}</span> tag:</p>
   {
     filterProjects.length === 0 
-    ? <p class="not-found">I don't have any {tag?.toLocaleUpperCase()} project published on my page yet. You can take a look at my <a href="https://github.com/jesus-molano">Github</a>.</p>
-    : <ProjectsList projects={filterProjects} />
+    ? (
+      tag === 'astro' 
+      ? <p class="not-found">This website is completely made with Astro and Typescript. Check it out!</p>
+      : (
+        <p class='not-found'>
+          I don't have any {tag?.toLocaleUpperCase()} project published on my page
+          yet. You can take a look at my{' '}
+          <a href='https://github.com/jesus-molano'>Github</a>.
+        </p>
+      )
+    ) 
+    : (
+      <ProjectsList projects={filterProjects} />
+    )
   }
 </ProjectsListLayout>
 
@@ -59,11 +70,16 @@ const filterProjects = projects.filter((project) => {
   }
 
   .not-found {
-    margin-top: 2rem;
     text-align: center;
     font-size: 1.25rem;
     font-weight: 900;
-    a{
+    background-color: var(--color-bg-soft);
+    border-radius: 8px;
+    display: inline-block;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    box-shadow: var(--color-bg-dark) 5px 5px 20px;
+    a {
       color: var(--color-primary);
       text-decoration: none;
     }
