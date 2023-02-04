@@ -7,7 +7,10 @@ tags:
     'react',
     'webpack',
     'vercel',
-    'api'
+    'api',
+    'html',
+    'css',
+    'javascript',
   ]
 image: '/images/gifox.webp'
 icon: '/images/react.svg'

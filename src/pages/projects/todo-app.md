@@ -10,6 +10,8 @@ tags:
     'vercel',
     'nes-css',
     'cypress',
+    'html',
+    'css',
   ]
 draft: false
 image: '/images/todo.webp'

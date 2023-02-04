@@ -7,9 +7,12 @@ tags:
     'react',
     'vite',
     'bootstrap',
-    'r-router',
+    'react-router',
     'api',
     'vercel',
+    'html',
+    'css',
+    'javascript',
   ]
 image: '/images/comics.webp'
 icon: '/images/react.svg'

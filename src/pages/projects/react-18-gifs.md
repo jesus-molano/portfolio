@@ -8,6 +8,9 @@ tags:
     'vite',
     'api',
     'netlify',
+    'html',
+    'css',
+    'javascript',
   ]
 image: '/images/reacts18gifs.webp'
 icon: '/images/react.svg'

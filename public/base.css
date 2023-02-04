@@ -11,6 +11,7 @@
   --color-background: #071118;
   --color-bg-soft: #1c283d;
   --color-bg-dark: #040A0E;
+  --color-tech: #1c283d;
 }
 :root[data-theme='light'] {
   --color-primary: #004b71;
@@ -21,6 +22,7 @@
   --color-background: #FFFFFF;
   --color-bg-soft: #c9f2f5;
   --color-bg-dark: #bfe7ec;
+  --color-tech: #004b71;
 }
 *,
 *::before,

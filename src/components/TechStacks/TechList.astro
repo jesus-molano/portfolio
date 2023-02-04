@@ -9,12 +9,12 @@ const { technologies } = Astro.props
 <ul>
   {
     technologies.map((tech) => {
-      const techImg = tech.toLowerCase().replace(' ', '-')
+      const slug = tech.toLowerCase().replace(' ', '-')
       return (
         <li>
-          <div class='img-container'>
-            <img src={`/images/${techImg}.svg`} alt={tech} />
-          </div>
+          <a href={`/projects/tag/${slug}`} class='img-container'>
+            <img src={`/images/${slug}.svg`} alt={tech} />
+          </a>
           <span>{tech}</span>
         </li>
       )
@@ -36,7 +36,7 @@ const { technologies } = Astro.props
       align-items: center;
       margin: 0 1rem 1rem 0;
       .img-container {
-        background-color: #242938;
+        background-color: var(--color-tech);
         width: 3rem;
         height: 3rem;
         border-radius: 0.5rem;

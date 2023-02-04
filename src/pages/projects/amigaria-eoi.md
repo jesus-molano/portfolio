@@ -8,6 +8,9 @@ tags:
     'vite',
     'vercel',
     'firebase',
+    'html',
+    'sass',
+    'javascript',
   ]
 image: '/images/amigaria.webp'
 icon: '/images/vue.svg'

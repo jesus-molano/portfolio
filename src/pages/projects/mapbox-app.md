@@ -7,7 +7,10 @@ tags:
     'vue',
     'vite',
     'vercel',
-    'api'
+    'api',
+    'html',
+    'css',
+    'javascript',
   ]
 image: '/images/mapbox.webp'
 icon: '/images/vue.svg'

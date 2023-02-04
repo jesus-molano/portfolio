@@ -6,11 +6,14 @@ tags:
   [
     'react',
     'vite',
-    'material',
-    'r-router',
+    'material-ui',
+    'react-router',
     'vercel',
     'redux',
     'firebase',
+    'html',
+    'css',
+    'javascript',
   ]
 image: '/images/journal.webp'
 icon: '/images/react.svg'
