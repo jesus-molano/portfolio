@@ -6,7 +6,7 @@ import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 export default defineConfig({
   root: '.',
-  output: 'server',
+  // output: 'server',
   site: 'https://www.jesusmolano.dev/',
   base: '/',
   server: {
@@ -14,5 +14,5 @@ export default defineConfig({
     port: 3000
   },
   integrations: [sitemap(), compress()],
-  adapter: vercel()
+  // adapter: vercel()
 });
