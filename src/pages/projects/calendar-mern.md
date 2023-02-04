@@ -24,6 +24,8 @@ draft: false
 
 Collaborative calendar made with the MERN stack(Mongo Express React Node). It has an api hosted in Render and the frontend in Netlify. It was one of my first React projects following a Udemy course. A bit outdated but it still works.
 
+***\*The application may take a while to register or log in because it has to start the service in Render. Please be patient.***
+
 ![Calendar MERN](/images/calendar.webp)
 
 [View Project>](https://astonishing-blini-0a3277.netlify.app/)
