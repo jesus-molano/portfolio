@@ -22,12 +22,10 @@ const backendStacks = [
   'NodeJS',
   'Express',
   'Php',
-  'MongoDB',
   'Mongoose',
-  'MySQL',
-  'SQLServer',
   'Firebase',
 ]
+const databases = ['MongoDB', 'MySQL', 'SQLServer']
 ---
 
 <SectionLayout sableColor='#FFC83C' title='Technologies'>
@@ -45,6 +43,10 @@ const backendStacks = [
     <div class='technologies backend'>
       <h3>Backend</h3>
       <TechList technologies={backendStacks} />
+    </div>
+    <div class='technologies backend'>
+      <h3>Database Management</h3>
+      <TechList technologies={databases} />
     </div>
   </div>
 </SectionLayout>
