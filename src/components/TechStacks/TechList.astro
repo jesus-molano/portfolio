@@ -13,7 +13,7 @@ const { technologies } = Astro.props
       return (
         <li>
           <a href={`/projects/tag/${slug}`}>
-            <img src={`/images/${slug}.svg`} alt={tech} />
+            <img src={`/images/${slug}.svg`} alt={tech} width="20" height="20"/>
           </a>
           <span>{tech}</span>
         </li>
@@ -53,8 +53,6 @@ const { technologies } = Astro.props
         
 
         img {
-          min-width: 25px;
-          min-height: 20px;
           width: 100%;
           height: auto;
           max-height: 100%;
