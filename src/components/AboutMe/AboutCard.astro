@@ -11,7 +11,7 @@ const { image, alt } = Astro.props
   <p class='about-description'>
     <slot />
   </p>
-  <img class='about-img' loading='lazy' src={image} alt={alt} />
+  <img class='about-img' loading='lazy' src={image} alt={alt} width="280" height="150" />
 </div>
 
 <style lang='scss'>
