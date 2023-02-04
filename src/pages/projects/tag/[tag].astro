@@ -4,25 +4,27 @@ import ProjectsListLayout from '@layouts/ProjectsListLayout.astro'
 import type { ProjectFrontmatter } from '@types'
 import { capitalizeSentence } from '@utils'
 
-export async function getStaticPaths() {
-  const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
-  let tags: string[] = []
-  projects.forEach((project) => {
-    if (project.frontmatter.tags) {
-      tags.push(...project.frontmatter.tags)
-    }
-  })
-  return tags.map((tag) => ({
-    params: {
-      tag: tag.toLocaleLowerCase(),
-    },
-  }))
-}
+
+// getStaticPaths is ignored with output: 'server' in Astro.config.mjs
+// export async function getStaticPaths() {
+//   const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
+//   let tags: string[] = []
+//   projects.forEach((project) => {
+//     if (project.frontmatter.tags) {
+//       tags.push(...project.frontmatter.tags)
+//     }
+//   })
+//   return tags.map((tag) => ({
+//     params: {
+//       tag: tag.toLocaleLowerCase(),
+//     },
+//   }))
+// }
 
 const { tag } = Astro.params
 
 let projects = await Astro.glob<ProjectFrontmatter>('../*.md')
-projects = projects.filter((project) => {
+const filterProjects = projects.filter((project) => {
   let shouldShow = false
   project.frontmatter.tags?.forEach((projectTag) => {
     if (projectTag.toLocaleLowerCase() === tag) {
@@ -35,7 +37,11 @@ projects = projects.filter((project) => {
 
 <ProjectsListLayout title={`${capitalizeSentence(tag as string)} Projects`}>
   <p>Projects with <span class='tag'>{tag?.toLocaleUpperCase()}</span> tag:</p>
-  <ProjectsList projects={projects} />
+  {
+    filterProjects.length === 0 
+    ? <p class="not-found">I don't have any {tag?.toLocaleUpperCase()} project published on my page yet. You can take a look at my <a href="https://github.com/jesus-molano">Github</a>.</p>
+    : <ProjectsList projects={filterProjects} />
+  }
 </ProjectsListLayout>
 
 <style lang='scss'>
@@ -50,5 +56,16 @@ projects = projects.filter((project) => {
     text-decoration: none;
     background-color: var(--color-tertiary);
     padding: 0.25rem 0.5rem;
+  }
+
+  .not-found {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 900;
+    a{
+      color: var(--color-primary);
+      text-decoration: none;
+    }
   }
 </style>

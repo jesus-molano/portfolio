@@ -4,6 +4,7 @@ import compress from "astro-compress";
 
 export default defineConfig({
   root: '.',
+  output: 'server',
   site: 'https://www.jesusmolano.dev/',
   base: '/',
   server: {
