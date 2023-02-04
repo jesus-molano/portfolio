@@ -39,7 +39,7 @@ input[type="checkbox"]:checked + label .moon {
 <script>
   type Theme = 'light' | 'dark'
 
-  let colorMode: Theme = 'light'
+  let colorMode: Theme
   const storedColorMode = localStorage.getItem('color-mode')
   
   function setColorMode(mode: Theme) {
