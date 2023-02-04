@@ -1,6 +1,7 @@
 ---
 import Header from '@components/Header/index.astro'
 import Footer from '@components/Footer/index.astro'
+import Spinner from '@components/Spinner.astro'
 
 type Props = {
   title: string
@@ -30,6 +31,7 @@ const { title } = Astro.props
     <title>{title} | Jesús Molano</title>
   </head>
   <body>
+    <Spinner />
     <Header />
     <main>
       <slot />
