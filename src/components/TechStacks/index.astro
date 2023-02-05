@@ -1,31 +1,7 @@
 ---
 import SectionLayout from '@layouts/SectionLayout.astro'
-import TechList from './TechList.astro';
-
-const frontendStacks = [
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Redux',
-  'React Router',
-  'Vue',
-  'Astro',
-  'Cypress',
-  'TailwindCSS',
-  'Bootstrap',
-  'Material UI',
-  'Sass',
-]
-const backendStacks = [
-  'NodeJS',
-  'Express',
-  'Php',
-  'Mongoose',
-  'Firebase',
-]
-const databases = ['MongoDB', 'MySQL', 'SQLServer']
+import TechList from '@components/TechStacks/TechList.astro'
+import { frontendStacks, backendStacks, databases } from '@utils'
 ---
 
 <SectionLayout sableColor='#FFC83C' title='Technologies'>

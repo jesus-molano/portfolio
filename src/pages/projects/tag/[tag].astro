@@ -1,24 +1,17 @@
 ---
+import type { ProjectFrontmatter } from '@types'
+import { frontendStacks, backendStacks, databases, capitalizeSentence  } from '@utils'
 import ProjectsList from '@components/ProjectsList.astro'
 import ProjectsListLayout from '@layouts/ProjectsListLayout.astro'
-import type { ProjectFrontmatter } from '@types'
-import { capitalizeSentence } from '@utils'
 
-// getStaticPaths is ignored with output: 'server' in Astro.config.mjs
-// export async function getStaticPaths() {
-//   const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
-//   let tags: string[] = []
-//   projects.forEach((project) => {
-//     if (project.frontmatter.tags) {
-//       tags.push(...project.frontmatter.tags)
-//     }
-//   })
-//   return tags.map((tag) => ({
-//     params: {
-//       tag: tag.toLocaleLowerCase(),
-//     },
-//   }))
-// }
+export async function getStaticPaths() {
+  const tags = [...frontendStacks, ...backendStacks, ...databases]
+  return tags.map((tag) => ({
+    params: {
+      tag: tag.toLocaleLowerCase(),
+    },
+  }))
+}
 
 const { tag } = Astro.params
 
