@@ -1,6 +1,3 @@
----
-export const prerender = true
----
 
 <div class='spinner'>
   <div class='bounce1'></div>
@@ -63,10 +60,16 @@ export const prerender = true
 </style>
 
 <script>
+  import { disableScroll, enableScroll } from "@utils";
+
   type Spinner = HTMLDivElement | null;
+
+  disableScroll()
 
   window.addEventListener('load', () => {
     const spinner: Spinner = document.querySelector('.spinner');
     spinner && (spinner.style.display = 'none');
+    enableScroll()
   });
+
 </script>

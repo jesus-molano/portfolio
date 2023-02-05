@@ -31,25 +31,13 @@ import ThemeSwitch from './ThemeSwitch.astro';
 </style>
 
 <script>
+import { disableScroll, enableScroll } from '@utils'
+
   const burgerMenu: HTMLDivElement | null =
     document.querySelector('.burgerMenu')
   const nav: HTMLElement | null = document.querySelector('nav')
   const links: NodeListOf<HTMLAnchorElement> =
     document.querySelectorAll('nav a')
-
-  function enableScroll() {
-    document.documentElement.style.scrollBehavior = 'smooth'
-    window.onscroll = () => {}
-  }
-
-  function disableScroll() {
-    document.documentElement.style.scrollBehavior = 'unset'
-    const windowX = window.scrollX
-    const windowY = window.scrollY
-    window.onscroll = () => {
-      window.scrollTo(windowX, windowY)
-    }
-  }
 
   burgerMenu?.addEventListener('click', () => {
     // Prevent scrolling when nav is open

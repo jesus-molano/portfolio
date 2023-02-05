@@ -1,8 +1,18 @@
 :root {
   --font-general: 'Poppins', sans-serif;
   --font-title: 'StarJedi', sans-serif;
+  --color-primary: #FFC83C;
+  --color-secondary: #EB294C;
+  --color-tertiary: #3CC4FF;
+  --color-quaternary: #3CFF5B;
+  --color-text: #FFFFFF;
+  --color-background: #071118;
+  --color-bg-soft: #1c283d;
+  --color-bg-dark: #040A0E;
+  --color-tech: #1c283d;
 } 
-:root[data-theme='dark'] {
+:root[data-theme='dark'],
+:root[prefers-color-scheme='dark'] {
   --color-primary: #FFC83C;
   --color-secondary: #EB294C;
   --color-tertiary: #3CC4FF;
@@ -13,7 +23,8 @@
   --color-bg-dark: #040A0E;
   --color-tech: #1c283d;
 }
-:root[data-theme='light'] {
+:root[data-theme='light'],
+:root[prefers-color-scheme='light']  {
   --color-primary: #004b71;
   --color-secondary: #EB294C;
   --color-tertiary: #9E9D24;

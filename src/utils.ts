@@ -29,4 +29,18 @@ function sortElementsByDate(projects: Project[]): Project[] {
   
 }
 
-export { formatDate, capitalizeSentence, sortElementsByDate }
+function enableScroll() {
+  document.documentElement.style.scrollBehavior = 'smooth'
+  window.onscroll = () => {}
+}
+
+function disableScroll() {
+  document.documentElement.style.scrollBehavior = 'unset'
+  const windowX = window.scrollX
+  const windowY = window.scrollY
+  window.onscroll = () => {
+    window.scrollTo(windowX, windowY)
+  }
+}
+
+export { formatDate, capitalizeSentence, sortElementsByDate, enableScroll, disableScroll }
