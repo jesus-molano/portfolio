@@ -52,12 +52,11 @@ const { technologies } = Astro.props
           box-shadow: var(--color-tech) 0 0 2rem;
           transform: scale(1.1);
         }
-        
-
         img {
-          width: 100%;
+          min-width:2rem;
           height: auto;
           max-height: 100%;
+          object-fit: contain;
         }
       }
       span {
