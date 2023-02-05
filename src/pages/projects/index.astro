@@ -2,10 +2,12 @@
 import type { ProjectFrontmatter } from '@types'
 import ProjectsListLayout from '@layouts/ProjectsListLayout.astro';
 import ProjectsList from '@components/ProjectsList.astro';
+import Spinner from '@components/Spinner.astro';
 
 let projects = await Astro.glob<ProjectFrontmatter>('./*.md')
 ---
 
 <ProjectsListLayout title="Projects" >
+  <Spinner />
   <ProjectsList projects={projects} />
 </ProjectsListLayout>

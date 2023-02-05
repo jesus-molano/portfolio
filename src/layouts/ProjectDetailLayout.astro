@@ -4,6 +4,7 @@ import type { ProjectFrontmatter } from '@types'
 import BaseLayout from './BaseLayout.astro'
 import { formatDate } from '@utils'
 import GoBack from '@components/GoBack.astro'
+import Spinner from '@components/Spinner.astro'
 
 type Props = MarkdownLayoutProps<ProjectFrontmatter>
 
@@ -11,6 +12,7 @@ const { title, date, tags, draft } = Astro.props.frontmatter
 ---
 
 <BaseLayout title='Project'>
+  <Spinner />
   <section class='project-detail'>
     <GoBack />
     {
