@@ -27,6 +27,13 @@ function sortElementsByDate (projects: Project[]): Project[] {
   })
 }
 
+function slugify (input: string): string {
+  return input
+    .toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '')
+}
+
 function enableScroll () {
   document.documentElement.style.scrollBehavior = 'smooth'
   window.onscroll = () => {}
@@ -64,6 +71,7 @@ export {
   frontendStacks,
   backendStacks,
   databases,
+  slugify,
   formatDate,
   capitalizeSentence,
   sortElementsByDate,

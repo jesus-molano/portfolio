@@ -1,21 +1,32 @@
 ---
 import type { ProjectFrontmatter } from '@types'
-import { frontendStacks, backendStacks, databases, capitalizeSentence  } from '@utils'
+import {  frontendStacks,  backendStacks,  databases,  capitalizeSentence, slugify } from '@utils'
 import ProjectsList from '@components/ProjectsList.astro'
 import ProjectsListLayout from '@layouts/ProjectsListLayout.astro'
 
+const { tag } = Astro.params
+
+// Get all tags from projects and technologies and make a dinamic route for each one
 export async function getStaticPaths() {
-  const tags = [...frontendStacks, ...backendStacks, ...databases]
-  return tags.map((tag) => ({
+  const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
+  const technologies = [...frontendStacks, ...backendStacks, ...databases]
+  const allTags = technologies.map(tag => slugify(tag))
+
+  projects.forEach((project) => {
+    project.frontmatter.tags?.forEach((tag) => {
+      if (!allTags.includes(tag)) {
+        allTags.push(tag)
+      }
+    })
+  })
+  return allTags.map((tag) => ({
     params: {
-      tag: tag.toLocaleLowerCase(),
+      tag: tag,
     },
   }))
 }
-
-const { tag } = Astro.params
-
-let projects = await Astro.glob<ProjectFrontmatter>('../*.md')
+// Show only projects with the tag
+const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
 const filterProjects = projects.filter((project) => {
   let shouldShow = false
   project.frontmatter.tags?.forEach((projectTag) => {
@@ -30,19 +41,20 @@ const filterProjects = projects.filter((project) => {
 <ProjectsListLayout title={`${capitalizeSentence(tag as string)} Projects`}>
   <p>Projects with <span class='tag'>{tag?.toLocaleUpperCase()}</span> tag:</p>
   {
-    filterProjects.length === 0 
-    ? (
-      tag === 'astro' 
-      ? <p class="not-found">This website is completely made with Astro and Typescript. Check it out!</p>
-      : (
+    filterProjects.length === 0 ? (
+      tag === 'astro' ? (
         <p class='not-found'>
-          I don't have any {tag?.toLocaleUpperCase()} project published on my page
-          yet. You can take a look at my{' '}
+          This website is completely made with Astro and Typescript. Check it
+          out!
+        </p>
+      ) : (
+        <p class='not-found'>
+          I don't have any {tag?.toLocaleUpperCase()} project published on my
+          page yet. You can take a look at my{' '}
           <a href='https://github.com/jesus-molano'>Github</a>.
         </p>
       )
-    ) 
-    : (
+    ) : (
       <ProjectsList projects={filterProjects} />
     )
   }

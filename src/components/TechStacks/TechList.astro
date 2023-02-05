@@ -1,4 +1,6 @@
 ---
+import { slugify } from '@utils';
+
 interface Props {
   technologies: string[]
 }
@@ -9,7 +11,7 @@ const { technologies } = Astro.props
 <ul>
   {
     technologies.map((tech) => {
-      const slug = tech.toLowerCase().replace(' ', '-')
+      const slug = slugify(tech)
       return (
         <li>
           <a href={`/projects/tag/${slug}`}>
