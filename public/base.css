@@ -1,6 +1,8 @@
 :root {
   /* --font-general: 'Poppins', sans-serif; */
-  --font-general: Helvetica, 'system-ui', sans-serif;
+  --font-general: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+  "Helvetica Neue", Arial, sans-serif;
   --font-title: 'StarJedi', sans-serif;
   --color-primary: #FFC83C;
   --color-secondary: #EB294C;
