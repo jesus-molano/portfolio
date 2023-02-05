@@ -60,7 +60,6 @@ const { name, rol, image } = Astro.props
       -webkit-background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
-
     }
     span {
       font-size: 1rem;
@@ -76,16 +75,15 @@ const { name, rol, image } = Astro.props
       width: 15.125rem;
       height: 14.4375rem;
       background-color: var(--color-background);
-      box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.25) ;
+      box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.25);
       border-radius: 3.125rem;
       .image {
-        width: min(17.125rem, 100%);
+        width: min(15.625rem, 100%);
         height: 100%;
         position: absolute;
         top: -3rem;
-        left: -1.5rem;
-        background-image: url('/images/myself_230x210.webp');
-        background-size: cover;
+        left: 0.5rem;
+        background-image: url('/images/myself_250x230.webp');
         background-position: center;
         background-repeat: no-repeat;
       }
@@ -112,12 +110,13 @@ const { name, rol, image } = Astro.props
       .myself-background {
         width: 18.125rem;
         height: 19.4375rem;
-        image {
-        background-image: url('/images/myself_452x414.webp');
-          width: min(21.125rem, 100%);
-          height: auto;
+        .image {
+          background-image: url('/images/myself_452x414.webp');
+          background-size: cover;
+          width: min(18.25rem, 100%);
+          height: 100%;
           top: -3rem;
-          left: -1.5rem;
+          left: -0.4rem;
         }
       }
     }
@@ -160,6 +159,7 @@ const { name, rol, image } = Astro.props
         animation: slide-right 1s ease-in-out forwards;
         .image {
           background-image: url('/images/myself.webp');
+          background-size: cover;
           width: min(27.125rem, 100%);
         }
         @keyframes slide-right {
