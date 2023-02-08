@@ -51,18 +51,21 @@
 
       path{
         stroke: var(--color-text);
+        transition: all 0.3s ease-in-out;
       }
     }
 
     &.active {
       svg {
         path:nth-child(2) {
-          transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-          translate: 0.5rem;
+          transform-origin: top left;
+          transform: rotate(45deg) translate(5px, -6px);
+          -webkit-transform: rotate(45deg) translate(5px, -6px);
+          -moz-transform: rotate(45deg) translate(5px, -6px);
           stroke: var(--color-secondary);
           filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
           -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+          -moz-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
         }
 
         path:nth-child(1) {
@@ -70,12 +73,14 @@
         }
 
         path:nth-child(3) {
-          transform: rotate(-45deg);
-          -webkit-transform: rotate(-45deg);
-          translate: -0.6rem 0.52rem;
+          transform-origin: bottom left;
+          transform: rotate(-45deg) translate(5px, 6px);
+          -webkit-transform: rotate(-45deg) translate(5px, 6px);
+          -moz-transform: rotate(-45deg) translate(5px, 6px);
           stroke: var(--color-secondary);
           filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
           -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+          -moz-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
         }
       }
     }
