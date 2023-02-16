@@ -3,7 +3,7 @@ Welcome to my portfolio project. My name is Jesus Molano, and this is where I sh
 
 This portfolio project is a web application that serves as an online resume for potential employers or clients to learn more about my work and experience. It features a clean, modern design with easy navigation, and it's built using various technologies such as Astro.js, TypeScript, and Sass.
 
-![Screenshot of my portfolio project](/images/jesusmolano.png)
+![Screenshot of my portfolio project](/images/jesusmolano.png "Screenshot of my portfolio project")
 
 ## Pages
 - Home: Where, in order, I tell a little about my background, indicate the technologies I have worked with, show the last finished project I have uploaded and a small contact section with my social networks and email.
