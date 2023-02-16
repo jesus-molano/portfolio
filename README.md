@@ -1,50 +1,25 @@
-# Welcome to [Astro](https://astro.build)
+# Hi there!👋 
+Welcome to my portfolio project. My name is Jesus Molano, and this is where I showcase my skills, projects, and achievements as a software developer.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+This portfolio project is a web application that serves as an online resume for potential employers or clients to learn more about my work and experience. It features a clean, modern design with easy navigation, and it's built using various technologies such as Astro.js, TypeScript, and Sass.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Screenshot of my portfolio project](/images/jesusmolano.png)
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+## Pages
+- Home: Where, in order, I tell a little about my background, indicate the technologies I have worked with, show the last finished project I have uploaded and a small contact section with my social networks and email.
+- Projects List: Complete list of the projects I have done ordered by date and indicating with an icon the main technology with which the project is made.
+- \[Tag\]: Pages are generated dynamically with all the projects with this "Tag" according to the technologies and tags provided in each project.
+- Project Details: Markdown file with the details, descriptions and images of the selected project.
 
 
-## 🚀 Project Structure
+## Technologies
+This portfolio project was built using the following technologies:
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Astro](https://astro.build/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Contributions
+I'm always looking for ways to improve my portfolio project, so any contributions or feedback are greatly appreciated. If you have any suggestions or find any bugs, please feel free to create a pull request or open an issue.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Thank you for taking the time to check out my portfolio project!
