@@ -1,45 +1,53 @@
 ---
-import SectionLayout from '@layouts/SectionLayout.astro'
-import type { ProjectFrontmatter } from '@types'
-import { sortElementsByDate } from '@utils'
+import SectionLayout from "@layouts/SectionLayout.astro";
+import type { ProjectFrontmatter } from "@types";
+import { sortElementsByDate } from "@utils";
 
-let projects = await Astro.glob<ProjectFrontmatter>('../../pages/projects/*.md')
-const lastProject = sortElementsByDate(projects)[0]
-const projectContent = lastProject.compiledContent()
+let projects = await Astro.glob<ProjectFrontmatter>(
+  "../../pages/projects/*.md"
+);
+const lastProject = sortElementsByDate(projects)[0];
+const projectContent = lastProject.compiledContent();
 const firstParagraph = projectContent
-  .substring(0, projectContent.indexOf('</p>'))
-  .replace(/<p>/g, '')
+  .substring(0, projectContent.indexOf("</p>"))
+  .replace(/<p>/g, "");
 ---
 
-<SectionLayout title='Last Project' sableColor='#3CFF5B'>
-  <div class='last-project-container'>
-    <p class='description'>
+<SectionLayout title="Last Project" sableColor="#3CFF5B">
+  <div class="last-project-container">
+    <p class="description">
       The last finished project I have done. Small projects and tests will be in
-      my <a href="https://github.com/jesus-molano'/">Github</a> if you are interested.
+      my <a href="https://github.com/jesus-molano/">Github</a> if you are interested.
     </p>
-    <div class='project-detail'>
-      <h3 class='project-title'>{lastProject.frontmatter.title}</h3>
+    <div class="project-detail">
+      <h3 class="project-title">{lastProject.frontmatter.title}</h3>
       <div class="project-texts">
         <p>{firstParagraph}</p>
-        <a href={lastProject.url} class='project-link'>See details</a>
+        <a href={lastProject.url} class="project-link">See details</a>
       </div>
-      <img src={lastProject.frontmatter.image} alt='Last project image' width="224" height="145" loading="lazy"/>
+      <img
+        src={lastProject.frontmatter.image}
+        alt="Last project image"
+        width="224"
+        height="145"
+        loading="lazy"
+      />
     </div>
     <a href="/projects" class="go-all-projects">Go to all projects</a>
   </div>
 </SectionLayout>
 
-<style lang='scss'>
+<style lang="scss">
   .last-project-container {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    
-    .project-title{
+
+    .project-title {
       position: absolute;
       top: -1.5rem;
     }
-    
+
     a {
       font-weight: 900;
       color: var(--color-primary);
@@ -94,12 +102,12 @@ const firstParagraph = projectContent
           font-size: 2rem;
         }
 
-        img{
-          width: min(20rem, 100%)
+        img {
+          width: min(20rem, 100%);
         }
 
-        .project-texts{
-          width:min(30rem, 100%)
+        .project-texts {
+          width: min(30rem, 100%);
         }
       }
     }
