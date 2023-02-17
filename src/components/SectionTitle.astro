@@ -1,11 +1,11 @@
 ---
-import SableLaser from '../components/SableLaser.astro'
-export interface Props {
-  title: string
-  color: string
+import SableLaser from "../components/SableLaser.astro";
+interface Props {
+  title: string;
+  color: string;
 }
 
-const { title, color } = Astro.props
+const { title, color } = Astro.props;
 ---
 
 <div class="title-container">
@@ -13,13 +13,12 @@ const { title, color } = Astro.props
   <SableLaser color={color} />
 </div>
 
-<style lang='scss'>
-  .title-container{
+<style lang="scss">
+  .title-container {
     h2 {
       padding-left: 0.5rem;
       font-family: var(--font-title);
       font-size: 2rem;
-  
     }
     @media (max-width: 258px) {
       h2 {
