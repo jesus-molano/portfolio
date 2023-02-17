@@ -19,7 +19,7 @@ import type { ProjectFrontmatter } from '@types'
 
 type Project = MarkdownInstance<ProjectFrontmatter>
 
-function sortElementsByDate (projects: Project[]): Project[] {
+function sortElementsByDate(projects: Project[]): Project[] {
   return projects.sort((a: Project, b: Project): number => {
     if (a.frontmatter.date > b.frontmatter.date) return -1
     if (b.frontmatter.date > a.frontmatter.date) return 1
@@ -27,19 +27,19 @@ function sortElementsByDate (projects: Project[]): Project[] {
   })
 }
 
-function slugify (input: string): string {
+function slugify(input: string): string {
   return input
     .toLowerCase()
     .replace(/ /g, '-')
     .replace(/[^\w-]+/g, '')
 }
 
-function enableScroll () {
+function enableScroll(): void {
   document.documentElement.style.scrollBehavior = 'smooth'
-  window.onscroll = () => {}
+  window.onscroll = () => { }
 }
 
-function disableScroll () {
+function disableScroll(): void {
   document.documentElement.style.scrollBehavior = 'unset'
   const windowX = window.scrollX
   const windowY = window.scrollY

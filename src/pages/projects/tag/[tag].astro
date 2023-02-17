@@ -1,66 +1,72 @@
 ---
-import type { ProjectFrontmatter } from '@types'
-import {  frontendStacks,  backendStacks,  databases,  capitalizeSentence, slugify } from '@utils'
-import ProjectsList from '@components/ProjectsList.astro'
-import ProjectsListLayout from '@layouts/ProjectsListLayout.astro'
+import ProjectsList from "@components/ProjectsList.astro";
+import ProjectsListLayout from "@layouts/ProjectsListLayout.astro";
+import type { ProjectFrontmatter } from "@types";
+import {
+  frontendStacks,
+  backendStacks,
+  databases,
+  capitalizeSentence,
+  slugify,
+} from "@utils";
 
-const { tag } = Astro.params
+const { tag } = Astro.params;
 
 // Get all tags from projects and technologies and make a dinamic route for each one
 export async function getStaticPaths() {
-  const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
-  const technologies = [...frontendStacks, ...backendStacks, ...databases]
-  const allTags = technologies.map(tag => slugify(tag))
+  const projects = await Astro.glob<ProjectFrontmatter>("../*.md");
+  const technologies = [...frontendStacks, ...backendStacks, ...databases];
+  const allTags = technologies.map((tag) => slugify(tag));
 
   projects.forEach((project) => {
     project.frontmatter.tags?.forEach((tag) => {
       if (!allTags.includes(tag)) {
-        allTags.push(tag)
+        allTags.push(tag);
       }
-    })
-  })
+    });
+  });
   return allTags.map((tag) => ({
     params: {
       tag: tag,
     },
-  }))
+  }));
 }
 // Show only projects with the tag
-const projects = await Astro.glob<ProjectFrontmatter>('../*.md')
-const filterProjects = projects.filter((project) => {
-  let shouldShow = false
+const projects = await Astro.glob<ProjectFrontmatter>("../*.md");
+const projectsWithTag = projects.filter((project) => {
+  let shouldShow = false;
   project.frontmatter.tags?.forEach((projectTag) => {
     if (projectTag.toLocaleLowerCase() === tag) {
-      shouldShow = true
+      shouldShow = true;
     }
-  })
-  return shouldShow
-})
+  });
+  return shouldShow;
+});
 ---
 
 <ProjectsListLayout title={`${capitalizeSentence(tag as string)} Projects`}>
-  <p>Projects with <span class='tag'>{tag?.toLocaleUpperCase()}</span> tag:</p>
+  <p>Projects with <span class="tag">{tag?.toLocaleUpperCase()}</span> tag:</p>
   {
-    filterProjects.length === 0 ? (
-      tag === 'astro' ? (
-        <p class='not-found'>
+    projectsWithTag.length === 0 ? (
+      tag === "astro" ? (
+        <p class="not-found">
           This website is completely made with Astro and Typescript. Check it
           out!
         </p>
       ) : (
-        <p class='not-found'>
+        <p class="not-found">
           I don't have any {tag?.toLocaleUpperCase()} project published on my
-          page yet. You can take a look at my{' '}
-          <a href='https://github.com/jesus-molano'>Github</a>.
+          page yet. You can take a look at my{" "}
+          <a href="https://github.com/jesus-molano">Github</a>.
         </p>
       )
     ) : (
-      <ProjectsList projects={filterProjects} />
+      <ProjectsList projects={projectsWithTag} />
     )
   }
 </ProjectsListLayout>
 
-<style lang='scss'>
+<style lang="scss">
   .tag {
     text-align: center;
     border-radius: 8px;
