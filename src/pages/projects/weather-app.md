@@ -9,6 +9,7 @@ tags:
     'vite',
     'vercel',
     'oneweather',
+    'api',
     'html',
     'css',
   ]
