@@ -61,7 +61,7 @@ const projectsWithTag = projects.filter((project) => {
         </p>
       )
     ) : (
-      <ProjectsList projects={projectsWithTag} />
+      <ProjectsList projects={projectsWithTag} client:load />
     )
   }
 </ProjectsListLayout>
