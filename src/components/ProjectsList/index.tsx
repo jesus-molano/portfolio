@@ -1,9 +1,9 @@
+import { useState, useEffect } from 'react'
 import type { MarkdownInstance } from 'astro'
 import type { ProjectFrontmatter } from '@types'
 import { formatDate, sortElementsByDate } from '@utils'
-import './project-list.css'
 import { SearchBar } from '@components/SearchBar'
-import { useState } from 'react'
+import './project-list.css'
 
 type Project = MarkdownInstance<ProjectFrontmatter>
 
@@ -14,7 +14,12 @@ interface Props {
 export const ProjectsList = ({ projects }: Props) => {
   projects = sortElementsByDate(projects)
   const [listedProjects, setListedProjects] = useState(projects)
-  
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    filterProjects(search)
+  }, [search])
+
   if (import.meta.env.PROD) {
     setListedProjects(projects.filter(project => !project.frontmatter.draft))
   }
@@ -34,7 +39,7 @@ export const ProjectsList = ({ projects }: Props) => {
     <div className='projects-container'>
       <div className="search-container">
         <label htmlFor="search-bar" className='search-title'>Search by technology or title</label>
-        <SearchBar filterProjects={filterProjects} />
+        <SearchBar filterProjects={filterProjects} setSearch={setSearch} />
       </div>
       {listedProjects.length === 0
         ? <div className='no-projects'>No results match your search.</div>

@@ -3,12 +3,14 @@ import './searchbar.css'
 
 interface Props {
   filterProjects: (search: string) => void
+  setSearch: (search: string) => void
 }
 
-export const SearchBar = ({ filterProjects }: Props) => {
-  const [search, setSearch] = useState('')
+export const SearchBar = ({ filterProjects, setSearch }: Props) => {
 
+  const [inputValue, setInputValue] = useState('')
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setInputValue(event.target.value)
     setSearch(event.target.value)
     filterProjects(event.target.value)
   }
@@ -19,7 +21,7 @@ export const SearchBar = ({ filterProjects }: Props) => {
         type='text'
         placeholder='Search'
         className='search-input'
-        value={search}
+        value={inputValue}
         onChange={handleSearch}
       />
 
