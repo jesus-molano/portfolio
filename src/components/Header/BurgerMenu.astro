@@ -1,39 +1,28 @@
 <button
   name='burger menu'
   class='burgerMenu'
+  aria-controls="primary-navigation"
+  aria-expanded="false"
   role='button'
   aria-label='burger menu'
 >
   <svg
-    width='24'
-    height='24'
-    viewBox='0 0 24 24'
-    fill='none'
+    class="hamburger"
+    width='32'
+    height='32'
+    viewBox='0 0 100 100'
+    fill='var(--burgerMenu-color)'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <path
-      d='M3 12H21'
-      stroke='white'
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'></path>
-    <path
-      d='M3 6H21'
-      stroke='white'
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'></path>
-    <path
-      d='M3 18H21'
-      stroke='white'
-      stroke-width='2'
-      stroke-linecap='round'
-      stroke-linejoin='round'></path>
+    <rect class="line top" width='80' height='10' x='10' y='25' rx='5'/>
+    <rect class="line middle" width='80' height='10' x='10' y='45' rx='5'/>
+    <rect class="line bottom" width='80' height='10' x='10' y='65' rx='5'/>
   </svg>
 </button>
 
 <style lang='scss'>
   .burgerMenu {
+    --burgerMenu-color: var(--color-text);
     background: none;
     border: none;
     cursor: pointer;
@@ -45,45 +34,38 @@
     top: 0;
     width: 5rem;
 
-    svg {
-      height: 2rem;
-      width: 2rem;
+      .line{
+        transition: 
+          y 0.3s ease-in 0.3s,
+          transform 0.3s ease-in,
+          opacity 0s 0.3s;
+        transform-origin: center;
 
-      path{
-        stroke: var(--color-text);
-        transition: all 0.3s ease-in-out;
       }
-    }
+      &.active .line{
+        transition: 
+          y 0.3s ease-in,
+          transform 0.3s ease-in 0.3s,
+          opacity 0s 0.3s,
+          fill 0.3s 0.3s;
 
-    &.active {
-      svg {
-        path:nth-child(2) {
-          transform-origin: top left;
-          transform: rotate(45deg) translate(5px, -6px);
-          -webkit-transform: rotate(45deg) translate(5px, -6px);
-          -moz-transform: rotate(45deg) translate(5px, -6px);
-          stroke: var(--color-secondary);
-          filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
-          -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
-          -moz-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
-        }
-
-        path:nth-child(1) {
-          opacity: 0;
-        }
-
-        path:nth-child(3) {
-          transform-origin: bottom left;
-          transform: rotate(-45deg) translate(5px, 6px);
-          -webkit-transform: rotate(-45deg) translate(5px, 6px);
-          -moz-transform: rotate(-45deg) translate(5px, 6px);
-          stroke: var(--color-secondary);
-          filter: drop-shadow(0px 0px 0.1rem rgb(255, 255, 255));
-          -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
-          -moz-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
-        }
+        fill: var(--color-secondary);
       }
-    }
+    
+
+      &.active :is(.top, .bottom){
+        y:45
+      }
+      &.active .top {
+        transform: rotate(45deg);
+      }
+      &.active .middle {
+        opacity: 0;
+      }
+      &.active .bottom {
+        transform: rotate(-45deg);
+      }
+    
     @media (min-width: 769px) {
       display: none;
     }

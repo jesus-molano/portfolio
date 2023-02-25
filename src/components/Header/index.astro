@@ -56,4 +56,14 @@ import { disableScroll, enableScroll } from '@utils'
     })
   })
 
+  // enable scroll when width is greater than 768px
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      enableScroll()
+      burgerMenu?.classList.remove('active')
+      nav?.classList.remove('open')
+    }
+  })
+  
+
 </script>
