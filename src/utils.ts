@@ -27,6 +27,16 @@ function sortElementsByDate(projects: Project[]): Project[] {
   })
 }
 
+function filterProjectsByTagAndTitle(projects: ProjectFrontmatter[], filter: string): ProjectFrontmatter[] {
+  const lowerCaseFilter = filter.toLowerCase();
+  return projects.filter(project => {
+    const lowerCaseTitle = project.title.toLowerCase();
+    const lowerCaseTags = project.tags.map(tag => tag.toLowerCase());
+    
+    return lowerCaseTitle.startsWith(lowerCaseFilter) || lowerCaseTags.some(tag => tag.startsWith(lowerCaseFilter));
+  });
+}
+
 function slugify(input: string): string {
   return input
     .toLowerCase()
@@ -76,5 +86,6 @@ export {
   capitalizeSentence,
   sortElementsByDate,
   enableScroll,
-  disableScroll
+  disableScroll,
+  filterProjectsByTagAndTitle
 }
