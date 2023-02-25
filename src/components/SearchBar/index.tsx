@@ -1,28 +1,25 @@
-import { useState } from 'react'
-import './searchbar.css'
+import { useState } from 'react';
+import './searchbar.css';
 
 interface Props {
-  filterProjects: (search: string) => void
-  setSearch: (search: string) => void
+  filterProjects: (search: string) => void;
 }
 
-export const SearchBar = ({ filterProjects, setSearch }: Props) => {
+export const SearchBar = ({ filterProjects }: Props) => {
+  const [search, setSearch] = useState('');
 
-  const [inputValue, setInputValue] = useState('')
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(event.target.value)
-    setSearch(event.target.value)
-    filterProjects(event.target.value)
-  }
-
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+    filterProjects(search);
+  };
   return (
     <div id='search-bar' className='search-bar'>
       <input
         type='text'
         placeholder='Search'
         className='search-input'
-        value={inputValue}
-        onChange={handleSearch}
+        value={search}
+        onChange={handleChange}
       />
 
       <svg

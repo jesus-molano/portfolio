@@ -14,32 +14,28 @@ interface Props {
 export const ProjectsList = ({ projects }: Props) => {
   projects = sortElementsByDate(projects)
   const [listedProjects, setListedProjects] = useState(projects)
-  const [search, setSearch] = useState('')
+  const [searchString, setSearchString] = useState('')
+
+  const filterProjects = (search: string) => {
+    setSearchString(search)
+  }
 
   useEffect(() => {
-    filterProjects(search)
-  }, [search])
-
-  if (import.meta.env.PROD) {
-    setListedProjects(projects.filter(project => !project.frontmatter.draft))
-  }
-  
-  const filterProjects = (search: string) => {
     const result = projects.filter(project => {
       const lowerCaseTitle = project.frontmatter.title.toLowerCase();
-      const lowerCaseFilter = search.toLowerCase();
+      const lowerCaseFilter = searchString.toLowerCase();
       const lowerCaseTags = project.frontmatter.tags.map(tag => tag.toLowerCase());
     
       return lowerCaseTitle.indexOf(lowerCaseFilter) !== -1 || lowerCaseTags.some(tag => tag.indexOf(lowerCaseFilter) !== -1);
     });
     setListedProjects(result)
-  }
+  }, [projects, searchString])
 
   return (
     <div className='projects-container'>
       <div className="search-container">
         <label htmlFor="search-bar" className='search-title'>Search by technology or title</label>
-        <SearchBar filterProjects={filterProjects} setSearch={setSearch} />
+        <SearchBar filterProjects={filterProjects} />
       </div>
       {listedProjects.length === 0
         ? <div className='no-projects'>No results match your search.</div>
