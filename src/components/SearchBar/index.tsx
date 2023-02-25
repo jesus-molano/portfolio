@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import './searchbar.css'
 
-export const SearchBar = ({ filterProjects }) => {
+interface Props {
+  filterProjects: (search: string) => void
+}
+
+export const SearchBar = ({ filterProjects }: Props) => {
   const [search, setSearch] = useState('')
 
-  const handleSearch = event => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearch(event.target.value)
     filterProjects(event.target.value)
   }
