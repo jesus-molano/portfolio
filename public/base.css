@@ -26,7 +26,7 @@
   --color-bg-dark: #040a0e;
   --color-bg-soft: #1c283d;
   --color-tech: #1c283d;
-  --parallax-background: url(images/sky.webp);
+  --parallax-background: url(/images/sky.webp);
 }
 :root[data-theme='light'],
 :root[prefers-color-scheme='light'] {
@@ -40,7 +40,7 @@
   --color-bg-dark: #1f6ca7;
   --color-bg-soft: #4a8bbd;
   --color-tech: #4296d6;
-  --parallax-background: url(images/light-sky.webp);
+  --parallax-background: url(/images/light-sky.webp);
 }
 *,
 *::before,

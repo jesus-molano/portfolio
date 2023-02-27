@@ -1,6 +1,7 @@
 ---
 import MainTitle from './MainTitle.astro'
 import Presentation from './Presentation.astro'
+
 ---
 
 <div class='parallax-container' id='home'>
@@ -107,8 +108,6 @@ import Presentation from './Presentation.astro'
   const rocks = document.querySelector('.rocks') as HTMLImageElement
   const me = document.querySelector('.me') as HTMLImageElement
   const myself = document.querySelector('.myself-container') as HTMLDivElement
-
-  const myselfInitialPosition = myself.getBoundingClientRect().top
 
   window.addEventListener('scroll', function () {
     let value = window.scrollY
