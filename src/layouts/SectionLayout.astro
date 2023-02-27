@@ -3,12 +3,13 @@ import SectionTitle from '@components/SectionTitle.astro'
 interface Props {
   title?: string
   sableColor?: string
+  id: string
 }
 
-const { title = '', sableColor = '' } = Astro.props
+const { title = '', sableColor = '', id } = Astro.props
 ---
 
-<section>
+<section id={id}>
   <div class='container'>
     {sableColor && <SectionTitle title={title} color={sableColor} />}
     <slot />
