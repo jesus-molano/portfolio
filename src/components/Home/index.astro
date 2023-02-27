@@ -1,14 +1,28 @@
 ---
 import MainTitle from './MainTitle.astro'
 import Presentation from './Presentation.astro'
-
 ---
 
 <div class='parallax-container' id='home'>
   <MainTitle title='Hello There' />
-  <img class='parallax rocks' src='images/rocks.webp' alt='rocks' fetchpriority='high' />
-  <img class='parallax floor' src='images/floor.webp' alt='floor' fetchpriority='high'/>
-  <img class='parallax me' src='images/me.webp' alt='myself' fetchpriority='high'/>
+  <img
+    class='parallax rocks'
+    src='images/rocks.webp'
+    alt='rocks'
+    fetchpriority='high'
+  />
+  <img
+    class='parallax floor'
+    src='images/floor.webp'
+    alt='floor'
+    fetchpriority='high'
+  />
+  <img
+    class='parallax me'
+    src='images/me.webp'
+    alt='myself'
+    fetchpriority='high'
+  />
   <Presentation name='Jesus Molano' rol='Fullstack Developer' />
 </div>
 
@@ -24,7 +38,7 @@ import Presentation from './Presentation.astro'
     overflow: hidden;
     height: calc(100vh - 5rem);
     background-image: var(--parallax-background);
-    background-position: top;
+    background-position: var(--parallax-background-position);
     background-size: cover;
     background-repeat: repeat;
     margin-bottom: 5rem;

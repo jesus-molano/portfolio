@@ -27,6 +27,7 @@
   --color-bg-soft: #1c283d;
   --color-tech: #1c283d;
   --parallax-background: url(/images/sky.webp);
+  --parallax-background-position: top;
 }
 :root[data-theme='light'],
 :root[prefers-color-scheme='light'] {
@@ -41,6 +42,7 @@
   --color-bg-soft: #4a8bbd;
   --color-tech: #4296d6;
   --parallax-background: url(/images/light-sky.webp);
+  --parallax-background-position: center;
 }
 *,
 *::before,
