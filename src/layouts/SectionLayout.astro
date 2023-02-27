@@ -50,6 +50,7 @@ const { title = '', sableColor = '' } = Astro.props
         width: 100%;
       }
     }
+
     &:nth-child(even)::after {
       content: '';
       background-color: var(--color-bg-soft);
@@ -57,6 +58,24 @@ const { title = '', sableColor = '' } = Astro.props
       inset: 0;
       transform: skewY(3deg);
       isolation: isolate;
+
+      @media (min-width: 1440px) {
+        display: none;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 50%,
+          black 50%,
+          transparent
+        );
+      }
     }
   }
 </style>

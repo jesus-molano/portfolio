@@ -13,7 +13,7 @@ import SocialNetworts from '@components/SocialNetworts.astro'
     </p>
     <div class="hologram">
       <SocialNetworts direction='column' showText={true} width='1.6rem' />
-      <img src="/images/hologram.svg" alt="hologram">
+      <img src="/images/hologram.svg" alt="hologram" width="240" height="262">
     </div>
   </div>
 </SectionLayout>
@@ -38,6 +38,7 @@ import SocialNetworts from '@components/SocialNetworts.astro'
       align-items: center;
       position: relative;
       img{
+        height: auto;
         width: min(8rem, 100%);
         top: 6rem;
       }

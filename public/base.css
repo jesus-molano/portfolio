@@ -21,27 +21,25 @@
   --color-tertiary: #3cc4ff;
   --color-quaternary: #3cff5b;
   --color-text: #ffffff;
+  --color-text-alternative: #ffffff;
   --color-background: #071118;
-  --color-background-gradient-dark: rgba(7, 17, 24, 1);
-  --color-background-gradient-darker: rgba(23, 56, 79, 1);
-  --color-bg-soft: #1c283d;
   --color-bg-dark: #040a0e;
+  --color-bg-soft: #1c283d;
   --color-tech: #1c283d;
   --parallax-background: url(images/sky.webp);
 }
 :root[data-theme='light'],
 :root[prefers-color-scheme='light'] {
-  --color-primary: #f5a623;
-  --color-secondary: #d91e36;
-  --color-tertiary: #1b69a3;
+  --color-primary: #ffe98f;
+  --color-secondary: #eb294d;
+  --color-tertiary: #ffe57b;
   --color-quaternary: #5bb25b;
   --color-text: #ffffff;
-  --color-background: #1b69a3;
-  --color-background-gradient-dark: rgb(30, 113, 172);
-  --color-background-gradient-darker: rgb(21, 81, 127);
-  --color-bg-soft: #c8d9eb;
-  --color-bg-dark: #97a8c7;
-  --color-tech: #1b69a3;
+  --color-text-alternative: #000000;
+  --color-background: #154e79;
+  --color-bg-dark: #1f6ca7;
+  --color-bg-soft: #4a8bbd;
+  --color-tech: #4296d6;
   --parallax-background: url(images/light-sky.webp);
 }
 *,
@@ -56,6 +54,7 @@ html {
   scroll-behavior: smooth;
   min-height: 100vh;
   background-color: var(--color-background);
+  overflow-x: hidden;
 }
 
 @font-face {

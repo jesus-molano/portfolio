@@ -19,6 +19,7 @@ const { image } = Astro.props
     justify-content: center;
     align-items: center;
     height: calc(100vh - 33rem);
+    z-index: 3;
     animation: fade-in 1s ease-in-out forwards, scroll 1s infinite;
     @keyframes fade-in {
       0% {
@@ -44,7 +45,7 @@ const { image } = Astro.props
     a {
       img {
         height: 75px;
-        width: 40px;
+        width: 20px;
       }
     }
 

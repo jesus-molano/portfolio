@@ -1,15 +1,13 @@
 ---
 import MainTitle from './MainTitle.astro'
 import Presentation from './Presentation.astro'
-import ScrollArrow from './ScrollArrow.astro'
-import scrollArrowImg from '/images/deathstar-arrow.svg'
 ---
 
 <div class='parallax-container'>
   <MainTitle title='Hello There' />
-  <img class='parallax rocks' src='images/rocks.webp' alt='rocks' />
-  <img class='parallax floor' src='images/floor.webp' alt='floor' />
-  <img class='parallax me' src='images/me.webp' alt='myself' />
+  <img class='parallax rocks' src='images/rocks.webp' alt='rocks' fetchpriority='high' />
+  <img class='parallax floor' src='images/floor.webp' alt='floor' fetchpriority='high'/>
+  <img class='parallax me' src='images/me.webp' alt='myself' fetchpriority='high'/>
   <Presentation name='Jesus Molano' rol='Fullstack Developer' />
 </div>
 
@@ -29,11 +27,14 @@ import scrollArrowImg from '/images/deathstar-arrow.svg'
     background-size: cover;
     background-repeat: repeat;
     margin-bottom: 5rem;
+    pointer-events: none;
 
     .parallax {
       position: absolute;
       width: 100%;
       object-fit: cover;
+      user-select: none;
+      pointer-events: none;
     }
 
     .me {
@@ -111,7 +112,7 @@ import scrollArrowImg from '/images/deathstar-arrow.svg'
 
   window.addEventListener('scroll', function () {
     let value = window.scrollY
-    myself.style.bottom = `${(value + 80 * 1.4)}px`
+    myself.style.bottom = `${value + 80 * 1.4}px`
     floor.style.transform = `translateY(${value * 0.2}px)`
     rocks.style.transform = `translateY(${value * 0.4}px)`
     me.style.transform = `translateY(${value * 0.1}px) translateX(-50%)`
