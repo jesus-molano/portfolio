@@ -51,9 +51,14 @@
 }
 
 html {
+  background: linear-gradient(
+    110deg,
+    var(--color-background) 0%,
+    var(--color-bg-dark) 35%,
+    var(--color-bg-soft) 100%
+  );
   scroll-behavior: smooth;
   min-height: 100vh;
-  background-color: var(--color-background);
   overflow-x: hidden;
 }
 
