@@ -6,8 +6,6 @@ interface Props {
 }
 
 const { title = '', sableColor = '' } = Astro.props
-const endSection = `end-${title.replace(/\s/g, '-')}`.toLowerCase()
-
 ---
 
 <section>
@@ -16,14 +14,15 @@ const endSection = `end-${title.replace(/\s/g, '-')}`.toLowerCase()
     <slot />
   </div>
 </section>
-<div class='end-section' id={endSection}></div>
 
 <style lang='scss'>
   section {
+    position: relative;
     min-width: 100%;
     display: flex;
     min-height: 500px;
     flex-direction: column;
+    padding: 2rem 0;
     gap: 1rem;
 
     .container {
@@ -32,7 +31,9 @@ const endSection = `end-${title.replace(/\s/g, '-')}`.toLowerCase()
       gap: 1rem;
       justify-content: center;
       width: (600px, 100%);
-      padding-inline: 1rem;
+      height: 100%;
+      padding: 2rem 1rem;
+      z-index: 1;
     }
     @media (min-width: 769px) {
       .container {
@@ -49,8 +50,32 @@ const endSection = `end-${title.replace(/\s/g, '-')}`.toLowerCase()
         width: 100%;
       }
     }
-  }
-  .end-section {
-    height: 5rem;
+
+    &:nth-child(even)::after {
+      content: '';
+      background-color: var(--color-bg-soft);
+      position: absolute;
+      inset: 0;
+      transform: skewY(3deg);
+      isolation: isolate;
+
+      @media (min-width: 1440px) {
+        display: none;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 20%,
+          black 80%,
+          transparent
+        );
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 50%,
+          black 50%,
+          transparent
+        );
+      }
+    }
   }
 </style>
