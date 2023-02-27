@@ -1,28 +1,119 @@
 ---
-import SectionLayout from '@layouts/SectionLayout.astro';
-import MainTitle from './MainTitle.astro';
-import MyPicture from './MyPicture.astro';
-import ScrollArrow from './ScrollArrow.astro';
+import MainTitle from './MainTitle.astro'
+import Presentation from './Presentation.astro'
+import ScrollArrow from './ScrollArrow.astro'
 import scrollArrowImg from '/images/deathstar-arrow.svg'
-
 ---
 
-<SectionLayout title='Home'>
-  <div class="home-container">
-    <MainTitle title="Hello There"/>
-    <MyPicture name="Jesús Molano" rol="Fullstack Developer" image="/images/myself.webp"/>
-    <ScrollArrow image={scrollArrowImg} />
-  </div>
-</SectionLayout>
+<div class='parallax-container'>
+  <MainTitle title='Hello There' />
+  <img class='parallax rocks' src='images/rocks.webp' alt='rocks' />
+  <img class='parallax floor' src='images/floor.webp' alt='floor' />
+  <img class='parallax me' src='images/me.webp' alt='myself' />
+  <Presentation name='Jesus Molano' rol='Fullstack Developer' />
+</div>
 
-<style lang="scss">
-  .home-container {
-    gap: 2rem;
-    height: 100%;
-    width: 100%;
+<style lang='scss'>
+  .parallax-container {
+    position: relative;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
+    width: 100%;
     align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    height: calc(100vh - 5rem);
+    background-image: var(--parallax-background);
+    background-position: top;
+    background-size: cover;
+    background-repeat: repeat;
+    margin-bottom: 5rem;
+
+    .parallax {
+      position: absolute;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .me {
+      width: 10cqw;
+      min-width: 6rem;
+      max-width: 11rem;
+      left: 50%;
+      bottom: 2rem;
+      transform: translateX(-50%);
+      animation: drop-me 0.8s ease-in-out;
+      z-index: 3;
+    }
+
+    .floor {
+      bottom: 0;
+      min-width: 1000px;
+      animation: drop 0.8s ease-in-out;
+      z-index: 2;
+    }
+    .rocks {
+      bottom: 2rem;
+      min-width: 1200px;
+      animation: drop-more 1s ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes drop {
+      0% {
+        transform: translateY(2rem);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes drop-more {
+      0% {
+        transform: translateY(4rem);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes drop-me {
+      0% {
+        transform: translateY(1rem) translateX(-50%);
+      }
+      100% {
+        transform: translateY(0) translateX(-50%);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .sky {
+        width: 100%;
+        height: calc(100vh - 5rem);
+      }
+      .floor {
+        bottom: 0;
+      }
+      .rocks {
+        bottom: 2rem;
+      }
+    }
   }
-  
 </style>
+
+<script>
+  const floor = document.querySelector('.floor') as HTMLImageElement
+  const rocks = document.querySelector('.rocks') as HTMLImageElement
+  const me = document.querySelector('.me') as HTMLImageElement
+  const myself = document.querySelector('.myself-container') as HTMLDivElement
+
+  const myselfInitialPosition = myself.getBoundingClientRect().top
+
+  window.addEventListener('scroll', function () {
+    let value = window.scrollY
+    myself.style.bottom = `${(value + 80 * 1.4)}px`
+    floor.style.transform = `translateY(${value * 0.2}px)`
+    rocks.style.transform = `translateY(${value * 0.4}px)`
+    me.style.transform = `translateY(${value * 0.1}px) translateX(-50%)`
+  })
+</script>

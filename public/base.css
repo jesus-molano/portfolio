@@ -1,42 +1,48 @@
 :root {
   /* --font-general: 'Poppins', sans-serif; */
-  --font-general: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", Arial, sans-serif;
+  --font-general: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
   --font-title: 'StarJedi', sans-serif;
-  --color-primary: #FFC83C;
-  --color-secondary: #EB294C;
-  --color-tertiary: #3CC4FF;
-  --color-quaternary: #3CFF5B;
-  --color-text: #FFFFFF;
+  --color-primary: #ffc83c;
+  --color-secondary: #eb294c;
+  --color-tertiary: #3cc4ff;
+  --color-quaternary: #3cff5b;
+  --color-text: #ffffff;
   --color-background: #071118;
   --color-bg-soft: #1c283d;
-  --color-bg-dark: #040A0E;
-  --color-tech: #1c283d;
-} 
-:root[data-theme='dark'],
-:root[prefers-color-scheme='dark'] {
-  --color-primary: #FFC83C;
-  --color-secondary: #EB294C;
-  --color-tertiary: #3CC4FF;
-  --color-quaternary: #3CFF5B;
-  --color-text: #FFFFFF;
-  --color-background: #071118;
-  --color-bg-soft: #1c283d;
-  --color-bg-dark: #040A0E;
+  --color-bg-dark: #040a0e;
   --color-tech: #1c283d;
 }
+:root[data-theme='dark'],
+:root[prefers-color-scheme='dark'] {
+  --color-primary: #ffc83c;
+  --color-secondary: #eb294c;
+  --color-tertiary: #3cc4ff;
+  --color-quaternary: #3cff5b;
+  --color-text: #ffffff;
+  --color-background: #071118;
+  --color-background-gradient-dark: rgba(7, 17, 24, 1);
+  --color-background-gradient-darker: rgba(23, 56, 79, 1);
+  --color-bg-soft: #1c283d;
+  --color-bg-dark: #040a0e;
+  --color-tech: #1c283d;
+  --parallax-background: url(images/sky.webp);
+}
 :root[data-theme='light'],
-:root[prefers-color-scheme='light']  {
-  --color-primary: #004b71;
-  --color-secondary: #EB294C;
-  --color-tertiary: #9E9D24;
-  --color-quaternary: #689F38;
-  --color-text: #000000;
-  --color-background: #FFFFFF;
-  --color-bg-soft: #c9f2f5;
-  --color-bg-dark: #bfe7ec;
-  --color-tech: #004b71;
+:root[prefers-color-scheme='light'] {
+  --color-primary: #f5a623;
+  --color-secondary: #d91e36;
+  --color-tertiary: #1b69a3;
+  --color-quaternary: #5bb25b;
+  --color-text: #ffffff;
+  --color-background: #1b69a3;
+  --color-background-gradient-dark: rgb(30, 113, 172);
+  --color-background-gradient-darker: rgb(21, 81, 127);
+  --color-bg-soft: #c8d9eb;
+  --color-bg-dark: #97a8c7;
+  --color-tech: #1b69a3;
+  --parallax-background: url(images/light-sky.webp);
 }
 *,
 *::before,

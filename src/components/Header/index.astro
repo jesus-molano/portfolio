@@ -12,10 +12,11 @@ import ThemeSwitch from './ThemeSwitch.astro';
 
 <style lang='scss'>
   header {
+    --header-height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 5rem;
+    min-height: var(--header-height);
     position: sticky;
     top: 0;
     z-index: 10;

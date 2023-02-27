@@ -2,30 +2,29 @@
 interface Props {
   name: string
   rol: string
-  image: string
 }
 
-const { name, rol, image } = Astro.props
+const { name, rol } = Astro.props
 ---
 
 <div class='myself-container'>
   <p class='im'>I'm</p>
   <p class='name'>{name}</p>
   <span>{rol}</span>
-  <div class='myself-background'>
-    <div class='image'></div>
-  </div>
 </div>
 
 <style lang='scss'>
   .myself-container {
     width: min(19rem, 100%);
     display: flex;
+    position: absolute;
+    height: 15rem;
+    bottom: 7rem;
     align-items: center;
     justify-content: center;
-    position: relative;
     font-weight: 900;
     animation: fade-in 1s ease-in-out forwards;
+    z-index: 1;
     @keyframes fade-in {
       0% {
         opacity: 0;
@@ -69,27 +68,6 @@ const { name, rol, image } = Astro.props
       bottom: 0rem;
       right: 3.5rem;
     }
-    .myself-background {
-      position: relative;
-      display: flex;
-      width: 15.125rem;
-      height: 14.4375rem;
-      background-color: var(--color-background);
-      box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.25);
-      border-radius: 3.125rem;
-      .image {
-        width: min(15.625rem, 100%);
-        height: 100%;
-        position: absolute;
-        top: -3rem;
-        left: -0.5rem;
-        background-image: url('/images/myself_452x414.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-    }
-
     @media (min-width: 769px) {
       width: min(28rem, 100%);
 
@@ -107,18 +85,6 @@ const { name, rol, image } = Astro.props
         font-size: 1.25rem;
         bottom: 0.6rem;
         right: 2.5rem;
-      }
-      .myself-background {
-        width: 18.125rem;
-        height: 19.4375rem;
-        .image {
-          background-image: url('/images/myself_452x414.webp');
-          background-size: cover;
-          width: min(18.25rem, 100%);
-          height: 100%;
-          top: -3rem;
-          left: -0.4rem;
-        }
       }
     }
     @media (min-width: 1440px) {
@@ -152,27 +118,6 @@ const { name, rol, image } = Astro.props
         top: 10rem;
         left: 16rem;
         animation: slide-left 1s ease-in-out forwards;
-      }
-      .myself-background {
-        height: 25.4375rem;
-        width: 26.125rem;
-        margin: 5rem 10rem 0 0;
-        animation: slide-right 1s ease-in-out forwards;
-        .image {
-          background-image: url('/images/myself.webp');
-          background-size: cover;
-          width: min(27.125rem, 100%);
-        }
-        @keyframes slide-right {
-          0% {
-            opacity: 0;
-            transform: translateX(1rem);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
       }
     }
   }
