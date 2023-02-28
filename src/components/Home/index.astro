@@ -125,7 +125,9 @@ import Presentation from './Presentation.astro'
 
   window.addEventListener('scroll', function () {
     let value = window.scrollY
-    myself.style.bottom = `${value + 80 * 1.4}px`
+    if (value < 180) {
+      myself.style.bottom = `${value * 1.4}px`
+    }
     floor.style.transform = `translateY(${value * 0.2}px)`
     rocks.style.transform = `translateY(${value * 0.4}px)`
     me.style.transform = `translateY(${value * 0.1}px) translateX(-50%)`

@@ -28,21 +28,23 @@
   --color-tech: #1c283d;
   --parallax-background: url(/images/sky.webp);
   --parallax-background-position: top;
+  --social-media-filter:brightness(0) invert(1) ;
 }
 :root[data-theme='light'],
 :root[prefers-color-scheme='light'] {
-  --color-primary: #ffe98f;
+  --color-primary: #1f4a6b;
   --color-secondary: #eb294d;
-  --color-tertiary: #ffe57b;
+  --color-tertiary: #9E9D24;
   --color-quaternary: #5bb25b;
-  --color-text: #ffffff;
-  --color-text-alternative: #000000;
-  --color-background: #154e79;
-  --color-bg-dark: #1f6ca7;
-  --color-bg-soft: #4a8bbd;
+  --color-text: #1e1e1e;
+  --color-text-alternative: #ffffff;
+  --color-background: #ffffff;
+  --color-bg-dark: #c3e5ff;
+  --color-bg-soft: #e9f5ff;
   --color-tech: #4296d6;
   --parallax-background: url(/images/light-sky.webp);
   --parallax-background-position: center;
+  --social-media-filter:brightness(0);
 }
 *,
 *::before,

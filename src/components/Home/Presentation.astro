@@ -10,17 +10,16 @@ const { name, rol } = Astro.props
 <div class='myself-container'>
   <p class='im'>I'm</p>
   <p class='name'>{name}</p>
-  <span>{rol}</span>
+  <span class='rol'>{rol}</span>
 </div>
 
 <style lang='scss'>
   .myself-container {
-    width: min(19rem, 100%);
     display: flex;
+    flex-direction: column;
     position: absolute;
-    height: 15rem;
-    bottom: 7rem;
-    align-items: center;
+    min-height: 15rem;
+    bottom: 0rem;
     justify-content: center;
     font-weight: 900;
     animation: fade-in 1s ease-in-out forwards;
@@ -38,58 +37,50 @@ const { name, rol } = Astro.props
 
     .im {
       font-size: 1.25rem;
-      position: absolute;
-      z-index: 1;
-      bottom: 2.6rem;
-      left: 2.5rem;
-      color: var(--color-text);
+      line-height: 1rem;
+      text-indent: 1rem;
+      color: var(--color-text-alternative);
+      text-shadow: var(--color-text) 0 0 10px;
     }
     .name {
+      line-height: 2.2rem;
       font-size: 1.875rem;
-      position: absolute;
-      z-index: 1;
-      bottom: 0.7rem;
-      left: 2.5rem;
-      background: linear-gradient(
-        90deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 100%
-      );
+      text-indent: 1rem;
+      background: linear-gradient(90deg, #ffc83c 0%, #eb294c 100%);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
       -webkit-text-fill-color: transparent;
     }
-    span {
+    .rol {
+      line-height: 1rem;
       font-size: 1rem;
-      color: var(--color-text);
-      position: absolute;
-      z-index: 1;
-      bottom: 0rem;
-      right: 3.5rem;
+      text-indent: 4rem;
+      color: var(--color-text-alternative);
+      text-shadow: var(--color-text) 0 0 5px;
     }
     @media (min-width: 769px) {
-      width: min(28rem, 100%);
-
+      align-self: start;
+      margin-left: 8rem;
       .im {
-        font-size: 1.5rem;
-        bottom: 4.2rem;
-        left: 1.5rem;
+        text-indent: 0;
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        animation: slide-left 1s ease-in-out forwards;
       }
       .name {
-        font-size: 2.375rem;
-        bottom: 1.6rem;
-        left: 2.5rem;
+        font-size: 2.5rem;
+        line-height: 2rem;
+        animation: slide-left 1s ease-in-out forwards;
       }
-      span {
-        font-size: 1.25rem;
-        bottom: 0.6rem;
-        right: 2.5rem;
+      .rol {
+        text-indent: 8rem;
+        font-size: 1.2rem;
+        line-height: 2rem;
+        animation: slide-left 1s ease-in-out forwards;
       }
     }
     @media (min-width: 1440px) {
-      width: 80rem;
-      justify-content: end;
       @keyframes slide-left {
         0% {
           opacity: 0;
@@ -102,21 +93,20 @@ const { name, rol } = Astro.props
       }
 
       .im {
+        text-indent: 0;
         font-size: 2rem;
-        top: 4.2rem;
-        left: 8.5rem;
+        line-height: 2rem;
         animation: slide-left 1s ease-in-out forwards;
       }
       .name {
         font-size: 4rem;
-        top: 5.6rem;
-        left: 8.5rem;
+        line-height: 4rem;
         animation: slide-left 1s ease-in-out forwards;
       }
-      span {
+      .rol {
+        text-indent: 8rem;
         font-size: 2rem;
-        top: 10rem;
-        left: 16rem;
+        line-height: 2rem;
         animation: slide-left 1s ease-in-out forwards;
       }
     }
