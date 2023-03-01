@@ -39,9 +39,9 @@
   --color-text: #1e1e1e;
   --color-text-alternative: #ffffff;
   --color-background: #ffffff;
-  --color-bg-dark: #c3e5ff;
-  --color-bg-soft: #ebf5ff;
-  --color-tech: #9ed5ff;
+  --color-bg-dark: #f3fbff;
+  --color-bg-soft: #bde1ff;
+  --color-tech: #2d6997;
   --parallax-background: url(/images/light-sky.webp);
   --parallax-background-position: center;
   --social-media-filter:brightness(0);

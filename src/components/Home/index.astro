@@ -29,7 +29,7 @@ import Presentation from './Presentation.astro'
 <style lang='scss'>
   .parallax-container {
     position: relative;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -103,6 +103,7 @@ import Presentation from './Presentation.astro'
     }
 
     @media (min-width: 768px) {
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
       .sky {
         width: 100%;
         height: calc(100vh - 5rem);
