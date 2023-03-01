@@ -1,4 +1,5 @@
 ---
+import TranslucidCard from "@components/TranslucidCard.astro";
 import SectionLayout from "@layouts/SectionLayout.astro";
 import type { ProjectFrontmatter } from "@types";
 import { sortElementsByDate } from "@utils";
@@ -19,20 +20,22 @@ const firstParagraph = projectContent
       The last finished project I have done. Small projects and tests will be in
       my <a href="https://github.com/jesus-molano/">Github</a> if you are interested.
     </p>
-    <div class="project-detail">
-      <h3 class="project-title">{lastProject.frontmatter.title}</h3>
-      <div class="project-texts">
-        <p>{firstParagraph}</p>
-        <a href={lastProject.url} class="project-link">See details</a>
-      </div>
-      <img
+    <TranslucidCard>
+      <div class="project-detail">
+        <h3 class="project-title">{lastProject.frontmatter.title}</h3>
+        <div class="project-texts">
+          <p>{firstParagraph}</p>
+          <a href={lastProject.url} class="project-link">See details</a>
+        </div>
+        <img
         src={lastProject.frontmatter.image}
         alt="Last project image"
         width="224"
         height="145"
         loading="lazy"
-      />
-    </div>
+        />
+      </div>
+    </TranslucidCard>
     <a href="/projects" class="go-all-projects">Go to all projects</a>
   </div>
 </SectionLayout>
@@ -45,7 +48,7 @@ const firstParagraph = projectContent
 
     .project-title {
       position: absolute;
-      top: -1.5rem;
+      top: -2.5rem;
     }
 
     a {
@@ -56,16 +59,12 @@ const firstParagraph = projectContent
     .project-detail {
       position: relative;
       align-self: center;
-      width: min(40rem, 100%);
       display: flex;
       flex-direction: column;
       gap: 1rem;
       color: var(--color-text);
       font-weight: 700;
-      background-color: var(--color-bg-dark);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 5px 5px 30px #00000050;
+      padding: 1rem;
 
       h3 {
         font-size: 1.5rem;
@@ -78,6 +77,7 @@ const firstParagraph = projectContent
 
         a{
           color: var(--color-primary);
+          width: 6rem;
         }
       }
 
@@ -85,7 +85,7 @@ const firstParagraph = projectContent
         align-self: center;
         width: min(30rem, 100%);
         height: auto;
-        border-radius: 1rem;
+        border-radius: 10px;
         object-fit: cover;
       }
     }
@@ -102,7 +102,7 @@ const firstParagraph = projectContent
         flex-direction: row;
         gap: 2rem;
         padding: 3rem;
-        width: min(60rem, 100%);
+        width: 100%;
         justify-content: space-between;
 
         h3 {
@@ -110,11 +110,11 @@ const firstParagraph = projectContent
         }
 
         img {
-          width: min(20rem, 100%);
+          width: min(25rem, 100%);
         }
 
         .project-texts {
-          width: min(30rem, 100%);
+          width: min(40rem, 100%);
         }
       }
     }

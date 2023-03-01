@@ -1,6 +1,7 @@
 ---
 import SectionLayout from '@layouts/SectionLayout.astro'
 import SocialNetworts from '@components/SocialNetworts.astro'
+import TranslucidCard from '@components/TranslucidCard.astro';
 ---
 
 <SectionLayout id="contact" title='Contact' sableColor='#EB294C'>
@@ -11,10 +12,9 @@ import SocialNetworts from '@components/SocialNetworts.astro'
       <a href='mailto:dev.jesusmolano@gmail.com'>email</a>
       or  a message to one of my social networks. I will be happy to answer you as soon as I can.
     </p>
-    <div class="hologram">
-      <SocialNetworts direction='column' showText={true} width='1.6rem' />
-      <img src="/images/hologram.svg" alt="hologram" width="240" height="262">
-    </div>
+      <TranslucidCard>
+        <SocialNetworts direction='row' showText={true} width='1.7rem' />
+      </TranslucidCard>
   </div>
 </SectionLayout>
 
@@ -22,43 +22,20 @@ import SocialNetworts from '@components/SocialNetworts.astro'
   .contact {
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: relative;
+    gap: 1rem;
     .contact-text {
-      margin-bottom: 3rem;
       a {
         color: var(--color-primary);
         font-weight: 900;
       }
     }
 
-    .hologram{
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      img{
-        height: auto;
-        width: min(8rem, 100%);
-        top: 6rem;
-      }
-    }
-
 
     @media (min-width: 769px) {
       .contact-text {
-        width: min(100%,800px);
-      }
-      .hologram{
-      img{
-        width: min(15rem, 100%);
-      }
-    }
-    }
-    @media (min-width: 1440px) {
-      flex-direction: row;
-      .contact-text {
-        margin: 0;
+        align-self: flex-start;
       }
     }
   }
