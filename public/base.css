@@ -40,8 +40,8 @@
   --color-text-alternative: #ffffff;
   --color-background: #ffffff;
   --color-bg-dark: #c3e5ff;
-  --color-bg-soft: #e9f5ff;
-  --color-tech: #4296d6;
+  --color-bg-soft: #ebf5ff;
+  --color-tech: #9ed5ff;
   --parallax-background: url(/images/light-sky.webp);
   --parallax-background-position: center;
   --social-media-filter:brightness(0);
@@ -80,4 +80,13 @@ html {
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+p{
+  font-size: 1.1rem;
+}
+@media(min-width: 1024px) {
+  p{
+    font-size: 1.3rem;
+    width:min(100%, 800px);
+  }
 }

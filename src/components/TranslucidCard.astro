@@ -1,0 +1,64 @@
+---
+---
+
+<div class='translucid-card'>
+  <div class='translucid-card__content'>
+    <slot />
+  </div>
+</div>
+
+<style lang='scss'>
+  .translucid-card {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    position: relative;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: inherit;
+      opacity: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.5s ease;
+      background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y),
+        #0392ff 0%,
+        transparent 40%
+      );
+    }
+    &:hover::before {
+      opacity: 0.15;
+    }
+
+    &__content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>('.translucid-card')
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (event: MouseEvent) => {
+      const target = event.currentTarget as HTMLElement
+      if(!target) return
+      const rect = target.getBoundingClientRect(),
+        x = event.clientX - rect.left,
+        y = event.clientY - rect.top
+
+      target.style.setProperty('--mouse-x', `${x}px`)
+      target.style.setProperty('--mouse-y', `${y}px`)
+    })
+  })
+</script>
