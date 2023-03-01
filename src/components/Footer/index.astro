@@ -4,18 +4,6 @@ import FooterNav from './FooterNav.astro'
 import astroIcon from '/images/astro.svg'
 import typescriptIcon from '/images/typescript.svg'
 
-const technologies = [
-  {
-    name: 'Astro',
-    url: 'https://astro.build',
-    icon: astroIcon,
-  },
-  {
-    name: 'TypeScript',
-    url: 'https://www.typescriptlang.org/',
-    icon: typescriptIcon,
-  },
-]
 ---
 
 <footer>
@@ -25,13 +13,12 @@ const technologies = [
   </div>
   <p>
     This site is made with ❤️ and
-    {
-      technologies.map(({ name, url, icon }) => (
-        <a href={url} target='_blank' rel='noopener noreferrer'>
-          <img src={icon} alt={name} loading='lazy' width={32} height={32} />
-        </a>
-      ))
-    }
+    <a href='https://astro.build' target='_blank' rel='noopener noreferrer'>
+      <img src={astroIcon} alt='Astro icon' loading='lazy' width={32} height={32} />
+    </a>
+    <a href='https://www.typescriptlang.org/' target='_blank' rel='noopener noreferrer'>
+      <img src={typescriptIcon} alt='Typescript Icon' loading='lazy' width={32} height={32} />
+    </a>
   </p>
 </footer>
 
@@ -54,10 +41,12 @@ const technologies = [
 
     p {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      width: min(100%, 15rem);
+      justify-content: center;
+      width: min(100%, 17rem);
       font-size: 0.8rem;
-      text-align: end;
+      text-align: center;
       a {
         text-decoration: none;
         display: flex;
@@ -69,7 +58,6 @@ const technologies = [
 
         img {
           width: 100%;
-          height: 100%;
           object-fit: contain;
         }
       }
