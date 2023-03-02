@@ -1,39 +1,53 @@
 ---
+import TranslucidCard from '@components/TranslucidCard.astro'
 import SectionLayout from '@layouts/SectionLayout.astro'
 import AboutCard from './AboutCard.astro'
 ---
 
 <SectionLayout id='about' title='About me' sableColor='#3CC4FF'>
-  <div class='about-container'>
-    <AboutCard image='/images/controller.svg' alt='videogames controller'>
-      I’m a 27 years old young man from Tenerife🏖️ passionate about web
-      development, video games and movies. I have been interested in the IT
-      world since I was 16 and I love to tinker with computers and change my OS
-      like I change my underwear.
-    </AboutCard>
-    <AboutCard image='/images/change-work.svg' alt='change work'>
-      Not long ago my profession was military. I decided to make a drastic
-      change and right now I'm finishing the higher cycle of web application
-      design and learning on my own.
-    </AboutCard>
-    <AboutCard image='/images/dog.svg' alt='a little dog'>
-      It was a difficult decision to leave behind good colleagues, experiences
-      that mark you and a stable salary. But being with my family, my partner
-      and my dog Alay is priceless.
-    </AboutCard>
-  </div>
+  <TranslucidCard>
+    <div class='about-container'>
+      <div class='description'>
+        <p>
+          I'm a 28 year old guy from Tenerife🏝️ passionate about web
+          development, videogames and good cinema. I've always been interested
+          in the IT world although some time ago I was dedicated to explosives,
+          among other things, as a soldier🪖 in BZAPXVI in Las Palmas.
+        </p>
+        <p>
+          I consider myself to be loyal, committed to what I set out to do and
+          always give the best of myself. I love to keep learning new things and
+          keep growing as a professional and as a person.
+        </p>
+      </div>
+      <img
+        src='/images/demolition-trooper.svg'
+        alt='demolition trooper'
+        width='222'
+        height='253'
+      />
+    </div>
+  </TranslucidCard>
 </SectionLayout>
 
 <style lang='scss'>
   .about-container {
-    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 2rem;
-    @media (min-width: 1440px) {
-      flex-direction: row;
-      align-items: flex-start;
-      flex-wrap: wrap;
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: min(100%, 700px);
+    }
+    img {
+      flex: 1;
+      filter: drop-shadow(var(--color-quaternary) 0px 0px 10px);
+    }
+
+    @media(min-width: 768px) {
+      padding: 3rem 2rem;
     }
   }
 </style>
