@@ -3,7 +3,7 @@ Welcome to [my portfolio project](https://jesusmolano.dev). My name is Jesus Mol
 
 This portfolio project is a web application that serves as an online resume for potential employers or clients to learn more about my work and experience. It features a clean, modern design with easy navigation, and it's built using various technologies such as Astro.js, TypeScript, and Sass.
 
-![Screenshot of my portfolio project](https://github.com/jesus-molano/portfolio/blob/main/jesusmolano.png "Screenshot of my portfolio project")
+![Screenshot of my portfolio project](https://github.com/jesus-molano/portfolio/blob/main/jesusmolano.webp "Screenshot of my portfolio project")
 
 ## Pages
 - **Home**: Where, in order, I tell a little about my background, indicate the technologies I have worked with, show the last finished project I have uploaded and a small contact section with my social networks and email.
