@@ -16,6 +16,8 @@ This portfolio project is a web application that serves as an online resume for 
 This portfolio project was built using the following technologies:
 
 - **[Astro](https://astro.build/)**
+- **[Markdown](https://www.markdownguide.org/)**
+- **[React](https://reactjs.org/)**
 - **[TypeScript](https://www.typescriptlang.org/)**
 - **[Sass](https://sass-lang.com/)**
 
