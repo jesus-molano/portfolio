@@ -10,7 +10,7 @@ export const SearchBar = ({ filterProjects }: Props) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
-    filterProjects(search);
+    filterProjects(event.target.value);
   };
   return (
     <div id='search-bar' className='search-bar'>

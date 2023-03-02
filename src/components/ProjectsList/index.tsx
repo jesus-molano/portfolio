@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { MarkdownInstance } from 'astro'
 import type { ProjectFrontmatter } from '@types'
 import { formatDate, sortElementsByDate } from '@utils'
@@ -18,18 +18,17 @@ export const ProjectsList = ({ projects }: Props) => {
 
   const filterProjects = (search: string) => {
     setSearchString(search)
-  }
-
-  useEffect(() => {
+    if (search === '') return setListedProjects(projects)
     const result = projects.filter(project => {
       const lowerCaseTitle = project.frontmatter.title.toLowerCase();
       const lowerCaseFilter = searchString.toLowerCase();
       const lowerCaseTags = project.frontmatter.tags.map(tag => tag.toLowerCase());
     
       return lowerCaseTitle.indexOf(lowerCaseFilter) !== -1 || lowerCaseTags.some(tag => tag.indexOf(lowerCaseFilter) !== -1);
-    });
+    
+    })
     setListedProjects(result)
-  }, [projects, searchString])
+  }
 
   return (
     <div className='projects-container'>
